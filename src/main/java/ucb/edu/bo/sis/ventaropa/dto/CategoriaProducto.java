@@ -1,9 +1,10 @@
 package ucb.edu.bo.sis.ventaropa.dto;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity(name="categoria_producto")
-public class CategoriaProducto {
+public class CategoriaProducto implements Serializable {
     @Id
     @Column(name="categoria_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
