@@ -1,18 +1,22 @@
-package ucb.edu.bo.sis.ventaropa.dto;
+package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity(name="usuario")
+@Entity
+@Table(name = "usuario")
 public class Usuario implements Serializable {
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name="nombre")
     private String nombre;
+    @Column(name="apellido")
     private String apellido;
     private Integer edad;
     private String correo_electronico;
+    @Column(name="user_name")
     private String username;
     private String password;
     private Integer tipo_usuario_id;
@@ -100,5 +104,21 @@ public class Usuario implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", edad=" + edad +
+                ", correo_electronico='" + correo_electronico + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", tipo_usuario_id=" + tipo_usuario_id +
+                ", direccion_id=" + direccion_id +
+                ", status=" + status +
+                '}';
     }
 }

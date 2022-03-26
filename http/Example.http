@@ -1,3 +1,14 @@
 ### GET request with a header
 GET http://localhost:8080/v1/example/hello
 Accept: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODM2MDE4OSwiaWF0IjoxNjQ4MzI0MTg5fQ.f42gXbfkwLxWU8rawg_pKnYGB0aplQzYYhJV6BsFpAI
+
+
+### Send POST request with json body
+POST http://localhost:8080/v1/user/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "123"
+}

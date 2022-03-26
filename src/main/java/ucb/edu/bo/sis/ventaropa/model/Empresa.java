@@ -1,4 +1,4 @@
-package ucb.edu.bo.sis.ventaropa.dto;
+package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
