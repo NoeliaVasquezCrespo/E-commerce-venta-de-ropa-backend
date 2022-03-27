@@ -1,0 +1,2 @@
+INSERT INTO usuario (id, nombre, apellido, edad, correo_electronico, user_name, password, status, tipo_usuario_id, direccion_id) VALUES (2, 'Juan', 'Perez', 30, 'juanperez@gmail.com', 'juperez', '123', 1, 1, 1);
+INSERT INTO usuario (id, nombre, apellido, edad, correo_electronico, user_name, password, status, tipo_usuario_id, direccion_id) VALUES (3, 'Maria', 'Sanchez', 25, 'marisanchez@gmail.com', 'admin', '123', 1, 1, 2);
