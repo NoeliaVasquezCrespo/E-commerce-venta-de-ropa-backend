@@ -9,7 +9,7 @@ public class Talla implements Serializable {
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nombre_talla;
+    private String descripcion;
 
     public Talla() {
     }
@@ -22,11 +22,11 @@ public class Talla implements Serializable {
         this.id = id;
     }
 
-    public String getNombre_talla() {
-        return nombre_talla;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setNombre_talla(String nombre_talla) {
-        this.nombre_talla = nombre_talla;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

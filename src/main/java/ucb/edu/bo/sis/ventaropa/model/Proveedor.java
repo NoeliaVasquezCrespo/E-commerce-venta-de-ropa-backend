@@ -11,9 +11,11 @@ public class Proveedor implements Serializable {
     private Integer id;
     private String nombre;
     private String apellido;
-    private String correo_electronico;
+    @Column(name="correo_electronico")
+    private String correoElectronico;
     private String password;
-    private Integer empresa_id;
+    @Column(name="empresa_id")
+    private Integer empresaId;
     private Integer status;
 
     public Proveedor() {
@@ -43,12 +45,12 @@ public class Proveedor implements Serializable {
         this.apellido = apellido;
     }
 
-    public String getCorreo_electronico() {
-        return correo_electronico;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
-    public void setCorreo_electronico(String correo_electronico) {
-        this.correo_electronico = correo_electronico;
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 
     public String getPassword() {
@@ -59,12 +61,12 @@ public class Proveedor implements Serializable {
         this.password = password;
     }
 
-    public Integer getEmpresa_id() {
-        return empresa_id;
+    public Integer getEmpresaId() {
+        return empresaId;
     }
 
-    public void setEmpresa_id(Integer empresa_id) {
-        this.empresa_id = empresa_id;
+    public void setEmpresaId(Integer empresaId) {
+        this.empresaId = empresaId;
     }
 
     public Integer getStatus() {

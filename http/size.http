@@ -1,0 +1,26 @@
+### Agregar una Talla
+POST http://localhost:8080/sizes
+Content-Type: application/json
+
+{
+  "descripcion" : "Talla 2"
+}
+
+### Obtener las Tallas
+
+GET http://localhost:8080/sizes
+Content-Type: application/json
+
+### Actualizar una Talla
+
+PUT http://localhost:8080/sizes/1
+Content-Type: application/json
+
+{
+  "descripcion" : "Talla 1"
+}
+
+### Borrado Fisico de una Talla
+
+DELETE http://localhost:8080/sizes/2
+Content-Type: application/json

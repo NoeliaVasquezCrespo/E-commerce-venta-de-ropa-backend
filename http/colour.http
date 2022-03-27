@@ -1,0 +1,26 @@
+### Agregar un color
+POST http://localhost:8080/colours
+Content-Type: application/json
+
+{
+  "descripcion" : "Color 2"
+}
+
+### Obtener los colores
+
+GET http://localhost:8080/colours
+Content-Type: application/json
+
+### Actualizar un color
+
+PUT http://localhost:8080/colours/1
+Content-Type: application/json
+
+{
+  "descripcion" : "Color 1"
+}
+
+### Borrado Fisico de un color
+
+DELETE http://localhost:8080/colours/2
+Content-Type: application/json

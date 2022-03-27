@@ -1,0 +1,12 @@
+### Agregar una categoria
+POST http://localhost:8080/categories
+Content-Type: application/json
+
+{
+  "categoria" : "Categoria 1"
+}
+
+### Obtener las categorias
+
+GET http://localhost:8080/categories
+Content-Type: application/json

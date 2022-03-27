@@ -7,9 +7,9 @@ import java.io.Serializable;
 public class Categoria implements Serializable {
     @Id
     @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String nombre_categoria;
+    private String categoria;
 
     public Categoria() {
     }
@@ -22,11 +22,19 @@ public class Categoria implements Serializable {
         this.id = id;
     }
 
-    public String getNombre_categoria() {
-        return nombre_categoria;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setNombre_categoria(String nombre_categoria) {
-        this.nombre_categoria = nombre_categoria;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "id=" + id +
+                ", categoria='" + categoria + '\'' +
+                '}';
     }
 }

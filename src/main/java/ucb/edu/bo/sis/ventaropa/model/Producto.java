@@ -9,13 +9,18 @@ public class Producto implements Serializable {
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String codigo_producto;
-    private String nombre_producto;
+    @Column(name="codigo_producto")
+    private String codigoProducto;
+    @Column(name="nombre_producto")
+    private String nombreProducto;
     private String descripcion;
     private Double precio;
-    private Integer color_id;
-    private Integer talla_id;
-    private Integer proveedor_id;
+    @Column(name="color_id")
+    private Integer colorId;
+    @Column(name="talla_id")
+    private Integer tallaId;
+    @Column(name="proveedor_id")
+    private Integer proveedorId;
     private Integer status;
 
     public Producto() {
@@ -29,20 +34,20 @@ public class Producto implements Serializable {
         this.id = id;
     }
 
-    public String getCodigo_producto() {
-        return codigo_producto;
+    public String getCodigoProducto() {
+        return codigoProducto;
     }
 
-    public void setCodigo_producto(String codigo_producto) {
-        this.codigo_producto = codigo_producto;
+    public void setCodigoProducto(String codigoProducto) {
+        this.codigoProducto = codigoProducto;
     }
 
-    public String getNombre_producto() {
-        return nombre_producto;
+    public String getNombreProducto() {
+        return nombreProducto;
     }
 
-    public void setNombre_producto(String nombre_producto) {
-        this.nombre_producto = nombre_producto;
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
 
     public String getDescripcion() {
@@ -61,28 +66,28 @@ public class Producto implements Serializable {
         this.precio = precio;
     }
 
-    public Integer getColor_id() {
-        return color_id;
+    public Integer getColorId() {
+        return colorId;
     }
 
-    public void setColor_id(Integer color_id) {
-        this.color_id = color_id;
+    public void setColorId(Integer colorId) {
+        this.colorId = colorId;
     }
 
-    public Integer getTalla_id() {
-        return talla_id;
+    public Integer getTallaId() {
+        return tallaId;
     }
 
-    public void setTalla_id(Integer talla_id) {
-        this.talla_id = talla_id;
+    public void setTallaId(Integer tallaId) {
+        this.tallaId = tallaId;
     }
 
-    public Integer getProveedor_id() {
-        return proveedor_id;
+    public Integer getProveedorId() {
+        return proveedorId;
     }
 
-    public void setProveedor_id(Integer proveedor_id) {
-        this.proveedor_id = proveedor_id;
+    public void setProveedorId(Integer proveedorId) {
+        this.proveedorId = proveedorId;
     }
 
     public Integer getStatus() {
