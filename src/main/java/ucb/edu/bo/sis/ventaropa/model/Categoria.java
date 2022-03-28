@@ -7,8 +7,9 @@ import java.io.Serializable;
 public class Categoria implements Serializable {
     @Id
     @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(name="nombre_categoria")
     private String categoria;
 
     public Categoria() {

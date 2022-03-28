@@ -1,7 +1,7 @@
 ### GET request with a header
 GET http://localhost:8080/v1/example/hello
 Accept: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODM2MDE4OSwiaWF0IjoxNjQ4MzI0MTg5fQ.f42gXbfkwLxWU8rawg_pKnYGB0aplQzYYhJV6BsFpAI
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODQ3MDA0MSwiaWF0IjoxNjQ4NDM0MDQxfQ.gckkaAep6WT_VGMINz1AfxluPDreUCahnasmarMd9EE
 
 
 ### Send POST request with json body
