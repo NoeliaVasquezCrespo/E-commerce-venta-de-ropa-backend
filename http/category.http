@@ -11,3 +11,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODQ3M
 
 GET http://localhost:8080/categories
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODQ3MTAzMiwiaWF0IjoxNjQ4NDM1MDMyfQ.-wmEbUX84oLvpdpHwrbadew8VkxygJP_yht7HSToCvE

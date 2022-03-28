@@ -10,5 +10,6 @@ Content-Type: application/json
 
 {
   "username": "admin",
-  "password": "123"
+  "password": "123",
+  "tipoUsuarioId": "1"
 }
