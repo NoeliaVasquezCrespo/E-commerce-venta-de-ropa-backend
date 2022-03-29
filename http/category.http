@@ -1,7 +1,7 @@
 ### Agregar una categoria
 POST http://localhost:8080/categories
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODYzMzA4OSwiaWF0IjoxNjQ4NTk3MDg5fQ.HekBntVTca4IAf2AKaGTpfPTcRR_-dCwZ7a-Q7YQHik
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODYzMzU5MywiaWF0IjoxNjQ4NTk3NTkzfQ.qO67bMwTpSylkV2e8HK7DgDqSn9rpl4XoqsAPXxaLxs
 
 {
   "categoria" : "Categoria 17"

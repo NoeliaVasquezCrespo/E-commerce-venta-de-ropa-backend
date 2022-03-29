@@ -1,0 +1,26 @@
+### Agregar un Tipo de Administrador
+POST http://localhost:8080/adminTypes
+Content-Type: application/json
+
+{
+  "tipo" : "Tipo 1"
+}
+
+### Obtener los Tipos de Administrador
+
+GET http://localhost:8080/adminTypes
+Content-Type: application/json
+
+### Actualizar un Tipo de Administrador
+
+PUT http://localhost:8080/adminTypes/2
+Content-Type: application/json
+
+{
+  "tipo" : "Tipo 2"
+}
+
+### Borrado Fisico de un Tipo de Administrador
+
+DELETE http://localhost:8080/adminTypes/3
+Content-Type: application/json
