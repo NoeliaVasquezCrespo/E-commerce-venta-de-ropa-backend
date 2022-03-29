@@ -11,6 +11,7 @@ public interface UserDao extends JpaRepository<Usuario,Integer > {
     @Query(value="select usuario " +
             "from Usuario usuario " +
             "where usuario.username = :#{#request.username} " +
-            "and usuario.password = :#{#request.password}")
+            "and usuario.password = :#{#request.password} "+
+            "and usuario.tipo_usuario_id = :#{#request.tipoUsuarioId} ")
     public Usuario verifyUserExist(@Param("request") AuthRequest request);
 }

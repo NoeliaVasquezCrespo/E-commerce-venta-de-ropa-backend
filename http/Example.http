@@ -1,7 +1,11 @@
 ### GET request with a header
 GET http://localhost:8080/v1/example/hello
 Accept: application/json
+<<<<<<< HEAD
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODQ2NDM5OCwiaWF0IjoxNjQ4NDI4Mzk4fQ.m3efFLT0rnIdhpSFJYrmkMEmDHYtJGTHRe3eWKuwcdA
+=======
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODQ3MDA0MSwiaWF0IjoxNjQ4NDM0MDQxfQ.gckkaAep6WT_VGMINz1AfxluPDreUCahnasmarMd9EE
+>>>>>>> 0f9d3551dae8b7cae3fb66c46738b10eb0f283e4
 
 
 ### Send POST request with json body
@@ -9,6 +13,12 @@ POST http://localhost:8080/v1/user/login
 Content-Type: application/json
 
 {
+<<<<<<< HEAD
   "username": "juperez",
   "password": "123"
+=======
+  "username": "admin",
+  "password": "123",
+  "tipoUsuarioId": "1"
+>>>>>>> 0f9d3551dae8b7cae3fb66c46738b10eb0f283e4
 }

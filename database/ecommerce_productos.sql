@@ -2,9 +2,9 @@ INSERT INTO producto (id, nombre_producto,precio,status,proveedor_id, descripcio
 INSERT INTO producto (id, nombre_producto,precio,status,proveedor_id, descripcion) VALUES (2, 'Pantalones', 89.5, 1, 2, 'Pantalones Vaqueros Para mujer');
 
 
----Consulta a base de datos
+-- Consulta a base de datos
 
---Mostrar productos disponibles
+-- Mostrar productos disponibles
 select p.id, p.nombre_producto, p.precio,t.nombre_talla, tp.stock, CONCAT(pro.nombre, ' ', pro.apellido) as proveedor, e.nombre
 from producto p
 left join proveedor pro on (p.proveedor_id = pro.id)

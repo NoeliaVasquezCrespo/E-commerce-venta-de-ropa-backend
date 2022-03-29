@@ -3,7 +3,7 @@ POST http://localhost:8080/categories
 Content-Type: application/json
 
 {
-  "categoria" : "Categoria 1"
+  "categoria" : "Categoria 31"
 }
 
 ### Obtener las categorias
