@@ -1,32 +1,44 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Objects;
 
-@Entity(name="talla")
-public class Talla implements Serializable {
-    @Id
-    @Column(name="id")
+@Entity
+public class Talla {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String descripcion;
+    @Id
+    @Column(name = "id")
+    private int id;
+    @Basic
+    @Column(name = "nombre_talla")
+    private String nombreTalla;
 
-    public Talla() {
-    }
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getNombreTalla() {
+        return nombreTalla;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNombreTalla(String nombreTalla) {
+        this.nombreTalla = nombreTalla;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Talla talla = (Talla) o;
+        return id == talla.id && Objects.equals(nombreTalla, talla.nombreTalla);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombreTalla);
     }
 }

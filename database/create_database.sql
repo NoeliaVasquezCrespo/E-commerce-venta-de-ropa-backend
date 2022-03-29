@@ -1,12 +1,33 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-03-27 15:31:38.656
+-- Last modification date: 2022-03-29 22:52:18.581
 
 -- tables
+-- Table: administrador
+CREATE TABLE administrador (
+                               id int NOT NULL AUTO_INCREMENT,
+                               nombre varchar(40) NOT NULL,
+                               apellido varchar(40) NOT NULL,
+                               edad int NOT NULL,
+                               correo_electronico varchar(60) NOT NULL,
+                               tipo_administrador_id int NOT NULL,
+                               user_name varchar(40) NOT NULL,
+                               password varchar(30) NOT NULL,
+                               status int NOT NULL,
+                               CONSTRAINT administrador_pk PRIMARY KEY (id)
+);
+
 -- Table: categoria
 CREATE TABLE categoria (
                            id int NOT NULL AUTO_INCREMENT,
-                           nombre_categoria varchar(30) NOT NULL,
+                           categoria varchar(30) NOT NULL,
                            CONSTRAINT categoria_pk PRIMARY KEY (id)
+);
+
+-- Table: categoria_producto
+CREATE TABLE categoria_producto (
+                                    categoria_id int NOT NULL,
+                                    producto_id int NOT NULL,
+                                    CONSTRAINT categoria_producto_pk PRIMARY KEY (categoria_id,producto_id)
 );
 
 -- Table: ciudad
@@ -14,6 +35,21 @@ CREATE TABLE ciudad (
                         id int NOT NULL AUTO_INCREMENT,
                         nombre_ciudad varchar(45) NOT NULL,
                         CONSTRAINT ciudad_pk PRIMARY KEY (id)
+);
+
+-- Table: color
+CREATE TABLE color (
+                       id int NOT NULL,
+                       descripcion varchar(100) NOT NULL,
+                       CONSTRAINT color_pk PRIMARY KEY (id)
+);
+
+-- Table: color_producto
+CREATE TABLE color_producto (
+                                color_id int NOT NULL,
+                                producto_id int NOT NULL,
+                                status int NOT NULL,
+                                CONSTRAINT color_producto_pk PRIMARY KEY (color_id)
 );
 
 -- Table: compra
@@ -44,6 +80,14 @@ CREATE TABLE empresa (
                          CONSTRAINT empresa_pk PRIMARY KEY (id)
 );
 
+-- Table: fotos_producto
+CREATE TABLE fotos_producto (
+                                id int NOT NULL,
+                                producto_id int NOT NULL,
+                                foto varchar(100) NOT NULL,
+                                CONSTRAINT fotos_producto_pk PRIMARY KEY (id)
+);
+
 -- Table: oferta
 CREATE TABLE oferta (
                         id int NOT NULL AUTO_INCREMENT,
@@ -66,17 +110,11 @@ CREATE TABLE producto (
                           id int NOT NULL AUTO_INCREMENT,
                           nombre_producto varchar(45) NOT NULL,
                           precio decimal(8,2) NOT NULL,
+                          descripcion varchar(45) NOT NULL,
+                          administrador_id int NOT NULL,
                           status int NOT NULL,
                           proveedor_id int NOT NULL,
-                          descripcion varchar(45) NOT NULL,
                           CONSTRAINT producto_pk PRIMARY KEY (id)
-);
-
--- Table: producto_categoria
-CREATE TABLE producto_categoria (
-                                    categoria_id int NOT NULL,
-                                    producto_id int NOT NULL,
-                                    CONSTRAINT producto_categoria_pk PRIMARY KEY (categoria_id,producto_id)
 );
 
 -- Table: producto_compra
@@ -115,18 +153,18 @@ CREATE TABLE talla_producto (
                                 CONSTRAINT talla_producto_pk PRIMARY KEY (talla_id)
 );
 
+-- Table: tipo_administrador
+CREATE TABLE tipo_administrador (
+                                    id int NOT NULL AUTO_INCREMENT,
+                                    tipo varchar(100) NOT NULL,
+                                    CONSTRAINT tipo_administrador_pk PRIMARY KEY (id)
+);
+
 -- Table: tipo_pago
 CREATE TABLE tipo_pago (
                            id int NOT NULL AUTO_INCREMENT,
                            tipo varchar(30) NOT NULL,
                            CONSTRAINT tipo_pago_pk PRIMARY KEY (id)
-);
-
--- Table: tipo_usuario
-CREATE TABLE tipo_usuario (
-                              id int NOT NULL AUTO_INCREMENT,
-                              tipo varchar(30) NOT NULL,
-                              CONSTRAINT tipo_usuario_pk PRIMARY KEY (id)
 );
 
 -- Table: usuario
@@ -139,12 +177,23 @@ CREATE TABLE usuario (
                          user_name varchar(40) NOT NULL,
                          password varchar(30) NOT NULL,
                          status int NOT NULL,
-                         tipo_usuario_id int NOT NULL,
                          direccion_id int NOT NULL,
                          CONSTRAINT usuario_pk PRIMARY KEY (id)
 );
 
 -- foreign keys
+-- Reference: administrador_tipo_administrador (table: administrador)
+ALTER TABLE administrador ADD CONSTRAINT administrador_tipo_administrador FOREIGN KEY administrador_tipo_administrador (tipo_administrador_id)
+    REFERENCES tipo_administrador (id);
+
+-- Reference: color_producto_color (table: color_producto)
+ALTER TABLE color_producto ADD CONSTRAINT color_producto_color FOREIGN KEY color_producto_color (color_id)
+    REFERENCES color (id);
+
+-- Reference: color_producto_producto (table: color_producto)
+ALTER TABLE color_producto ADD CONSTRAINT color_producto_producto FOREIGN KEY color_producto_producto (producto_id)
+    REFERENCES producto (id);
+
 -- Reference: compra_tipo_pago (table: compra)
 ALTER TABLE compra ADD CONSTRAINT compra_tipo_pago FOREIGN KEY compra_tipo_pago (tipo_pago_id)
     REFERENCES tipo_pago (id);
@@ -157,6 +206,10 @@ ALTER TABLE compra ADD CONSTRAINT compra_usuario FOREIGN KEY compra_usuario (usu
 ALTER TABLE direccion ADD CONSTRAINT direccion_ciudad FOREIGN KEY direccion_ciudad (ciudad_id)
     REFERENCES ciudad (id);
 
+-- Reference: fotos_producto_producto (table: fotos_producto)
+ALTER TABLE fotos_producto ADD CONSTRAINT fotos_producto_producto FOREIGN KEY fotos_producto_producto (producto_id)
+    REFERENCES producto (id);
+
 -- Reference: oferta_producto_oferta (table: oferta_producto)
 ALTER TABLE oferta_producto ADD CONSTRAINT oferta_producto_oferta FOREIGN KEY oferta_producto_oferta (oferta_id)
     REFERENCES oferta (id);
@@ -165,12 +218,16 @@ ALTER TABLE oferta_producto ADD CONSTRAINT oferta_producto_oferta FOREIGN KEY of
 ALTER TABLE oferta_producto ADD CONSTRAINT oferta_producto_producto FOREIGN KEY oferta_producto_producto (producto_id)
     REFERENCES producto (id);
 
--- Reference: producto_categoria_categoria (table: producto_categoria)
-ALTER TABLE producto_categoria ADD CONSTRAINT producto_categoria_categoria FOREIGN KEY producto_categoria_categoria (categoria_id)
+-- Reference: producto_administrador (table: producto)
+ALTER TABLE producto ADD CONSTRAINT producto_administrador FOREIGN KEY producto_administrador (administrador_id)
+    REFERENCES administrador (id);
+
+-- Reference: producto_categoria_categoria (table: categoria_producto)
+ALTER TABLE categoria_producto ADD CONSTRAINT producto_categoria_categoria FOREIGN KEY producto_categoria_categoria (categoria_id)
     REFERENCES categoria (id);
 
--- Reference: producto_categoria_producto (table: producto_categoria)
-ALTER TABLE producto_categoria ADD CONSTRAINT producto_categoria_producto FOREIGN KEY producto_categoria_producto (producto_id)
+-- Reference: producto_categoria_producto (table: categoria_producto)
+ALTER TABLE categoria_producto ADD CONSTRAINT producto_categoria_producto FOREIGN KEY producto_categoria_producto (producto_id)
     REFERENCES producto (id);
 
 -- Reference: producto_compra_compra (table: producto_compra)
@@ -200,10 +257,6 @@ ALTER TABLE talla_producto ADD CONSTRAINT talla_producto_talla FOREIGN KEY talla
 -- Reference: usuario_direccion (table: usuario)
 ALTER TABLE usuario ADD CONSTRAINT usuario_direccion FOREIGN KEY usuario_direccion (direccion_id)
     REFERENCES direccion (id);
-
--- Reference: usuario_tipo_usuario (table: usuario)
-ALTER TABLE usuario ADD CONSTRAINT usuario_tipo_usuario FOREIGN KEY usuario_tipo_usuario (tipo_usuario_id)
-    REFERENCES tipo_usuario (id);
 
 -- End of file.
 

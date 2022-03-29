@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Proveedor {
+public class Administrador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
@@ -16,17 +16,23 @@ public class Proveedor {
     @Column(name = "apellido")
     private String apellido;
     @Basic
+    @Column(name = "edad")
+    private int edad;
+    @Basic
     @Column(name = "correo_electronico")
     private String correoElectronico;
+    @Basic
+    @Column(name = "tipo_administrador_id")
+    private int tipoAdministradorId;
+    @Basic
+    @Column(name = "user_name")
+    private String userName;
     @Basic
     @Column(name = "password")
     private String password;
     @Basic
     @Column(name = "status")
     private int status;
-    @Basic
-    @Column(name = "empresa_id")
-    private int empresaId;
 
     public int getId() {
         return id;
@@ -52,12 +58,36 @@ public class Proveedor {
         this.apellido = apellido;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
     public String getCorreoElectronico() {
         return correoElectronico;
     }
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+
+    public int getTipoAdministradorId() {
+        return tipoAdministradorId;
+    }
+
+    public void setTipoAdministradorId(int tipoAdministradorId) {
+        this.tipoAdministradorId = tipoAdministradorId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -76,24 +106,16 @@ public class Proveedor {
         this.status = status;
     }
 
-    public int getEmpresaId() {
-        return empresaId;
-    }
-
-    public void setEmpresaId(int empresaId) {
-        this.empresaId = empresaId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Proveedor proveedor = (Proveedor) o;
-        return id == proveedor.id && status == proveedor.status && empresaId == proveedor.empresaId && Objects.equals(nombre, proveedor.nombre) && Objects.equals(apellido, proveedor.apellido) && Objects.equals(correoElectronico, proveedor.correoElectronico) && Objects.equals(password, proveedor.password);
+        Administrador that = (Administrador) o;
+        return id == that.id && edad == that.edad && tipoAdministradorId == that.tipoAdministradorId && status == that.status && Objects.equals(nombre, that.nombre) && Objects.equals(apellido, that.apellido) && Objects.equals(correoElectronico, that.correoElectronico) && Objects.equals(userName, that.userName) && Objects.equals(password, that.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, apellido, correoElectronico, password, status, empresaId);
+        return Objects.hash(id, nombre, apellido, edad, correoElectronico, tipoAdministradorId, userName, password, status);
     }
 }

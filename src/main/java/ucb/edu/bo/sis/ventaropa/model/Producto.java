@@ -1,45 +1,40 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Objects;
 
-@Entity(name="producto")
-public class Producto implements Serializable {
-    @Id
-    @Column(name="id")
+@Entity
+public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(name="codigo_producto")
-    private String codigoProducto;
-    @Column(name="nombre_producto")
+    @Id
+    @Column(name = "id")
+    private int id;
+    @Basic
+    @Column(name = "nombre_producto")
     private String nombreProducto;
+    @Basic
+    @Column(name = "precio")
+    private BigDecimal precio;
+    @Basic
+    @Column(name = "descripcion")
     private String descripcion;
-    private Double precio;
-    @Column(name="color_id")
-    private Integer colorId;
-    @Column(name="talla_id")
-    private Integer tallaId;
-    @Column(name="proveedor_id")
-    private Integer proveedorId;
-    private Integer status;
+    @Basic
+    @Column(name = "administrador_id")
+    private int administradorId;
+    @Basic
+    @Column(name = "status")
+    private int status;
+    @Basic
+    @Column(name = "proveedor_id")
+    private int proveedorId;
 
-    public Producto() {
-    }
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
-    }
-
-    public String getCodigoProducto() {
-        return codigoProducto;
-    }
-
-    public void setCodigoProducto(String codigoProducto) {
-        this.codigoProducto = codigoProducto;
     }
 
     public String getNombreProducto() {
@@ -50,6 +45,14 @@ public class Producto implements Serializable {
         this.nombreProducto = nombreProducto;
     }
 
+    public BigDecimal getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(BigDecimal precio) {
+        this.precio = precio;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -58,43 +61,40 @@ public class Producto implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public Double getPrecio() {
-        return precio;
+    public int getAdministradorId() {
+        return administradorId;
     }
 
-    public void setPrecio(Double precio) {
-        this.precio = precio;
+    public void setAdministradorId(int administradorId) {
+        this.administradorId = administradorId;
     }
 
-    public Integer getColorId() {
-        return colorId;
-    }
-
-    public void setColorId(Integer colorId) {
-        this.colorId = colorId;
-    }
-
-    public Integer getTallaId() {
-        return tallaId;
-    }
-
-    public void setTallaId(Integer tallaId) {
-        this.tallaId = tallaId;
-    }
-
-    public Integer getProveedorId() {
-        return proveedorId;
-    }
-
-    public void setProveedorId(Integer proveedorId) {
-        this.proveedorId = proveedorId;
-    }
-
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
+    }
+
+    public int getProveedorId() {
+        return proveedorId;
+    }
+
+    public void setProveedorId(int proveedorId) {
+        this.proveedorId = proveedorId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Producto producto = (Producto) o;
+        return id == producto.id && administradorId == producto.administradorId && status == producto.status && proveedorId == producto.proveedorId && Objects.equals(nombreProducto, producto.nombreProducto) && Objects.equals(precio, producto.precio) && Objects.equals(descripcion, producto.descripcion);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombreProducto, precio, descripcion, administradorId, status, proveedorId);
     }
 }

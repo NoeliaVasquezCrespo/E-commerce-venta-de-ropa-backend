@@ -4,14 +4,15 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Ciudad {
+@Table(name = "tipo_pago", schema = "ecommerce", catalog = "")
+public class TipoPago {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
     private int id;
     @Basic
-    @Column(name = "nombre_ciudad")
-    private String nombreCiudad;
+    @Column(name = "tipo")
+    private String tipo;
 
     public int getId() {
         return id;
@@ -21,24 +22,24 @@ public class Ciudad {
         this.id = id;
     }
 
-    public String getNombreCiudad() {
-        return nombreCiudad;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setNombreCiudad(String nombreCiudad) {
-        this.nombreCiudad = nombreCiudad;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Ciudad ciudad = (Ciudad) o;
-        return id == ciudad.id && Objects.equals(nombreCiudad, ciudad.nombreCiudad);
+        TipoPago tipoPago = (TipoPago) o;
+        return id == tipoPago.id && Objects.equals(tipo, tipoPago.tipo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombreCiudad);
+        return Objects.hash(id, tipo);
     }
 }

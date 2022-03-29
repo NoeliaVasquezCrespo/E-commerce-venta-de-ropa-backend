@@ -1,24 +1,23 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Objects;
 
-@Entity(name="color")
-public class Color implements Serializable {
-    @Id
-    @Column(name="id")
+@Entity
+public class Color {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Id
+    @Column(name = "id")
+    private int id;
+    @Basic
+    @Column(name = "descripcion")
     private String descripcion;
 
-    public Color() {
-    }
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -28,5 +27,18 @@ public class Color implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Color color = (Color) o;
+        return id == color.id && Objects.equals(descripcion, color.descripcion);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, descripcion);
     }
 }

@@ -1,51 +1,68 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.util.Date;
+import java.math.BigDecimal;
+import java.sql.Date;
+import java.util.Objects;
 
-@Entity(name="oferta")
-public class Oferta implements Serializable {
-    @Id
-    @Column(name="id")
+@Entity
+public class Oferta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private Date fecha_inicio;
-    private Date fecha_fin;
-    private Double monto_descuento;
+    @Id
+    @Column(name = "id")
+    private int id;
+    @Basic
+    @Column(name = "fecha_inicio")
+    private Date fechaInicio;
+    @Basic
+    @Column(name = "fecha_fin")
+    private Date fechaFin;
+    @Basic
+    @Column(name = "monto_descuento")
+    private BigDecimal montoDescuento;
 
-    public Oferta() {
-    }
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public Date getFecha_inicio() {
-        return fecha_inicio;
+    public Date getFechaInicio() {
+        return fechaInicio;
     }
 
-    public void setFecha_inicio(Date fecha_inicio) {
-        this.fecha_inicio = fecha_inicio;
+    public void setFechaInicio(Date fechaInicio) {
+        this.fechaInicio = fechaInicio;
     }
 
-    public Date getFecha_fin() {
-        return fecha_fin;
+    public Date getFechaFin() {
+        return fechaFin;
     }
 
-    public void setFecha_fin(Date fecha_fin) {
-        this.fecha_fin = fecha_fin;
+    public void setFechaFin(Date fechaFin) {
+        this.fechaFin = fechaFin;
     }
 
-    public Double getMonto_descuento() {
-        return monto_descuento;
+    public BigDecimal getMontoDescuento() {
+        return montoDescuento;
     }
 
-    public void setMonto_descuento(Double monto_descuento) {
-        this.monto_descuento = monto_descuento;
+    public void setMontoDescuento(BigDecimal montoDescuento) {
+        this.montoDescuento = montoDescuento;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Oferta oferta = (Oferta) o;
+        return id == oferta.id && Objects.equals(fechaInicio, oferta.fechaInicio) && Objects.equals(fechaFin, oferta.fechaFin) && Objects.equals(montoDescuento, oferta.montoDescuento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, fechaInicio, fechaFin, montoDescuento);
     }
 }

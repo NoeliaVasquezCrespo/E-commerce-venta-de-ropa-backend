@@ -33,8 +33,8 @@ public class SizeBl implements SizeService {
     @Override
     public Talla updateSize(Talla talla, Integer tallaId) {
         Talla tallaDB = sizeDao.getById(tallaId);
-        if (Objects.nonNull(talla.getDescripcion()) && !"".equalsIgnoreCase(talla.getDescripcion())){
-            tallaDB.setDescripcion(talla.getDescripcion());
+        if (Objects.nonNull(talla.getNombreTalla()) && !"".equalsIgnoreCase(talla.getNombreTalla())){
+            tallaDB.setNombreTalla(talla.getNombreTalla());
         }
         return sizeDao.save(tallaDB);
     }

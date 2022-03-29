@@ -4,27 +4,28 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "oferta_producto", schema = "ecommerce", catalog = "")
-@IdClass(OfertaProductoPK.class)
-public class OfertaProducto {
+@Table(name = "talla_producto", schema = "ecommerce", catalog = "")
+public class TallaProducto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "oferta_id")
-    private int ofertaId;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+    @Column(name = "talla_id")
+    private int tallaId;
+    @Basic
     @Column(name = "producto_id")
     private int productoId;
+    @Basic
+    @Column(name = "stock")
+    private int stock;
     @Basic
     @Column(name = "status")
     private int status;
 
-    public int getOfertaId() {
-        return ofertaId;
+    public int getTallaId() {
+        return tallaId;
     }
 
-    public void setOfertaId(int ofertaId) {
-        this.ofertaId = ofertaId;
+    public void setTallaId(int tallaId) {
+        this.tallaId = tallaId;
     }
 
     public int getProductoId() {
@@ -33,6 +34,14 @@ public class OfertaProducto {
 
     public void setProductoId(int productoId) {
         this.productoId = productoId;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public int getStatus() {
@@ -47,12 +56,12 @@ public class OfertaProducto {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OfertaProducto that = (OfertaProducto) o;
-        return ofertaId == that.ofertaId && productoId == that.productoId && status == that.status;
+        TallaProducto that = (TallaProducto) o;
+        return tallaId == that.tallaId && productoId == that.productoId && stock == that.stock && status == that.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ofertaId, productoId, status);
+        return Objects.hash(tallaId, productoId, stock, status);
     }
 }

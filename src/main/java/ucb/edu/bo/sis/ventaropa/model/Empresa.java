@@ -1,25 +1,26 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Objects;
 
-@Entity(name="empresa")
-public class Empresa implements Serializable {
-    @Id
-    @Column(name="id")
+@Entity
+public class Empresa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Id
+    @Column(name = "id")
+    private int id;
+    @Basic
+    @Column(name = "nombre")
     private String nombre;
+    @Basic
+    @Column(name = "nit")
     private String nit;
 
-    public Empresa() {
-    }
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -37,5 +38,18 @@ public class Empresa implements Serializable {
 
     public void setNit(String nit) {
         this.nit = nit;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Empresa empresa = (Empresa) o;
+        return id == empresa.id && Objects.equals(nombre, empresa.nombre) && Objects.equals(nit, empresa.nit);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombre, nit);
     }
 }

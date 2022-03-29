@@ -1,9 +1,10 @@
 ### Agregar una categoria
 POST http://localhost:8080/categories
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODYzMzA4OSwiaWF0IjoxNjQ4NTk3MDg5fQ.HekBntVTca4IAf2AKaGTpfPTcRR_-dCwZ7a-Q7YQHik
 
 {
-  "categoria" : "Categoria 31"
+  "categoria" : "Categoria 17"
 }
 
 ### Obtener las categorias

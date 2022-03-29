@@ -4,27 +4,25 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "oferta_producto", schema = "ecommerce", catalog = "")
-@IdClass(OfertaProductoPK.class)
-public class OfertaProducto {
+@Table(name = "color_producto", schema = "ecommerce", catalog = "")
+public class ColorProducto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "oferta_id")
-    private int ofertaId;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+    @Column(name = "color_id")
+    private int colorId;
+    @Basic
     @Column(name = "producto_id")
     private int productoId;
     @Basic
     @Column(name = "status")
     private int status;
 
-    public int getOfertaId() {
-        return ofertaId;
+    public int getColorId() {
+        return colorId;
     }
 
-    public void setOfertaId(int ofertaId) {
-        this.ofertaId = ofertaId;
+    public void setColorId(int colorId) {
+        this.colorId = colorId;
     }
 
     public int getProductoId() {
@@ -47,12 +45,12 @@ public class OfertaProducto {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        OfertaProducto that = (OfertaProducto) o;
-        return ofertaId == that.ofertaId && productoId == that.productoId && status == that.status;
+        ColorProducto that = (ColorProducto) o;
+        return colorId == that.colorId && productoId == that.productoId && status == that.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ofertaId, productoId, status);
+        return Objects.hash(colorId, productoId, status);
     }
 }

@@ -1,19 +1,20 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 import java.util.Objects;
 
-@Entity
-@Table(name = "categoria_producto", schema = "ecommerce", catalog = "")
-@IdClass(CategoriaProductoPK.class)
-public class CategoriaProducto {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+public class CategoriaProductoPK implements Serializable {
     @Column(name = "categoria_id")
-    private int categoriaId;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int categoriaId;
     @Column(name = "producto_id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productoId;
 
     public int getCategoriaId() {
@@ -36,7 +37,7 @@ public class CategoriaProducto {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CategoriaProducto that = (CategoriaProducto) o;
+        CategoriaProductoPK that = (CategoriaProductoPK) o;
         return categoriaId == that.categoriaId && productoId == that.productoId;
     }
 

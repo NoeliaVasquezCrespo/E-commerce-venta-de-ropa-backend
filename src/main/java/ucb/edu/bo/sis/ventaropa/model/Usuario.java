@@ -1,36 +1,44 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
-@Table(name = "usuario")
-public class Usuario implements Serializable {
-    @Id
-    @Column(name="id")
+public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(name="nombre")
+    @Id
+    @Column(name = "id")
+    private int id;
+    @Basic
+    @Column(name = "nombre")
     private String nombre;
-    @Column(name="apellido")
+    @Basic
+    @Column(name = "apellido")
     private String apellido;
+    @Basic
+    @Column(name = "edad")
     private Integer edad;
-    private String correo_electronico;
-    @Column(name="user_name")
-    private String username;
+    @Basic
+    @Column(name = "correo_electronico")
+    private String correoElectronico;
+    @Basic
+    @Column(name = "user_name")
+    private String userName;
+    @Basic
+    @Column(name = "password")
     private String password;
-    private Integer tipo_usuario_id;
-    private Integer direccion_id;
-    private Integer status;
+    @Basic
+    @Column(name = "status")
+    private int status;
+    @Basic
+    @Column(name = "direccion_id")
+    private int direccionId;
 
-    public Usuario() {
-    }
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -58,20 +66,20 @@ public class Usuario implements Serializable {
         this.edad = edad;
     }
 
-    public String getCorreo_electronico() {
-        return correo_electronico;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
-    public void setCorreo_electronico(String correo_electronico) {
-        this.correo_electronico = correo_electronico;
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -82,43 +90,32 @@ public class Usuario implements Serializable {
         this.password = password;
     }
 
-    public Integer getTipo_usuario_id() {
-        return tipo_usuario_id;
-    }
-
-    public void setTipo_usuario_id(Integer tipo_usuario_id) {
-        this.tipo_usuario_id = tipo_usuario_id;
-    }
-
-    public Integer getDireccion_id() {
-        return direccion_id;
-    }
-
-    public void setDireccion_id(Integer direccion_id) {
-        this.direccion_id = direccion_id;
-    }
-
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
+    public int getDireccionId() {
+        return direccionId;
+    }
+
+    public void setDireccionId(int direccionId) {
+        this.direccionId = direccionId;
+    }
+
     @Override
-    public String toString() {
-        return "Usuario{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", edad=" + edad +
-                ", correo_electronico='" + correo_electronico + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", tipo_usuario_id=" + tipo_usuario_id +
-                ", direccion_id=" + direccion_id +
-                ", status=" + status +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Usuario usuario = (Usuario) o;
+        return id == usuario.id && status == usuario.status && direccionId == usuario.direccionId && Objects.equals(nombre, usuario.nombre) && Objects.equals(apellido, usuario.apellido) && Objects.equals(edad, usuario.edad) && Objects.equals(correoElectronico, usuario.correoElectronico) && Objects.equals(userName, usuario.userName) && Objects.equals(password, usuario.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombre, apellido, edad, correoElectronico, userName, password, status, direccionId);
     }
 }

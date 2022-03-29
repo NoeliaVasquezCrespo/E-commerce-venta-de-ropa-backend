@@ -1,44 +1,49 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.util.Objects;
 
-@Entity(name="direccion")
-public class Direccion implements Serializable {
-    @Id
-    @Column(name="id")
+@Entity
+public class Direccion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String nombre_direccion;
-    private String codigo_postal;
+    @Id
+    @Column(name = "id")
+    private int id;
+    @Basic
+    @Column(name = "nombre_direccion")
+    private String nombreDireccion;
+    @Basic
+    @Column(name = "codigo_postal")
+    private String codigoPostal;
+    @Basic
+    @Column(name = "telefono")
     private String telefono;
-    private Integer ciudad_id;
+    @Basic
+    @Column(name = "ciudad_id")
+    private int ciudadId;
 
-    public Direccion() {
-    }
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getNombre_direccion() {
-        return nombre_direccion;
+    public String getNombreDireccion() {
+        return nombreDireccion;
     }
 
-    public void setNombre_direccion(String nombre_direccion) {
-        this.nombre_direccion = nombre_direccion;
+    public void setNombreDireccion(String nombreDireccion) {
+        this.nombreDireccion = nombreDireccion;
     }
 
-    public String getCodigo_postal() {
-        return codigo_postal;
+    public String getCodigoPostal() {
+        return codigoPostal;
     }
 
-    public void setCodigo_postal(String codigo_postal) {
-        this.codigo_postal = codigo_postal;
+    public void setCodigoPostal(String codigoPostal) {
+        this.codigoPostal = codigoPostal;
     }
 
     public String getTelefono() {
@@ -49,11 +54,24 @@ public class Direccion implements Serializable {
         this.telefono = telefono;
     }
 
-    public Integer getCiudad_id() {
-        return ciudad_id;
+    public int getCiudadId() {
+        return ciudadId;
     }
 
-    public void setCiudad_id(Integer ciudad_id) {
-        this.ciudad_id = ciudad_id;
+    public void setCiudadId(int ciudadId) {
+        this.ciudadId = ciudadId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Direccion direccion = (Direccion) o;
+        return id == direccion.id && ciudadId == direccion.ciudadId && Objects.equals(nombreDireccion, direccion.nombreDireccion) && Objects.equals(codigoPostal, direccion.codigoPostal) && Objects.equals(telefono, direccion.telefono);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nombreDireccion, codigoPostal, telefono, ciudadId);
     }
 }
