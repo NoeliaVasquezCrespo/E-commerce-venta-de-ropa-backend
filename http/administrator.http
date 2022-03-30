@@ -1,0 +1,40 @@
+### Agregar un Administrador
+POST http://localhost:8080/administrators
+Content-Type: application/json
+
+{
+  "nombre" : "Nombre Administrador 1",
+  "apellido": "Apellido Administrador 1",
+  "edad": 20,
+  "correoElectronico": "administrador1@gmail.com",
+  "username": "Nombre Usuario Administrador 1",
+  "password": "Contrasenia Administrador 1",
+  "tipoAdministradorId": 1,
+  "status": 1
+}
+
+### Obtener los Administradores
+
+GET http://localhost:8080/administrators
+Content-Type: application/json
+
+### Actualizar un Administrador
+
+PUT http://localhost:8080/administrators/1
+Content-Type: application/json
+
+{
+  "nombre" : "Nombre Editado Administrador 1",
+  "apellido": "Apellido Administrador 1",
+  "edad": "20",
+  "correoElectronico": "administrador1@gmail.com",
+  "username": "Nombre Usuario Administrador 1",
+  "password": "Contrasenia Administrador 1",
+  "tipoAdministradorId": "1",
+  "status": "1"
+}
+
+### Borrado Fisico de un Administrador
+
+DELETE http://localhost:8080/administrators/2
+Content-Type: application/json
