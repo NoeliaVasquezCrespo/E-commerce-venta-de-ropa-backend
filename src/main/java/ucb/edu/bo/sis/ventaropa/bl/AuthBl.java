@@ -10,7 +10,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import ucb.edu.bo.sis.ventaropa.dao.AuthDao;
+import ucb.edu.bo.sis.ventaropa.dao.AdministratorDao;
 import ucb.edu.bo.sis.ventaropa.dto.AuthRequest;
 import ucb.edu.bo.sis.ventaropa.dto.JwtResponse;
 import ucb.edu.bo.sis.ventaropa.model.Administrador;
@@ -20,16 +20,16 @@ import ucb.edu.bo.sis.ventaropa.util.JwtUtil;
 @Service
 public class AuthBl implements AuthService {
 
-    private AuthDao authDao;
+    private AdministratorDao administratorDao;
     private AuthenticationManager authenticationManager;
     private JwtUserDetailsService userDetailsService;
     private JwtUtil jwtUtil;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthBl.class);
     @Autowired
-    public AuthBl(AuthDao authDao, AuthenticationManager authenticationManager,
+    public AuthBl(AdministratorDao administratorDao, AuthenticationManager authenticationManager,
                   JwtUserDetailsService userDetailsService, JwtUtil jwtUtil) {
-        this.authDao = authDao;
+        this.administratorDao = administratorDao;
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;
         this.jwtUtil = jwtUtil;
@@ -37,7 +37,7 @@ public class AuthBl implements AuthService {
 
     public ResponseEntity<?> verifyUser(AuthRequest request)throws Exception {
         LOGGER.info("ACCEDIENDO A SERVICIO");
-        Administrador administrador = this.authDao.verifyUserExist(request);
+        Administrador administrador = this.administratorDao.verifyUserExist(request);
         if(administrador!=null){
             LOGGER.info("USUARIO CORRECTO");
             LOGGER.info(administrador.toString());
