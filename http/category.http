@@ -4,7 +4,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODYzMzU5MywiaWF0IjoxNjQ4NTk3NTkzfQ.qO67bMwTpSylkV2e8HK7DgDqSn9rpl4XoqsAPXxaLxs
 
 {
-  "categoria" : "Categoria 17"
+  "categoria" : "Categoria 27"
 }
 
 ### Obtener las categorias

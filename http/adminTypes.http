@@ -1,26 +1,31 @@
 ### Agregar un Tipo de Administrador
 POST http://localhost:8080/adminTypes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY0ODUwMiwiaWF0IjoxNjQ4NjEyNTAyfQ.QVVSuz4iCyAAGRCj0Naslu6SgoqybMXGJqU7wrmBqWs
 
 {
-  "tipo" : "Tipo 1"
+  "tipo" : "Tipo 3"
 }
 
 ### Obtener los Tipos de Administrador
 
 GET http://localhost:8080/adminTypes
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY0Mjk3NSwiaWF0IjoxNjQ4NjA2OTc1fQ.iYoUkHm6_LGpSy0Z-cO8LZUPDBxNapMAXJvVR3WA-cg
+
 
 ### Actualizar un Tipo de Administrador
 
-PUT http://localhost:8080/adminTypes/2
+PUT http://localhost:8080/adminTypes/1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY0Mjk3NSwiaWF0IjoxNjQ4NjA2OTc1fQ.iYoUkHm6_LGpSy0Z-cO8LZUPDBxNapMAXJvVR3WA-cg
 
 {
-  "tipo" : "Tipo 2"
+  "tipo" : "Tipo 1"
 }
 
 ### Borrado Fisico de un Tipo de Administrador
 
 DELETE http://localhost:8080/adminTypes/3
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY0Mjk3NSwiaWF0IjoxNjQ4NjA2OTc1fQ.iYoUkHm6_LGpSy0Z-cO8LZUPDBxNapMAXJvVR3WA-cg
