@@ -1,12 +1,12 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "categoria_producto", schema = "ecommerce", catalog = "")
-@IdClass(CategoriaProductoPK.class)
-public class CategoriaProducto {
+public class CategoriaProducto implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "categoria_id")

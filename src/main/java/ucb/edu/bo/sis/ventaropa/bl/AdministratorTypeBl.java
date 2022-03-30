@@ -1,19 +1,25 @@
 package ucb.edu.bo.sis.ventaropa.bl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ucb.edu.bo.sis.ventaropa.api.AdministradorApi;
 import ucb.edu.bo.sis.ventaropa.dao.AdministratorTypeDao;
 import ucb.edu.bo.sis.ventaropa.model.TipoAdministrador;
 import ucb.edu.bo.sis.ventaropa.service.AdministratorTypeService;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+
 @Service
 public class AdministratorTypeBl implements AdministratorTypeService {
     private AdministratorTypeDao administratorTypeDao;
+    private static final Logger LOGGER = LoggerFactory.getLogger(AdministradorApi.class);
 
     @Autowired
-    public AdministratorTypeBl(AdministratorTypeDao administratorDao) {
+    public AdministratorTypeBl(AdministratorTypeDao administratorTypeDao) {
         this.administratorTypeDao = administratorTypeDao;
     }
 
@@ -34,11 +40,12 @@ public class AdministratorTypeBl implements AdministratorTypeService {
         if (Objects.nonNull(administrador.getTipo()) && !"".equalsIgnoreCase(administrador.getTipo())){
             administradorDB.setTipo(administrador.getTipo());
         }
-        if (Objects.nonNull(administrador.getId())){
-            administradorDB.setId(administrador.getId());
-        }
-        
-        return administratorTypeDao.save(administradorDB);
+
+        LOGGER.info("ACTUALIZADO");
+        LOGGER.info(administradorDB.toString());
+        TipoAdministrador tipo= administratorTypeDao.save(administradorDB);
+        LOGGER.info(tipo.toString());
+        return tipo;
     }
 
     @Override

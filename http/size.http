@@ -1,10 +1,10 @@
 ### Agregar una Talla
 POST http://localhost:8080/sizes
-
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY0Mjk3NSwiaWF0IjoxNjQ4NjA2OTc1fQ.iYoUkHm6_LGpSy0Z-cO8LZUPDBxNapMAXJvVR3WA-cg
 
 {
-  "descripcion" : "Talla 2"
+  "nombreTalla" : "Talla 2"
 }
 
 ### Obtener las Tallas

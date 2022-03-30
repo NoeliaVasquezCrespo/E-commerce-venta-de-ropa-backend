@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-03-29 22:52:18.581
+-- Last modification date: 2022-03-30 03:00:02.123
 
 -- tables
 -- Table: administrador
@@ -49,7 +49,7 @@ CREATE TABLE color_producto (
                                 color_id int NOT NULL,
                                 producto_id int NOT NULL,
                                 status int NOT NULL,
-                                CONSTRAINT color_producto_pk PRIMARY KEY (color_id)
+                                CONSTRAINT color_producto_pk PRIMARY KEY (color_id,producto_id)
 );
 
 -- Table: compra
@@ -82,7 +82,7 @@ CREATE TABLE empresa (
 
 -- Table: fotos_producto
 CREATE TABLE fotos_producto (
-                                id int NOT NULL,
+                                id int NOT NULL AUTO_INCREMENT,
                                 producto_id int NOT NULL,
                                 foto varchar(100) NOT NULL,
                                 CONSTRAINT fotos_producto_pk PRIMARY KEY (id)
@@ -139,7 +139,7 @@ CREATE TABLE proveedor (
 
 -- Table: talla
 CREATE TABLE talla (
-                       id int NOT NULL,
+                       id int NOT NULL AUTO_INCREMENT,
                        nombre_talla varchar(10) NOT NULL,
                        CONSTRAINT talla_pk PRIMARY KEY (id)
 );
@@ -150,7 +150,7 @@ CREATE TABLE talla_producto (
                                 producto_id int NOT NULL,
                                 stock int NOT NULL,
                                 status int NOT NULL,
-                                CONSTRAINT talla_producto_pk PRIMARY KEY (talla_id)
+                                CONSTRAINT talla_producto_pk PRIMARY KEY (talla_id,producto_id)
 );
 
 -- Table: tipo_administrador
