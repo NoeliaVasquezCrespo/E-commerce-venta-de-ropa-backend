@@ -4,19 +4,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ucb.edu.bo.sis.ventaropa.api.AdministradorApi;
+import ucb.edu.bo.sis.ventaropa.api.AuthApi;
 import ucb.edu.bo.sis.ventaropa.dao.AdministratorTypeDao;
 import ucb.edu.bo.sis.ventaropa.model.TipoAdministrador;
 import ucb.edu.bo.sis.ventaropa.service.AdministratorTypeService;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Service
 public class AdministratorTypeBl implements AdministratorTypeService {
     private AdministratorTypeDao administratorTypeDao;
-    private static final Logger LOGGER = LoggerFactory.getLogger(AdministradorApi.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthApi.class);
 
     @Autowired
     public AdministratorTypeBl(AdministratorTypeDao administratorTypeDao) {

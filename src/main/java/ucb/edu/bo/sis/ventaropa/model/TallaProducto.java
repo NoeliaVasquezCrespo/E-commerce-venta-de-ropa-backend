@@ -1,18 +1,18 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "talla_producto", schema = "ecommerce", catalog = "")
-public class TallaProducto implements Serializable {
+public class TallaProducto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name = "id")
+    private int id;
+    @Basic
     @Column(name = "talla_id")
     private int tallaId;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
     @Basic
     @Column(name = "producto_id")
     private int productoId;
@@ -22,6 +22,14 @@ public class TallaProducto implements Serializable {
     @Basic
     @Column(name = "status")
     private int status;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getTallaId() {
         return tallaId;
@@ -60,11 +68,11 @@ public class TallaProducto implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TallaProducto that = (TallaProducto) o;
-        return tallaId == that.tallaId && productoId == that.productoId && stock == that.stock && status == that.status;
+        return id == that.id && tallaId == that.tallaId && productoId == that.productoId && stock == that.stock && status == that.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tallaId, productoId, stock, status);
+        return Objects.hash(id, tallaId, productoId, stock, status);
     }
 }

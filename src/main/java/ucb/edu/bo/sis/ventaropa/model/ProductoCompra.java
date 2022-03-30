@@ -1,23 +1,32 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "producto_compra", schema = "ecommerce", catalog = "")
-public class ProductoCompra implements Serializable {
+public class ProductoCompra {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name = "id")
+    private int id;
+    @Basic
     @Column(name = "compra_id")
     private int compraId;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+    @Basic
     @Column(name = "producto_id")
     private int productoId;
     @Basic
     @Column(name = "cantidad")
     private int cantidad;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getCompraId() {
         return compraId;
@@ -48,11 +57,11 @@ public class ProductoCompra implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductoCompra that = (ProductoCompra) o;
-        return compraId == that.compraId && productoId == that.productoId && cantidad == that.cantidad;
+        return id == that.id && compraId == that.compraId && productoId == that.productoId && cantidad == that.cantidad;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(compraId, productoId, cantidad);
+        return Objects.hash(id, compraId, productoId, cantidad);
     }
 }

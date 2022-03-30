@@ -10,25 +10,26 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-import ucb.edu.bo.sis.ventaropa.dao.AdministradorDao;
+import ucb.edu.bo.sis.ventaropa.dao.AuthDao;
 import ucb.edu.bo.sis.ventaropa.dto.AuthRequest;
 import ucb.edu.bo.sis.ventaropa.dto.JwtResponse;
 import ucb.edu.bo.sis.ventaropa.model.Administrador;
+import ucb.edu.bo.sis.ventaropa.service.AuthService;
 import ucb.edu.bo.sis.ventaropa.util.JwtUtil;
 
 @Service
-public class AdministradorBl {
+public class AuthBl implements AuthService {
 
-    private AdministradorDao administradorDao;
+    private AuthDao authDao;
     private AuthenticationManager authenticationManager;
     private JwtUserDetailsService userDetailsService;
     private JwtUtil jwtUtil;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AdministradorBl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthBl.class);
     @Autowired
-    public AdministradorBl(AdministradorDao administradorDao, AuthenticationManager authenticationManager,
-                           JwtUserDetailsService userDetailsService, JwtUtil jwtUtil) {
-        this.administradorDao = administradorDao;
+    public AuthBl(AuthDao authDao, AuthenticationManager authenticationManager,
+                  JwtUserDetailsService userDetailsService, JwtUtil jwtUtil) {
+        this.authDao = authDao;
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;
         this.jwtUtil = jwtUtil;
@@ -36,7 +37,7 @@ public class AdministradorBl {
 
     public ResponseEntity<?> verifyUser(AuthRequest request)throws Exception {
         LOGGER.info("ACCEDIENDO A SERVICIO");
-        Administrador administrador = this.administradorDao.verifyUserExist(request);
+        Administrador administrador = this.authDao.verifyUserExist(request);
         if(administrador!=null){
             LOGGER.info("USUARIO CORRECTO");
             LOGGER.info(administrador.toString());

@@ -1,15 +1,17 @@
 ### Agregar un color
 POST http://localhost:8080/colours
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY4MzEwMCwiaWF0IjoxNjQ4NjQ3MTAwfQ.p_IMWrlJAHvp7SfMMOYkz4Fg2B66Wvlvuoyd0b7Gvg8
 
 {
-  "descripcion" : "Color 2"
+  "descripcion" : "Color 1"
 }
 
 ### Obtener los colores
 
 GET http://localhost:8080/colours
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY4MzEwMCwiaWF0IjoxNjQ4NjQ3MTAwfQ.p_IMWrlJAHvp7SfMMOYkz4Fg2B66Wvlvuoyd0b7Gvg8
 
 ### Actualizar un color
 
@@ -24,3 +26,4 @@ Content-Type: application/json
 
 DELETE http://localhost:8080/colours/2
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY4MzEwMCwiaWF0IjoxNjQ4NjQ3MTAwfQ.p_IMWrlJAHvp7SfMMOYkz4Fg2B66Wvlvuoyd0b7Gvg8

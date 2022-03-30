@@ -9,7 +9,7 @@ import ucb.edu.bo.sis.ventaropa.model.Administrador;
 import ucb.edu.bo.sis.ventaropa.model.Usuario;
 
 @Repository
-public interface AdministradorDao extends JpaRepository<Usuario,Integer > {
+public interface AuthDao extends JpaRepository<Administrador,Integer > {
     @Query(value="select administrador " +
             "from Administrador administrador " +
             "where administrador.userName = :#{#request.username} " +

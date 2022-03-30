@@ -1,23 +1,32 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
 @Table(name = "oferta_producto", schema = "ecommerce", catalog = "")
-public class OfertaProducto implements Serializable {
+public class OfertaProducto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @Column(name = "id")
+    private int id;
+    @Basic
     @Column(name = "oferta_id")
     private int ofertaId;
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Id
+    @Basic
     @Column(name = "producto_id")
     private int productoId;
     @Basic
     @Column(name = "status")
     private int status;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getOfertaId() {
         return ofertaId;
@@ -48,11 +57,11 @@ public class OfertaProducto implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OfertaProducto that = (OfertaProducto) o;
-        return ofertaId == that.ofertaId && productoId == that.productoId && status == that.status;
+        return id == that.id && ofertaId == that.ofertaId && productoId == that.productoId && status == that.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ofertaId, productoId, status);
+        return Objects.hash(id, ofertaId, productoId, status);
     }
 }

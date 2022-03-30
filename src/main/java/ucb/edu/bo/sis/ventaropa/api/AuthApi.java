@@ -3,29 +3,28 @@ package ucb.edu.bo.sis.ventaropa.api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ucb.edu.bo.sis.ventaropa.bl.AdministradorBl;
+import ucb.edu.bo.sis.ventaropa.bl.AuthBl;
 import ucb.edu.bo.sis.ventaropa.dto.AuthRequest;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/administrador")
-public class AdministradorApi {
+public class AuthApi {
 
-    private AdministradorBl administradorBl;
+    private AuthBl authBl;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AdministradorApi.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthApi.class);
     @Autowired
-    public AdministradorApi(AdministradorBl administradorBl) {
-        this.administradorBl = administradorBl;
+    public AuthApi(AuthBl authBl) {
+        this.authBl = authBl;
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> postLogin(@RequestBody AuthRequest request)throws Exception {
         LOGGER.info("EJECUTANDO METODO");
-        return this.administradorBl.verifyUser(request);
+        return this.authBl.verifyUser(request);
 
     }
 }
