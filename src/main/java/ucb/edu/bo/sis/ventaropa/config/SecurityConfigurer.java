@@ -38,8 +38,13 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/administrador/login").permitAll()
                 .antMatchers(HttpMethod.GET, "/colours/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/categories").permitAll().
-                anyRequest().authenticated().
+                .antMatchers(HttpMethod.GET, "/categories").permitAll()
+                .antMatchers("/auth/**",
+                        "/v2/api-docs/**",
+                        "/swagger-ui/**",
+                        "/swagger-resources/**",
+                        "/configuration/**").permitAll()
+                .anyRequest().authenticated().
                 and().sessionManagement().
                 sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
