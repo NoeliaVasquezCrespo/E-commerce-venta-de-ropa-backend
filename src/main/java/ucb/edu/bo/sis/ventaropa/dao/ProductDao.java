@@ -13,7 +13,8 @@ public interface ProductDao extends JpaRepository<Producto, Integer> {
     @Query(
             value = "SELECT p.*" +
                     "   FROM producto p" +
-                    "   WHERE UPPER(p.nombre_producto) LIKE (%:nombreProducto%)",
+                    "   WHERE UPPER(p.nombre_producto) LIKE (%:nombreProducto%)" +
+                    "   AND p.status = 1",
             nativeQuery = true
     )
     public List<Producto> findProductByName(@Param("nombreProducto") String nombreProducto);
