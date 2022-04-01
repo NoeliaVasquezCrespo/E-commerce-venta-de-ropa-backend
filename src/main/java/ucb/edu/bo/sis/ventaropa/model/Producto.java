@@ -9,32 +9,45 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
-    private int id;
+    private Integer id;
+    @Column(name = "codigo_producto")
+    private String codigoProducto;
     @Basic
     @Column(name = "nombre_producto")
     private String nombreProducto;
     @Basic
+    @Column(name = "descripcion")
+    private String descripcion;
+    @Basic
     @Column(name = "precio")
     private BigDecimal precio;
     @Basic
-    @Column(name = "descripcion")
-    private String descripcion;
+    @Column(name = "color_id")
+    private int colorId;
+    @Basic
+    @Column(name = "talla_id")
+    private int tallaId;
     @Basic
     @Column(name = "administrador_id")
     private int administradorId;
     @Basic
     @Column(name = "status")
     private int status;
-    @Basic
-    @Column(name = "proveedor_id")
-    private int proveedorId;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getCodigoProducto() {
+        return codigoProducto;
+    }
+
+    public void setCodigoProducto(String codigoProducto) {
+        this.codigoProducto = codigoProducto;
     }
 
     public String getNombreProducto() {
@@ -45,6 +58,14 @@ public class Producto {
         this.nombreProducto = nombreProducto;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public BigDecimal getPrecio() {
         return precio;
     }
@@ -53,12 +74,20 @@ public class Producto {
         this.precio = precio;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public int getColorId() {
+        return colorId;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setColorId(int colorId) {
+        this.colorId = colorId;
+    }
+
+    public int getTallaId() {
+        return tallaId;
+    }
+
+    public void setTallaId(int tallaId) {
+        this.tallaId = tallaId;
     }
 
     public int getAdministradorId() {
@@ -77,24 +106,16 @@ public class Producto {
         this.status = status;
     }
 
-    public int getProveedorId() {
-        return proveedorId;
-    }
-
-    public void setProveedorId(int proveedorId) {
-        this.proveedorId = proveedorId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return id == producto.id && administradorId == producto.administradorId && status == producto.status && proveedorId == producto.proveedorId && Objects.equals(nombreProducto, producto.nombreProducto) && Objects.equals(precio, producto.precio) && Objects.equals(descripcion, producto.descripcion);
+        return id == producto.id && administradorId == producto.administradorId && status == producto.status  && Objects.equals(nombreProducto, producto.nombreProducto) && Objects.equals(precio, producto.precio) && Objects.equals(descripcion, producto.descripcion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombreProducto, precio, descripcion, administradorId, status, proveedorId);
+        return Objects.hash(id, codigoProducto, nombreProducto, descripcion, precio, administradorId, colorId, tallaId, status);
     }
 }
