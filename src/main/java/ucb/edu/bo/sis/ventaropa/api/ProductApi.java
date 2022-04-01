@@ -25,18 +25,19 @@ public class ProductApi {
         return productBl.findAll();
     }
     @PostMapping(path="/products", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
-    public Producto addSize(@RequestBody Producto producto) {
+    public Producto addProduct(@RequestBody Producto producto) {
         System.out.println("Invocando al metodo POST");
         return productBl.createProduct(producto);
     }
+
     @PutMapping(path="/products/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
-    public Producto updateSize(@PathVariable("id") Integer id, @RequestBody Producto producto) {
+    public Producto updateProduct(@PathVariable("id") Integer id, @RequestBody Producto producto) {
         System.out.println("Invocando al metodo PUT");
         return productBl.updateProduct(producto,id);
     }
 
     @DeleteMapping(path="/products/{id}")
-    public String deleteSize(@PathVariable("id") Integer id) {
+    public String deleteProduct(@PathVariable("id") Integer id) {
         System.out.println("Invocando al metodo DELETE");
         productBl.deleteProduct(id);
         return "Borrado Exitosamente";
