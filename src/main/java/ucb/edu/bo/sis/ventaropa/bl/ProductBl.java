@@ -7,6 +7,7 @@ import ucb.edu.bo.sis.ventaropa.model.Producto;
 import ucb.edu.bo.sis.ventaropa.service.ProductService;
 
 import java.util.List;
+import java.util.Objects;
 
 
 @Service
@@ -32,7 +33,48 @@ public class ProductBl implements ProductService {
 
     @Override
     public Producto updateProduct(Producto producto, Integer productoId) {
-        return null;
+        Producto productoDB = productDao.getById(productoId);
+        if (Objects.nonNull(producto.getCodigoProducto()) && !"".equalsIgnoreCase(producto.getCodigoProducto())){
+            productoDB.setCodigoProducto(producto.getCodigoProducto());
+        }
+        if (Objects.nonNull(producto.getNombreProducto()) && !"".equalsIgnoreCase(producto.getNombreProducto())){
+            productoDB.setNombreProducto(producto.getNombreProducto());
+        }
+        if (Objects.nonNull(producto.getDescripcion()) && !"".equalsIgnoreCase(producto.getDescripcion())){
+            productoDB.setDescripcion(producto.getDescripcion());
+        }
+        if (Objects.nonNull(producto.getStock())){
+            productoDB.setStock(producto.getStock());
+        }
+        if (Objects.nonNull(producto.getPrecio())){
+            productoDB.setPrecio(producto.getPrecio());
+        }
+        if (Objects.nonNull(producto.getColorId())){
+            productoDB.setColorId(producto.getColorId());
+        }
+        if (Objects.nonNull(producto.getTallaId())){
+            productoDB.setTallaId(producto.getTallaId());
+        }
+        if (Objects.nonNull(producto.getAdministradorId())){
+            productoDB.setAdministradorId(producto.getAdministradorId());
+        }
+        if (Objects.nonNull(producto.getStatus())){
+            productoDB.setStatus(producto.getStatus());
+        }
+
+        return productDao.save(productoDB);
+    }
+
+    public List<Producto> findProductByName(String nombreProducto){
+        return productDao.findProductByName(nombreProducto);
+    }
+
+    public List<Producto> findProductByAdmin(Integer idAdmin){
+        return productDao.findProductByAdmin(idAdmin);
+    }
+
+    public List<Producto> findProductByProductCode(String productCode){
+        return productDao.findProductByProductCode(productCode);
     }
 
     @Override

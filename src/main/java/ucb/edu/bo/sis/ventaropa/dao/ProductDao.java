@@ -18,4 +18,22 @@ public interface ProductDao extends JpaRepository<Producto, Integer> {
             nativeQuery = true
     )
     public List<Producto> findProductByName(@Param("nombreProducto") String nombreProducto);
+    @Query(
+            value = "SELECT p.*" +
+                    "   FROM producto p" +
+                    "   WHERE p.administrador_id = :idAdmin " +
+                    "   AND p.status = 1",
+            nativeQuery = true
+    )
+    public List<Producto> findProductByAdmin(@Param("idAdmin") Integer idAdmin);
+
+    @Query(
+            value = "SELECT p.*" +
+                    "   FROM producto p" +
+                    "   WHERE p.codigo_producto = :codProducto " +
+                    "   AND P.stock > 0" +
+                    "   AND p.status = 1",
+            nativeQuery = true
+    )
+    public List<Producto> findProductByProductCode(@Param("codProducto") String codProducto);
 }
