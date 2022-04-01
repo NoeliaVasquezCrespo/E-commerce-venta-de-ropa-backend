@@ -37,6 +37,7 @@ public class Producto {
     @Column(name = "status")
     private int status;
 
+
     public Integer getId() {
         return id;
     }
@@ -109,12 +110,20 @@ public class Producto {
         this.status = status;
     }
 
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return id == producto.id && administradorId == producto.administradorId && status == producto.status  && Objects.equals(nombreProducto, producto.nombreProducto) && Objects.equals(precio, producto.precio) && Objects.equals(descripcion, producto.descripcion);
+        return stock == producto.stock && colorId == producto.colorId && tallaId == producto.tallaId && administradorId == producto.administradorId && status == producto.status && Objects.equals(id, producto.id) && Objects.equals(codigoProducto, producto.codigoProducto) && Objects.equals(nombreProducto, producto.nombreProducto) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(precio, producto.precio);
     }
 
     @Override
