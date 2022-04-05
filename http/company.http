@@ -1,0 +1,14 @@
+### Agregar una empresa
+POST http://localhost:8080/company
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY4MzEwMCwiaWF0IjoxNjQ4NjQ3MTAwfQ.p_IMWrlJAHvp7SfMMOYkz4Fg2B66Wvlvuoyd0b7Gvg8
+
+{
+  "nombre" : "Nike",
+  "nit": "123456"
+}
+
+### Obtener las categorias
+
+GET http://localhost:8080/company
+Content-Type: application/json
