@@ -24,7 +24,8 @@ public class AuthApi {
     @PostMapping("/login")
     public ResponseEntity<?> postLogin(@RequestBody AuthRequest request)throws Exception {
         LOGGER.info("EJECUTANDO METODO");
-        return this.authBl.verifyUser(request);
-
+        return this.authBl.verifyAdminSistema(request);
     }
+
+
 }

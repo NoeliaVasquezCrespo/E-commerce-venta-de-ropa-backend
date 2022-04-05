@@ -41,4 +41,6 @@ public class AdministratorApi {
         administratorBl.deleteAdministrator(id);
         return "Borrado Exitosamente";
     }
+    //@GetMapping(path = "/administrators/{id}")
+    //public
 }

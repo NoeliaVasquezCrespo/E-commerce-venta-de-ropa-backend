@@ -35,10 +35,10 @@ public class AuthBl implements AuthService {
         this.jwtUtil = jwtUtil;
     }
 
-    public ResponseEntity<?> verifyUser(AuthRequest request)throws Exception {
+    public ResponseEntity<?> verifyAdminSistema(AuthRequest request)throws Exception {
         LOGGER.info("ACCEDIENDO A SERVICIO");
         Administrador administrador = this.administratorDao.verifyUserExist(request);
-        if(administrador!=null){
+        if(administrador!=null && administrador.getTipoAdministradorId()==1){
             LOGGER.info("USUARIO CORRECTO");
             LOGGER.info(administrador.toString());
             /***try{
