@@ -129,4 +129,20 @@ public class Administrador {
     public int hashCode() {
         return Objects.hash(id, nombre, apellido, edad, correoElectronico, tipoAdministradorId, userName, password, status, empresaId);
     }
+
+    @Override
+    public String toString() {
+        return "Administrador{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", edad=" + edad +
+                ", correoElectronico='" + correoElectronico + '\'' +
+                ", tipoAdministradorId=" + tipoAdministradorId +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", status=" + status +
+                ", empresaId=" + empresaId +
+                '}';
+    }
 }

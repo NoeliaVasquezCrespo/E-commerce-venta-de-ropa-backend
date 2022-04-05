@@ -41,7 +41,7 @@ public class AuthBl implements AuthService {
         if(administrador!=null){
             LOGGER.info("USUARIO CORRECTO");
             LOGGER.info(administrador.toString());
-            try{
+            /***try{
                 this.authenticationManager.authenticate(
                         new UsernamePasswordAuthenticationToken(
                                 request.getUsername(),request.getPassword()
@@ -49,9 +49,14 @@ public class AuthBl implements AuthService {
                 );
 
             }catch (BadCredentialsException ex){
-                throw new Exception("Nombre o contraseña incorrectos",ex);
+                //throw new Exception("Nombre o contraseña incorrectos",ex);
 
-            }
+                LOGGER.info("USUARIO NO EXISTENTE");
+                LOGGER.error(ex.toString());
+                JwtResponse response = new JwtResponse(null,null,"Nombre o contraseña incorrectos");
+                return new ResponseEntity<>(response,HttpStatus.UNAUTHORIZED);
+
+            }**/
             final UserDetails userDetails = this.userDetailsService.loadUserByUsername(request.getUsername());
             final String jwt = this.jwtUtil.generateToken(userDetails);
             JwtResponse response = new JwtResponse(jwt,administrador.getId(),"ACCESO CORRECTO");
