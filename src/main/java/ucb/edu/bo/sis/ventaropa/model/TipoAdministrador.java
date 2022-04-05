@@ -42,12 +42,4 @@ public class TipoAdministrador {
     public int hashCode() {
         return Objects.hash(id, tipo);
     }
-
-    @Override
-    public String toString() {
-        return "TipoAdministrador{" +
-                "id=" + id +
-                ", tipo='" + tipo + '\'' +
-                '}';
-    }
 }

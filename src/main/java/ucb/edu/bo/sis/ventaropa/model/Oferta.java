@@ -20,6 +20,9 @@ public class Oferta {
     @Basic
     @Column(name = "monto_descuento")
     private BigDecimal montoDescuento;
+    @Basic
+    @Column(name = "status")
+    private int status;
 
     public int getId() {
         return id;
@@ -53,16 +56,24 @@ public class Oferta {
         this.montoDescuento = montoDescuento;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Oferta oferta = (Oferta) o;
-        return id == oferta.id && Objects.equals(fechaInicio, oferta.fechaInicio) && Objects.equals(fechaFin, oferta.fechaFin) && Objects.equals(montoDescuento, oferta.montoDescuento);
+        return id == oferta.id && status == oferta.status && Objects.equals(fechaInicio, oferta.fechaInicio) && Objects.equals(fechaFin, oferta.fechaFin) && Objects.equals(montoDescuento, oferta.montoDescuento);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, fechaInicio, fechaFin, montoDescuento);
+        return Objects.hash(id, fechaInicio, fechaFin, montoDescuento, status);
     }
 }

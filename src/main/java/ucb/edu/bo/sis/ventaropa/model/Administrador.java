@@ -33,6 +33,9 @@ public class Administrador {
     @Basic
     @Column(name = "status")
     private int status;
+    @Basic
+    @Column(name = "empresa_id")
+    private Integer empresaId;
 
     public int getId() {
         return id;
@@ -106,16 +109,24 @@ public class Administrador {
         this.status = status;
     }
 
+    public Integer getEmpresaId() {
+        return empresaId;
+    }
+
+    public void setEmpresaId(Integer empresaId) {
+        this.empresaId = empresaId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Administrador that = (Administrador) o;
-        return id == that.id && edad == that.edad && tipoAdministradorId == that.tipoAdministradorId && status == that.status && Objects.equals(nombre, that.nombre) && Objects.equals(apellido, that.apellido) && Objects.equals(correoElectronico, that.correoElectronico) && Objects.equals(userName, that.userName) && Objects.equals(password, that.password);
+        return id == that.id && edad == that.edad && tipoAdministradorId == that.tipoAdministradorId && status == that.status && Objects.equals(nombre, that.nombre) && Objects.equals(apellido, that.apellido) && Objects.equals(correoElectronico, that.correoElectronico) && Objects.equals(userName, that.userName) && Objects.equals(password, that.password) && Objects.equals(empresaId, that.empresaId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, apellido, edad, correoElectronico, tipoAdministradorId, userName, password, status);
+        return Objects.hash(id, nombre, apellido, edad, correoElectronico, tipoAdministradorId, userName, password, status, empresaId);
     }
 }

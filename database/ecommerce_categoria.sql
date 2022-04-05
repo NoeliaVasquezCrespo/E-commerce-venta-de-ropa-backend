@@ -1,17 +1,18 @@
-INSERT INTO categoria (nombre_categoria) VALUES ('Pantalones');
-INSERT INTO categoria (nombre_categoria) VALUES ('Zapatos');
-INSERT INTO categoria (nombre_categoria) VALUES ('Blusas');
-INSERT INTO categoria (nombre_categoria) VALUES ('Guantes');
-INSERT INTO categoria (nombre_categoria) VALUES ('Camisas');
-INSERT INTO categoria (nombre_categoria) VALUES ('Poleras');
-INSERT INTO categoria (nombre_categoria) VALUES ('Vestidos');
-INSERT INTO categoria (nombre_categoria) VALUES ('Abrigos');
-INSERT INTO categoria (nombre_categoria) VALUES ('Tenis');
+INSERT INTO categoria (id, categoria, status) VALUES (1, 'Pantalones', 1);
+INSERT INTO categoria (id, categoria, status) VALUES (2, 'Zapatos', 1);
+INSERT INTO categoria (id, categoria, status) VALUES (3, 'Blusas', 1);
+INSERT INTO categoria (id, categoria, status) VALUES (4, 'Guantes', 1);
+INSERT INTO categoria (id, categoria, status) VALUES (5, 'Camisas', 1);
+INSERT INTO categoria (id, categoria, status) VALUES (6, 'Poleras', 1);
+INSERT INTO categoria (id, categoria, status) VALUES (7, 'Vestidos', 1);
+INSERT INTO categoria (id, categoria, status) VALUES (8, 'Abrigos', 1);
+INSERT INTO categoria (id, categoria, status) VALUES (9, 'Tenis', 1);
+
 
 
 -- Producto-Categoria--
-INSERT INTO producto_categoria (categoria_id,producto_id) VALUES (9,1);
-INSERT INTO producto_categoria (categoria_id,producto_id) VALUES (1,2);
+#INSERT INTO producto_categoria (categoria_id,producto_id) VALUES (9,1);
+#INSERT INTO producto_categoria (categoria_id,producto_id) VALUES (1,2);
 
 
 

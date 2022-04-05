@@ -9,7 +9,8 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id")
-    private Integer id;
+    private int id;
+    @Basic
     @Column(name = "codigo_producto")
     private String codigoProducto;
     @Basic
@@ -37,12 +38,11 @@ public class Producto {
     @Column(name = "status")
     private int status;
 
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -68,6 +68,14 @@ public class Producto {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public BigDecimal getPrecio() {
@@ -110,24 +118,16 @@ public class Producto {
         this.status = status;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return stock == producto.stock && colorId == producto.colorId && tallaId == producto.tallaId && administradorId == producto.administradorId && status == producto.status && Objects.equals(id, producto.id) && Objects.equals(codigoProducto, producto.codigoProducto) && Objects.equals(nombreProducto, producto.nombreProducto) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(precio, producto.precio);
+        return id == producto.id && stock == producto.stock && colorId == producto.colorId && tallaId == producto.tallaId && administradorId == producto.administradorId && status == producto.status && Objects.equals(codigoProducto, producto.codigoProducto) && Objects.equals(nombreProducto, producto.nombreProducto) && Objects.equals(descripcion, producto.descripcion) && Objects.equals(precio, producto.precio);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, codigoProducto, nombreProducto, descripcion, precio, administradorId, colorId, tallaId, status);
+        return Objects.hash(id, codigoProducto, nombreProducto, descripcion, stock, precio, colorId, tallaId, administradorId, status);
     }
 }
