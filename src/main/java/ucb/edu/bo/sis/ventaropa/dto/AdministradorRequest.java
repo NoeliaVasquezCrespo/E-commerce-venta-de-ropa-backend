@@ -10,16 +10,14 @@ public class AdministradorRequest {
     private String correoElectronico;
     private String tipoAdministrador;
     private String userName;
-    private String empresa;
 
-    public AdministradorRequest(String nombre, String apellido, int edad, String correoElectronico, String tipoAdministrador, String userName, String empresa) {
+    public AdministradorRequest(String nombre, String apellido, int edad, String correoElectronico, String tipoAdministrador, String userName) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.correoElectronico = correoElectronico;
         this.tipoAdministrador = tipoAdministrador;
         this.userName = userName;
-        this.empresa = empresa;
     }
 
     public String getNombre() {
@@ -70,13 +68,6 @@ public class AdministradorRequest {
         this.userName = userName;
     }
 
-    public String getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
-    }
 
     @Override
     public String toString() {
@@ -87,7 +78,6 @@ public class AdministradorRequest {
                 ", correoElectronico='" + correoElectronico + '\'' +
                 ", tipoAdministrador='" + tipoAdministrador + '\'' +
                 ", userName='" + userName + '\'' +
-                ", empresa='" + empresa + '\'' +
                 '}';
     }
 }

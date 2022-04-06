@@ -1,8 +1,14 @@
 package ucb.edu.bo.sis.ventaropa.bl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import ucb.edu.bo.sis.ventaropa.api.AdministratorApi;
 import ucb.edu.bo.sis.ventaropa.dao.AdministratorDao;
+import ucb.edu.bo.sis.ventaropa.dto.AdministradorRequest;
 import ucb.edu.bo.sis.ventaropa.model.Administrador;
 import ucb.edu.bo.sis.ventaropa.service.AdministratorService;
 
@@ -14,6 +20,8 @@ import java.util.Objects;
 public class AdministratorBl implements AdministratorService {
 
     private AdministratorDao administratorDao;
+    private static final Logger LOGGER = LoggerFactory.getLogger(AdministratorBl.class);
+
 
     @Autowired
     public AdministratorBl(AdministratorDao administratorDao) {
@@ -64,5 +72,19 @@ public class AdministratorBl implements AdministratorService {
     @Override
     public void deleteAdministrator(Integer id) {
         administratorDao.deleteById(id);
+    }
+
+    @Override
+    public AdministradorRequest getAdministratorWithSessionActiveById(Integer idAministrador,String jwt, String headerAuthorization){
+        String jwtByHeaders = headerAuthorization.split(" ")[1];
+        LOGGER.info(jwtByHeaders);
+        if(jwtByHeaders.equals(jwt)){
+            LOGGER.info("SESION ACTIVA");
+            AdministradorRequest request = this.administratorDao.getAdministradorById(idAministrador);
+            return request;
+        }else{
+            LOGGER.info("SESION CADUCADA O INACTIVA");
+            return null;
+        }
     }
 }
