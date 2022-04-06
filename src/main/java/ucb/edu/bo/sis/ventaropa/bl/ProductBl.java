@@ -113,4 +113,8 @@ public class ProductBl implements ProductService {
     public List<ProductRequest> listProductRequest() {
         return this.productDao.listProductsRequest();
     }
+    @Override
+    public List<ProductRequest> listProductRequestByProvideId(Integer idProvider){
+        return this.productDao.listProductsByAdminId(idProvider);
+    }
 }

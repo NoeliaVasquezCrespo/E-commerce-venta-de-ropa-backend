@@ -15,5 +15,6 @@ public interface ProductService {
     FotosProducto uploadImage(MultipartFile image, Integer userId);
     FotosProducto findFirstImageProduct(Integer productId);
     List<ProductRequest> listProductRequest();
+    List<ProductRequest> listProductRequestByProvideId(Integer idProvider);
 
 }

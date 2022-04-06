@@ -43,4 +43,10 @@ public interface ProductDao extends JpaRepository<Producto, Integer> {
             "where producto.administradorId=administrador.id " +
             "and administrador.empresaId=empresa.id")
     public List<ProductRequest> listProductsRequest();
+    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductRequest(producto.id, producto.nombreProducto, empresa.nombre, producto.precio) " +
+            "from Producto producto, Administrador administrador, Empresa empresa " +
+            "where producto.administradorId=administrador.id " +
+            "and administrador.empresaId=empresa.id " +
+            "and producto.administradorId=?1")
+    public List<ProductRequest>listProductsByAdminId(Integer id);
 }

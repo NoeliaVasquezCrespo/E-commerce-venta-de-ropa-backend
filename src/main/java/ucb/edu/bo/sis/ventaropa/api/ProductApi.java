@@ -104,4 +104,9 @@ public class ProductApi {
         List<ProductRequest> lista = this.productBl.listProductRequest();
         return new ResponseEntity<>(lista,HttpStatus.OK);
     }
+    @GetMapping(path = "products/details/{providerId}")
+    public ResponseEntity<List<ProductRequest>>getListProductRequest(@PathVariable("providerId") Integer providerId){
+        List<ProductRequest> lista = this.productBl.listProductRequestByProvideId(providerId);
+        return new ResponseEntity<>(lista,HttpStatus.OK);
+    }
 }
