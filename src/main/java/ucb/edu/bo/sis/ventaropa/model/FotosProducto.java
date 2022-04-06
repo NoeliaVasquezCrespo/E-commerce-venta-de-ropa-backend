@@ -53,4 +53,13 @@ public class FotosProducto {
     public int hashCode() {
         return Objects.hash(id, productoId, foto);
     }
+
+    @Override
+    public String toString() {
+        return "FotosProducto{" +
+                "id=" + id +
+                ", productoId=" + productoId +
+                ", foto='" + foto + '\'' +
+                '}';
+    }
 }

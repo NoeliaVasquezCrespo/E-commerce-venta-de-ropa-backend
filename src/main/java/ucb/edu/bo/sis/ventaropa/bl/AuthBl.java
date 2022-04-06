@@ -25,7 +25,7 @@ public class AuthBl implements AuthService {
     private JwtUserDetailsService userDetailsService;
     private JwtUtil jwtUtil;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AuthBl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthService.class);
     @Autowired
     public AuthBl(AdministratorDao administratorDao, AuthenticationManager authenticationManager,
                   JwtUserDetailsService userDetailsService, JwtUtil jwtUtil) {

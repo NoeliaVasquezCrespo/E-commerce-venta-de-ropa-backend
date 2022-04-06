@@ -1,9 +1,13 @@
 package ucb.edu.bo.sis.ventaropa.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import ucb.edu.bo.sis.ventaropa.bl.ProductBl;
+import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
 
 import java.util.List;
@@ -76,5 +80,10 @@ public class ProductApi {
     public List<Producto> findProductByProductCode(@PathVariable ("code") String code) {
         System.out.println("Invocando al metodo GET");
         return productBl.findProductByProductCode(code);
+    }
+    @PostMapping(path="/image/{productId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<FotosProducto> uploadImageProduct(@RequestPart("image") MultipartFile image, @PathVariable Integer productId){
+        FotosProducto user =this.productBl.uploadImage(image,productId);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }
