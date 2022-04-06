@@ -1,8 +1,22 @@
-INSERT INTO producto (id, codigo_producto, nombre_producto, descripcion, stock, precio, color_id, talla_id, administrador_id, status) VALUES (25, 'SWAE345', 'Camiseta Para Mujer Nicor', 'Camisetas de mujer', 20, 135.00, 1, 2, 1, 1);
-INSERT INTO producto (id, codigo_producto, nombre_producto, descripcion, stock, precio, color_id, talla_id, administrador_id, status) VALUES (26, 'SER214', 'Camista para mujer tinsa', 'Camisetas de mujer', 54, 135.00, 1, 3, 1, 1);
+INSERT INTO producto (id, codigo_producto, nombre_producto, descripcion, stock, precio, color_id, talla_id, administrador_id, status) VALUES (25, 'SWAE345', 'Camiseta Para Mujer Nicor', 'Camisetas de a centavo', 20, 135.00, 1, 2, 2, 1);
+INSERT INTO producto (id, codigo_producto, nombre_producto, descripcion, stock, precio, color_id, talla_id, administrador_id, status) VALUES (26, 'SER214', 'Camista para mujer tinsa', 'Camisetas de a centavo', 54, 135.00, 1, 3, 2, 1);
+INSERT INTO producto (id, codigo_producto, nombre_producto, descripcion, stock, precio, color_id, talla_id, administrador_id, status) VALUES (27, '3456', 'Pantalón Unisex Bici O Moto 2', 'Patalon', 20, 50.00, 2, 3, 2, 1);
+INSERT INTO producto (id, codigo_producto, nombre_producto, descripcion, stock, precio, color_id, talla_id, administrador_id, status) VALUES (28, 'ZXCSA32', 'Chamarra Para Mujer Acolchada', 'Chamarra', 30, 12.00, 2, 2, 5, 1);
+INSERT INTO producto (id, codigo_producto, nombre_producto, descripcion, stock, precio, color_id, talla_id, administrador_id, status) VALUES (29, 'ASDFR', 'Chamarra Para Mujer Bosana', 'Chamarra', 30, 21.00, 1, 2, 2, 1);
+INSERT INTO producto (id, codigo_producto, nombre_producto, descripcion, stock, precio, color_id, talla_id, administrador_id, status) VALUES (30, 'RA32120A19', 'Jean para mujer Chenlly', 'Jeans femeninos', 30, 12.00, 2, 3, 2, 1);
+INSERT INTO producto (id, codigo_producto, nombre_producto, descripcion, stock, precio, color_id, talla_id, administrador_id, status) VALUES (31, 'RA24231', 'Sudadera Haile', 'Sudadera deportiva', 30, 23.00, 2, 3, 2, 1);
+INSERT INTO producto (id, codigo_producto, nombre_producto, descripcion, stock, precio, color_id, talla_id, administrador_id, status) VALUES (32, 'ERT5ASQ', 'Sudadera Fliza', 'Sudadera deportiva', 30, 145.00, 1, 1, 5, 1);
+INSERT INTO producto (id, codigo_producto, nombre_producto, descripcion, stock, precio, color_id, talla_id, administrador_id, status) VALUES (33, 'ERT3421F', 'Camiseta Liverpool', 'Camiseta Deportiva', 23, 500.00, 2, 2, 2, 1);
 
 INSERT INTO fotos_producto (id, producto_id, foto) VALUES (11, 25, 'productImage/fwav74entb20224683346User25.png');
 INSERT INTO fotos_producto (id, producto_id, foto) VALUES (12, 26, 'productImage/z7u55t8zve20224683552User26.png');
+INSERT INTO fotos_producto (id, producto_id, foto) VALUES (13, 27, 'productImage/b921a6znrv20224691631User27.png');
+INSERT INTO fotos_producto (id, producto_id, foto) VALUES (14, 28, 'productImage/egl984fsve20224693546User28.png');
+INSERT INTO fotos_producto (id, producto_id, foto) VALUES (15, 29, 'productImage/rfvx12t8xc20224693815User29.png');
+INSERT INTO fotos_producto (id, producto_id, foto) VALUES (16, 30, 'productImage/u9polzxa9s2022469401User30.png');
+INSERT INTO fotos_producto (id, producto_id, foto) VALUES (17, 31, 'productImage/mqt1wsf0q520224694211User31.png');
+INSERT INTO fotos_producto (id, producto_id, foto) VALUES (18, 32, 'productImage/eaoj1sy9r62022469448User32.png');
+INSERT INTO fotos_producto (id, producto_id, foto) VALUES (19, 33, 'productImage/scf4ov8g5o202246101752User33.png');
 
 -- Consulta a base de datos
 

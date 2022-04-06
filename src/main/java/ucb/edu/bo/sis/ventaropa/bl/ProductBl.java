@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ucb.edu.bo.sis.ventaropa.dao.FotoProductoDao;
 import ucb.edu.bo.sis.ventaropa.dao.ProductDao;
+import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
 import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
-import ucb.edu.bo.sis.ventaropa.model.ProductoCompra;
-import ucb.edu.bo.sis.ventaropa.service.AuthService;
 import ucb.edu.bo.sis.ventaropa.service.ProductService;
 import ucb.edu.bo.sis.ventaropa.util.ImageUtil;
 
@@ -103,5 +102,15 @@ public class ProductBl implements ProductService {
         LOGGER.info(fotosProducto.toString());
         fotoProductoDao.save(fotosProducto);
         return fotosProducto;
+    }
+
+    @Override
+    public FotosProducto findFirstImageProduct(Integer productId) {
+        return this.fotoProductoDao.findImagesProducts(productId).get(0);
+    }
+
+    @Override
+    public List<ProductRequest> listProductRequest() {
+        return this.productDao.listProductsRequest();
     }
 }

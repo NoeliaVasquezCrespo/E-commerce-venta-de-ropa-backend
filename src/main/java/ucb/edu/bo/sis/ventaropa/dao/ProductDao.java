@@ -4,6 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
+import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
 
 import java.util.List;
@@ -36,4 +38,9 @@ public interface ProductDao extends JpaRepository<Producto, Integer> {
             nativeQuery = true
     )
     public List<Producto> findProductByProductCode(@Param("codProducto") String codProducto);
+    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductRequest(producto.id, producto.nombreProducto, empresa.nombre, producto.precio) " +
+            "from Producto producto, Administrador administrador, Empresa empresa " +
+            "where producto.administradorId=administrador.id " +
+            "and administrador.empresaId=empresa.id")
+    public List<ProductRequest> listProductsRequest();
 }

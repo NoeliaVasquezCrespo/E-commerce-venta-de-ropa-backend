@@ -7,8 +7,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ucb.edu.bo.sis.ventaropa.bl.ProductBl;
+import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
 import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
+import ucb.edu.bo.sis.ventaropa.util.ImageUtil;
 
 import java.util.List;
 
@@ -81,9 +83,25 @@ public class ProductApi {
         System.out.println("Invocando al metodo GET");
         return productBl.findProductByProductCode(code);
     }
-    @PostMapping(path="/image/{productId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(path="/products/image/{productId}", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<FotosProducto> uploadImageProduct(@RequestPart("image") MultipartFile image, @PathVariable Integer productId){
-        FotosProducto user =this.productBl.uploadImage(image,productId);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        FotosProducto fotosProducto =this.productBl.uploadImage(image,productId);
+        return new ResponseEntity<>(fotosProducto, HttpStatus.OK);
+    }
+    @GetMapping(path="products/image/{path}/{name}" , produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public byte[] getImage(@PathVariable String path, @PathVariable String name){
+        ImageUtil storageUtil=new ImageUtil();
+        byte[] image=storageUtil.getImage(path,name);
+        return image;
+    }
+    @GetMapping(path="products/image/{productId}" , produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<FotosProducto>getFirstImageProduct(@PathVariable("productId") Integer productId){
+        FotosProducto fotosProducto =this.productBl.findFirstImageProduct(productId);
+        return new ResponseEntity<>(fotosProducto, HttpStatus.OK);
+    }
+    @GetMapping(path = "products/details")
+    public ResponseEntity<List<ProductRequest>>getListProductRequest(){
+        List<ProductRequest> lista = this.productBl.listProductRequest();
+        return new ResponseEntity<>(lista,HttpStatus.OK);
     }
 }

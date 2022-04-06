@@ -40,6 +40,9 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/administrador/login/proveedor").permitAll()
                 .antMatchers(HttpMethod.GET, "/colours/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/categories").permitAll()
+                .antMatchers(HttpMethod.GET, "/products").permitAll()
+                .antMatchers(HttpMethod.GET, "/products/image/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/products/details").permitAll()
                 .antMatchers("/auth/**",
                         "/v2/api-docs/**",
                         "/swagger-ui/**",

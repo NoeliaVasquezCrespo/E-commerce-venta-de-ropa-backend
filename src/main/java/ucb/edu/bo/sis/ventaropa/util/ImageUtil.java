@@ -46,9 +46,9 @@ public class ImageUtil {
         return type;
     }
 
-    public byte[] getImage(String path){
+    public byte[] getImage(String path,String name){
         try{
-            File image = new File("images/"+path);
+            File image = new File("images/"+path+"/"+name);
             return Files.readAllBytes(image.toPath());
         }
         catch (Exception e){
