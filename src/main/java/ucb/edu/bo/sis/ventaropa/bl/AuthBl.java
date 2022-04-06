@@ -67,4 +67,20 @@ public class AuthBl implements AuthService {
             return new ResponseEntity<>(response,HttpStatus.UNAUTHORIZED);
         }
     }
+    public ResponseEntity<JwtResponse> verifyProveedorSistema(AuthRequest request)throws Exception {
+        LOGGER.info("ACCEDIENDO A SERVICIO");
+        Administrador administrador = this.administratorDao.verifyUserExist(request);
+        if(administrador!=null && administrador.getTipoAdministradorId()==2){
+            LOGGER.info("USUARIO CORRECTO");
+            LOGGER.info(administrador.toString());
+            final UserDetails userDetails = this.userDetailsService.loadUserByUsername(request.getUsername());
+            final String jwt = this.jwtUtil.generateToken(userDetails);
+            JwtResponse response = new JwtResponse(jwt,administrador.getId(),"ACCESO CORRECTO");
+            return new ResponseEntity<>(response,HttpStatus.OK);
+        }else{
+            LOGGER.info("USUARIO NO EXISTENTE");
+            JwtResponse response = new JwtResponse(null,null,"ACCESO DENEGADO");
+            return new ResponseEntity<>(response,HttpStatus.UNAUTHORIZED);
+        }
+    }
 }
