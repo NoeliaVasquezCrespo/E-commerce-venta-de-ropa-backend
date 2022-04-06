@@ -1,10 +1,18 @@
 package ucb.edu.bo.sis.ventaropa.bl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+import ucb.edu.bo.sis.ventaropa.dao.FotoProductoDao;
 import ucb.edu.bo.sis.ventaropa.dao.ProductDao;
+import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
+import ucb.edu.bo.sis.ventaropa.model.ProductoCompra;
+import ucb.edu.bo.sis.ventaropa.service.AuthService;
 import ucb.edu.bo.sis.ventaropa.service.ProductService;
+import ucb.edu.bo.sis.ventaropa.util.ImageUtil;
 
 import java.util.List;
 import java.util.Objects;
@@ -14,10 +22,13 @@ import java.util.Objects;
 public class ProductBl implements ProductService {
 
     private ProductDao productDao;
+    private FotoProductoDao fotoProductoDao;
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
 
     @Autowired
-    public ProductBl(ProductDao productDao) {
+    public ProductBl(ProductDao productDao, FotoProductoDao fotoProductoDao) {
         this.productDao = productDao;
+        this.fotoProductoDao = fotoProductoDao;
     }
 
 
@@ -80,5 +91,17 @@ public class ProductBl implements ProductService {
     @Override
     public void deleteProduct(Integer id) {
         productDao.deleteById(id);
+    }
+    @Override
+    public FotosProducto uploadImage(MultipartFile image, Integer productId){
+        ImageUtil imageUtil = new ImageUtil();
+        FotosProducto fotosProducto = new FotosProducto();
+
+        String newImageName = imageUtil.uploadImage(image,"images/productImage","User",productId);
+        fotosProducto.setProductoId(productId);
+        fotosProducto.setFoto(newImageName);
+        LOGGER.info(fotosProducto.toString());
+        fotoProductoDao.save(fotosProducto);
+        return fotosProducto;
     }
 }
