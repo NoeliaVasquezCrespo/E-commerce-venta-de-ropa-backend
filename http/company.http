@@ -1,7 +1,7 @@
 ### Agregar una empresa
 POST http://localhost:8080/company
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY4MzEwMCwiaWF0IjoxNjQ4NjQ3MTAwfQ.p_IMWrlJAHvp7SfMMOYkz4Fg2B66Wvlvuoyd0b7Gvg8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0OTIyNzU4NSwiaWF0IjoxNjQ5MTkxNTg1fQ.RD0930nVqIjKQw09ogbPmJh8t2mNvQ890FUilqG1BnA
 
 {
   "nombre" : "Nike",
@@ -12,3 +12,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY4M
 
 GET http://localhost:8080/company
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0OTIyNzU4NSwiaWF0IjoxNjQ5MTkxNTg1fQ.RD0930nVqIjKQw09ogbPmJh8t2mNvQ890FUilqG1BnA
