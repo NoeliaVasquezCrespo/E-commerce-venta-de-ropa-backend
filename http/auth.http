@@ -1,7 +1,7 @@
 
 
 ### Send POST request with json body
-POST http://localhost:8080/v1/administrador/login
+POST http://localhost:8080/administrador/login
 Content-Type: application/json
 
 {
