@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ucb.edu.bo.sis.ventaropa.dao.FotoProductoDao;
 import ucb.edu.bo.sis.ventaropa.dao.ProductDao;
+import ucb.edu.bo.sis.ventaropa.dto.ProductDetails;
 import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
 import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
@@ -116,5 +117,9 @@ public class ProductBl implements ProductService {
     @Override
     public List<ProductRequest> listProductRequestByProvideId(Integer idProvider){
         return this.productDao.listProductsByAdminId(idProvider);
+    }
+    @Override
+    public ProductDetails listProductsByProductId(Integer idProduct){
+        return this.productDao.listProductsByProductId(idProduct).get(0);
     }
 }

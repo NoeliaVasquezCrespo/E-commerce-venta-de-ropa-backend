@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ucb.edu.bo.sis.ventaropa.bl.ProductBl;
+import ucb.edu.bo.sis.ventaropa.dto.ProductDetails;
 import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
 import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
@@ -107,6 +108,11 @@ public class ProductApi {
     @GetMapping(path = "products/details/{providerId}")
     public ResponseEntity<List<ProductRequest>>getListProductRequest(@PathVariable("providerId") Integer providerId){
         List<ProductRequest> lista = this.productBl.listProductRequestByProvideId(providerId);
+        return new ResponseEntity<>(lista,HttpStatus.OK);
+    }
+    @GetMapping(path = "products/{productId}")
+    public ResponseEntity<ProductDetails>getListProductRequestByProductId(@PathVariable("productId") Integer productId){
+        ProductDetails lista = this.productBl.listProductsByProductId(productId);
         return new ResponseEntity<>(lista,HttpStatus.OK);
     }
 }

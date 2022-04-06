@@ -1,6 +1,7 @@
 package ucb.edu.bo.sis.ventaropa.service;
 
 import org.springframework.web.multipart.MultipartFile;
+import ucb.edu.bo.sis.ventaropa.dto.ProductDetails;
 import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
 import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
@@ -16,5 +17,5 @@ public interface ProductService {
     FotosProducto findFirstImageProduct(Integer productId);
     List<ProductRequest> listProductRequest();
     List<ProductRequest> listProductRequestByProvideId(Integer idProvider);
-
+    ProductDetails listProductsByProductId(Integer idProvider);
 }

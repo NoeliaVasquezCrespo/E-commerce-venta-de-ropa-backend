@@ -2,21 +2,25 @@ package ucb.edu.bo.sis.ventaropa.dto;
 
 import java.math.BigDecimal;
 
-public class ProductRequest {
+public class ProductDetails {
     private Integer idProducto;
     private String nombreProducto;
     private String marca;
     private BigDecimal precio;
     private Integer stock;
     private String description;
+    private String color;
+    private String talla;
 
-    public ProductRequest(Integer idProducto, String nombreProducto, String marca, BigDecimal precio,Integer stock,String description) {
+    public ProductDetails(Integer idProducto, String nombreProducto, String marca, BigDecimal precio, Integer stock, String description, String color, String talla) {
         this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
         this.marca = marca;
         this.precio = precio;
         this.stock = stock;
         this.description = description;
+        this.color = color;
+        this.talla = talla;
     }
 
     public Integer getIdProducto() {
@@ -66,6 +70,22 @@ public class ProductRequest {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getTalla() {
+        return talla;
+    }
+
+    public void setTalla(String talla) {
+        this.talla = talla;
     }
 
     @Override
