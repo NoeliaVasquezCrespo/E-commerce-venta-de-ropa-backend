@@ -1,13 +1,14 @@
 ### Agregar un Administrador
 POST http://localhost:8080/administrators
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0OTI1MTg5NSwiaWF0IjoxNjQ5MjE1ODk1fQ.zqQTiuadlHK8G2s67qVJG2Xi4fQlC7P1e7J1y-pOc3M
 
 {
   "nombre" : "Nombre Administrador 1",
   "apellido": "Apellido Administrador 1",
   "edad": 20,
   "correoElectronico": "administrador1@gmail.com",
-  "username": "Nombre Usuario Administrador 1",
+  "userName": "Nombre Usuario Administrador 1",
   "password": "Contrasenia Administrador 1",
   "tipoAdministradorId": 1,
   "status": 1
