@@ -28,5 +28,11 @@ public class AuthApi {
         return this.authBl.verifyAdminSistema(request);
     }
 
+    @PostMapping("/login/proveedor")
+    public ResponseEntity<?> postLoginProvider(@RequestBody AuthRequest request)throws Exception {
+        LOGGER.info("EJECUTANDO METODO");
+        return this.authBl.verifyProveedorSistema(request);
+    }
+
 
 }

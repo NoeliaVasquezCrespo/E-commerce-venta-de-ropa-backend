@@ -34,6 +34,10 @@ public class AdministratorBl implements AdministratorService {
         return (List<Administrador>) administratorDao.findAll();
     }
 
+    public List<Administrador> findAdministradorByType(Integer tipo) {
+        return (List<Administrador>) administratorDao.findAdministradorByType(tipo);
+    }
+
     @Override
     public Administrador createAdministrator(Administrador administrador) {
         return administratorDao.save(administrador);

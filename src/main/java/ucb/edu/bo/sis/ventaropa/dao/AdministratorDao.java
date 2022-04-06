@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import ucb.edu.bo.sis.ventaropa.dto.AdministradorRequest;
 import ucb.edu.bo.sis.ventaropa.dto.AuthRequest;
 import ucb.edu.bo.sis.ventaropa.model.Administrador;
+import ucb.edu.bo.sis.ventaropa.model.Producto;
+
+import java.util.List;
 
 @Repository
 public interface AdministratorDao extends JpaRepository<Administrador, Integer> {
@@ -24,4 +27,13 @@ public interface AdministratorDao extends JpaRepository<Administrador, Integer> 
             "and administrador.status=1 " +
             "and administrador.id=?1 ")
     public AdministradorRequest getAdministradorById(Integer idAdministrador);
+
+    @Query(
+            value = "SELECT a.*" +
+                    "   FROM administrador a" +
+                    "   WHERE a.tipo_administrador_id = :tipo" +
+                    "   AND a.status = 1",
+            nativeQuery = true
+    )
+    public List<Administrador> findAdministradorByType(@Param("tipo") Integer tipo);
 }
