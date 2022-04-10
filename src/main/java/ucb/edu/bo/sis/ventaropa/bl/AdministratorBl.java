@@ -34,10 +34,6 @@ public class AdministratorBl implements AdministratorService {
         return (List<Administrador>) administratorDao.findAll();
     }
 
-    public List<Administrador> findAdministradorByType(Integer tipo) {
-        return (List<Administrador>) administratorDao.findAdministradorByType(tipo);
-    }
-
     @Override
     public Administrador createAdministrator(Administrador administrador) {
         return administratorDao.save(administrador);
@@ -90,5 +86,10 @@ public class AdministratorBl implements AdministratorService {
             LOGGER.info("SESION CADUCADA O INACTIVA");
             return null;
         }
+    }
+
+
+    public List<Administrador> findAdministradorByTypeAndStatus(Integer tipo, Integer status) {
+        return (List<Administrador>) administratorDao.findAdministradorByTypeAndStatus(tipo, status);
     }
 }

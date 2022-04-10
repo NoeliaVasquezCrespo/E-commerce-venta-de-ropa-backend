@@ -32,8 +32,8 @@ public interface AdministratorDao extends JpaRepository<Administrador, Integer> 
             value = "SELECT a.*" +
                     "   FROM administrador a" +
                     "   WHERE a.tipo_administrador_id = :tipo" +
-                    "   AND a.status = 1",
+                    "   AND a.status = :status",
             nativeQuery = true
     )
-    public List<Administrador> findAdministradorByType(@Param("tipo") Integer tipo);
+    public List<Administrador> findAdministradorByTypeAndStatus(@Param("tipo") Integer tipo, @Param("status") Integer status);
 }

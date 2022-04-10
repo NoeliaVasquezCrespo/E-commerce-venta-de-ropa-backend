@@ -34,10 +34,11 @@ public class AdministratorApi {
         System.out.println("Invocando al metodo GET");
         return administratorBl.findAll();
     }
-    @GetMapping(value = "/administrators/type={tipo}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Administrador> findAdministradorByType(@PathVariable("tipo") Integer tipo) {
+   
+    @GetMapping(value = "/administrators/type={tipo}/status={status}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Administrador> findAdministradorByTypeAndStatus(@PathVariable("tipo") Integer tipo,@PathVariable("status") Integer status) {
         System.out.println("Invocando al metodo GET");
-        return administratorBl.findAdministradorByType(tipo);
+        return administratorBl.findAdministradorByTypeAndStatus(tipo,status);
     }
     @PostMapping(path="/administrators", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
     public Administrador addAdministrator(@RequestBody Administrador administrador) {
