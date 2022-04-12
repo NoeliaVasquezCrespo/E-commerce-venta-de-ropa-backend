@@ -22,9 +22,6 @@ public class Usuario {
     @Column(name = "correo_electronico")
     private String correoElectronico;
     @Basic
-    @Column(name = "user_name")
-    private String userName;
-    @Basic
     @Column(name = "password")
     private String password;
     @Basic
@@ -74,14 +71,6 @@ public class Usuario {
         this.correoElectronico = correoElectronico;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -111,11 +100,11 @@ public class Usuario {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return id == usuario.id && status == usuario.status && direccionId == usuario.direccionId && Objects.equals(nombre, usuario.nombre) && Objects.equals(apellido, usuario.apellido) && Objects.equals(edad, usuario.edad) && Objects.equals(correoElectronico, usuario.correoElectronico) && Objects.equals(userName, usuario.userName) && Objects.equals(password, usuario.password);
+        return id == usuario.id && status == usuario.status && direccionId == usuario.direccionId && Objects.equals(nombre, usuario.nombre) && Objects.equals(apellido, usuario.apellido) && Objects.equals(edad, usuario.edad) && Objects.equals(correoElectronico, usuario.correoElectronico) && Objects.equals(password, usuario.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, apellido, edad, correoElectronico, userName, password, status, direccionId);
+        return Objects.hash(id, nombre, apellido, edad, correoElectronico, password, status, direccionId);
     }
 }
