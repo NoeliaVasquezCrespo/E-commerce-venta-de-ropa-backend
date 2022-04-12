@@ -4,23 +4,23 @@ import java.io.Serializable;
 
 public class AuthRequest implements Serializable {
     private static final long serialVersionUID = 5926468583005150707L;
-    private String username;
+    private String correo;
     private String password;
 
     public AuthRequest() {
     }
 
     public AuthRequest(String username, String password) {
-        this.username = username;
+        this.correo = username;
         this.password = password;
     }
 
-    public String getUsername() {
-        return username;
+    public String getCorreo() {
+        return correo;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setCorreo(String username) {
+        this.correo = username;
     }
 
     public String getPassword() {
@@ -34,7 +34,7 @@ public class AuthRequest implements Serializable {
     @Override
     public String toString() {
         return "AuthRequest{" +
-                "username='" + username + '\'' +
+                "correo='" + correo + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }

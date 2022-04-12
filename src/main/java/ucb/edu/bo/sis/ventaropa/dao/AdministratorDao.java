@@ -16,12 +16,13 @@ import java.util.List;
 public interface AdministratorDao extends JpaRepository<Administrador, Integer> {
     @Query(value="select administrador " +
             "from Administrador administrador " +
-            "where administrador.userName = :#{#request.username} " +
+            "where administrador.correoElectronico = :#{#request.correo} " +
             "and administrador.password = :#{#request.password} ")
     public Administrador verifyUserExist(@Param("request") AuthRequest request);
+
     @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.AdministradorRequest(" +
             "administrador.nombre, administrador.apellido, administrador.edad, " +
-            "administrador.correoElectronico, tipoAdministrador.tipo, administrador.userName) " +
+            "administrador.correoElectronico, tipoAdministrador.tipo) " +
             "from Administrador administrador, TipoAdministrador tipoAdministrador " +
             "where administrador.tipoAdministradorId=tipoAdministrador.id " +
             "and administrador.status=1 " +

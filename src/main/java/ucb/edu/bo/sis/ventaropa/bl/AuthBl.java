@@ -57,7 +57,7 @@ public class AuthBl implements AuthService {
                 return new ResponseEntity<>(response,HttpStatus.UNAUTHORIZED);
 
             }**/
-            final UserDetails userDetails = this.userDetailsService.loadUserByUsername(request.getUsername());
+            final UserDetails userDetails = this.userDetailsService.loadUserByUsername(request.getCorreo());
             final String jwt = this.jwtUtil.generateToken(userDetails);
             JwtResponse response = new JwtResponse(jwt,administrador.getId(),"ACCESO CORRECTO");
             return new ResponseEntity<>(response,HttpStatus.OK);
@@ -73,7 +73,7 @@ public class AuthBl implements AuthService {
         if(administrador!=null && administrador.getTipoAdministradorId()==2){
             LOGGER.info("USUARIO CORRECTO");
             LOGGER.info(administrador.toString());
-            final UserDetails userDetails = this.userDetailsService.loadUserByUsername(request.getUsername());
+            final UserDetails userDetails = this.userDetailsService.loadUserByUsername(request.getCorreo());
             final String jwt = this.jwtUtil.generateToken(userDetails);
             JwtResponse response = new JwtResponse(jwt,administrador.getId(),"ACCESO CORRECTO");
             return new ResponseEntity<>(response,HttpStatus.OK);
