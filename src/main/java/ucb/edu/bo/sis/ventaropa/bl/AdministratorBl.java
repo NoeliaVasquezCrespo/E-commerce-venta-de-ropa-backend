@@ -54,9 +54,6 @@ public class AdministratorBl implements AdministratorService {
         if (Objects.nonNull(administrador.getCorreoElectronico()) && !"".equalsIgnoreCase(administrador.getCorreoElectronico())){
             administradorDB.setCorreoElectronico(administrador.getCorreoElectronico());
         }
-        if (Objects.nonNull(administrador.getUserName()) && !"".equalsIgnoreCase(administrador.getUserName())){
-            administradorDB.setUserName(administrador.getUserName());
-        }
         if (Objects.nonNull(administrador.getPassword()) && !"".equalsIgnoreCase(administrador.getPassword())){
             administradorDB.setPassword(administrador.getPassword());
         }

@@ -25,9 +25,6 @@ public class Administrador {
     @Column(name = "tipo_administrador_id")
     private int tipoAdministradorId;
     @Basic
-    @Column(name = "user_name")
-    private String userName;
-    @Basic
     @Column(name = "password")
     private String password;
     @Basic
@@ -85,14 +82,6 @@ public class Administrador {
         this.tipoAdministradorId = tipoAdministradorId;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -122,12 +111,12 @@ public class Administrador {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Administrador that = (Administrador) o;
-        return id == that.id && edad == that.edad && tipoAdministradorId == that.tipoAdministradorId && status == that.status && Objects.equals(nombre, that.nombre) && Objects.equals(apellido, that.apellido) && Objects.equals(correoElectronico, that.correoElectronico) && Objects.equals(userName, that.userName) && Objects.equals(password, that.password) && Objects.equals(empresaId, that.empresaId);
+        return id == that.id && edad == that.edad && tipoAdministradorId == that.tipoAdministradorId && status == that.status && Objects.equals(nombre, that.nombre) && Objects.equals(apellido, that.apellido) && Objects.equals(correoElectronico, that.correoElectronico) && Objects.equals(password, that.password) && Objects.equals(empresaId, that.empresaId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, apellido, edad, correoElectronico, tipoAdministradorId, userName, password, status, empresaId);
+        return Objects.hash(id, nombre, apellido, edad, correoElectronico, tipoAdministradorId, password, status, empresaId);
     }
 
     @Override
@@ -139,7 +128,6 @@ public class Administrador {
                 ", edad=" + edad +
                 ", correoElectronico='" + correoElectronico + '\'' +
                 ", tipoAdministradorId=" + tipoAdministradorId +
-                ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", status=" + status +
                 ", empresaId=" + empresaId +
