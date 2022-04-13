@@ -16,6 +16,9 @@ public class CategoriaProducto {
     @Basic
     @Column(name = "producto_id")
     private int productoId;
+    @Basic
+    @Column(name = "status")
+    private int status;
 
     public int getId() {
         return id;
@@ -41,16 +44,24 @@ public class CategoriaProducto {
         this.productoId = productoId;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CategoriaProducto that = (CategoriaProducto) o;
-        return id == that.id && categoriaId == that.categoriaId && productoId == that.productoId;
+        return id == that.id && categoriaId == that.categoriaId && productoId == that.productoId && status == that.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, categoriaId, productoId);
+        return Objects.hash(id, categoriaId, productoId, status);
     }
 }

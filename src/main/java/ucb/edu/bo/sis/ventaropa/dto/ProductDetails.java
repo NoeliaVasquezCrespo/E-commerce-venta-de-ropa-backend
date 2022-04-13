@@ -12,12 +12,12 @@ public class ProductDetails {
     private String color;
     private String talla;
 
-    public ProductDetails(Integer idProducto, String nombreProducto, String marca, BigDecimal precio, Integer stock, String description, String color, String talla) {
+    public ProductDetails(Integer idProducto, String nombreProducto, String marca, BigDecimal precio, Long stock, String description, String color, String talla) {
         this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
         this.marca = marca;
         this.precio = precio;
-        this.stock = stock;
+        this.stock = Integer.valueOf(stock.intValue());
         this.description = description;
         this.color = color;
         this.talla = talla;

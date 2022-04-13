@@ -11,6 +11,6 @@ import java.util.List;
 public interface FotoProductoDao extends JpaRepository<FotosProducto, Integer> {
     @Query(value = "select fotoProducto " +
             "from FotosProducto fotoProducto " +
-            "where fotoProducto.productoId=?1 ")
+            "where fotoProducto.productTallaColorFotoId=?1 ")
     public List<FotosProducto> findImagesProducts(Integer productId);
 }

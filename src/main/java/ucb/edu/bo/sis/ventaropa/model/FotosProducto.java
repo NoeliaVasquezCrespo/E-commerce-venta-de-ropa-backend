@@ -11,11 +11,11 @@ public class FotosProducto {
     @Column(name = "id")
     private int id;
     @Basic
-    @Column(name = "producto_id")
-    private int productoId;
-    @Basic
     @Column(name = "foto")
     private String foto;
+    @Basic
+    @Column(name = "product_talla_color_foto_id")
+    private int productTallaColorFotoId;
 
     public int getId() {
         return id;
@@ -23,14 +23,6 @@ public class FotosProducto {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getProductoId() {
-        return productoId;
-    }
-
-    public void setProductoId(int productoId) {
-        this.productoId = productoId;
     }
 
     public String getFoto() {
@@ -41,25 +33,24 @@ public class FotosProducto {
         this.foto = foto;
     }
 
+    public int getProductTallaColorFotoId() {
+        return productTallaColorFotoId;
+    }
+
+    public void setProductTallaColorFotoId(int productTallaColorFotoId) {
+        this.productTallaColorFotoId = productTallaColorFotoId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FotosProducto that = (FotosProducto) o;
-        return id == that.id && productoId == that.productoId && Objects.equals(foto, that.foto);
+        return id == that.id && productTallaColorFotoId == that.productTallaColorFotoId && Objects.equals(foto, that.foto);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, productoId, foto);
-    }
-
-    @Override
-    public String toString() {
-        return "FotosProducto{" +
-                "id=" + id +
-                ", productoId=" + productoId +
-                ", foto='" + foto + '\'' +
-                '}';
+        return Objects.hash(id, foto, productTallaColorFotoId);
     }
 }

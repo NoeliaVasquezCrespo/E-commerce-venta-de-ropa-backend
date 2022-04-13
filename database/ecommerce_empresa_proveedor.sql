@@ -1,10 +1,10 @@
-insert into empresa (id, nombre, nit) values (1, 'Desert Tobacco', 3033344);
-insert into empresa (id, nombre, nit) values (2, 'Crossidium Moss', 508427);
-insert into empresa (id, nombre, nit) values (3, 'Awnless Beardgrass', 589987);
-insert into empresa (id, nombre, nit) values (4, 'Juniper Berry', 6456325);
-insert into empresa (id, nombre, nit) values (5, 'Freckled Milkvetch', 115392);
-insert into empresa (id, nombre, nit) values (6, 'Canyon Gooseberry', 1427969);
-insert into empresa (id, nombre, nit) values (7, 'Dicranum Moss', 2344702);
+insert into empresa (id, nombre, nit) values (1, 'Totto', 3033344);
+insert into empresa (id, nombre, nit) values (2, 'Luis Button', 508427);
+insert into empresa (id, nombre, nit) values (3, 'Chanel', 589987);
+insert into empresa (id, nombre, nit) values (4, 'Levis', 6456325);
+insert into empresa (id, nombre, nit) values (5, 'Gucci', 115392);
+insert into empresa (id, nombre, nit) values (6, 'Nike', 1427969);
+insert into empresa (id, nombre, nit) values (7, 'Adidas', 2344702);
 insert into empresa (id, nombre, nit) values (8, 'Cape Thompson Draba', 3623738);
 insert into empresa (id, nombre, nit) values (9, 'Rubber Rabbitbrush', 3337816);
 insert into empresa (id, nombre, nit) values (10, 'Rim Lichen', 8180654);

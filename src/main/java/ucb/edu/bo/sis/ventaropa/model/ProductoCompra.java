@@ -19,6 +19,9 @@ public class ProductoCompra {
     @Basic
     @Column(name = "cantidad")
     private int cantidad;
+    @Basic
+    @Column(name = "status")
+    private int status;
 
     public int getId() {
         return id;
@@ -52,16 +55,24 @@ public class ProductoCompra {
         this.cantidad = cantidad;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductoCompra that = (ProductoCompra) o;
-        return id == that.id && compraId == that.compraId && productoId == that.productoId && cantidad == that.cantidad;
+        return id == that.id && compraId == that.compraId && productoId == that.productoId && cantidad == that.cantidad && status == that.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, compraId, productoId, cantidad);
+        return Objects.hash(id, compraId, productoId, cantidad, status);
     }
 }

@@ -1,5 +1,5 @@
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2022-04-05 18:10:48.219
+-- Last modification date: 2022-04-12 20:40:29.766
 
 -- tables
 -- Table: administrador
@@ -10,7 +10,6 @@ CREATE TABLE administrador (
                                edad int NOT NULL,
                                correo_electronico varchar(60) NOT NULL,
                                tipo_administrador_id int NOT NULL,
-                               user_name varchar(40) NOT NULL,
                                password varchar(30) NOT NULL,
                                status int NOT NULL,
                                empresa_id int NULL,
@@ -30,6 +29,7 @@ CREATE TABLE categoria_producto (
                                     id int NOT NULL AUTO_INCREMENT,
                                     categoria_id int NOT NULL,
                                     producto_id int NOT NULL,
+                                    status int NOT NULL,
                                     CONSTRAINT categoria_producto_pk PRIMARY KEY (id)
 );
 
@@ -54,6 +54,7 @@ CREATE TABLE compra (
                         fecha int NOT NULL,
                         monto_total int NOT NULL,
                         tipo_pago_id int NOT NULL,
+                        status int NOT NULL,
                         CONSTRAINT compra_pk PRIMARY KEY (id)
 );
 
@@ -64,6 +65,7 @@ CREATE TABLE direccion (
                            codigo_postal varchar(45) NOT NULL,
                            telefono varchar(40) NOT NULL,
                            ciudad_id int NOT NULL,
+                           status int NOT NULL,
                            CONSTRAINT direccion_pk PRIMARY KEY (id)
 );
 
@@ -78,8 +80,8 @@ CREATE TABLE empresa (
 -- Table: fotos_producto
 CREATE TABLE fotos_producto (
                                 id int NOT NULL AUTO_INCREMENT,
-                                producto_id int NOT NULL,
                                 foto varchar(100) NOT NULL,
+                                product_talla_color_foto_id int NOT NULL,
                                 CONSTRAINT fotos_producto_pk PRIMARY KEY (id)
 );
 
@@ -102,16 +104,24 @@ CREATE TABLE oferta_producto (
                                  CONSTRAINT oferta_producto_pk PRIMARY KEY (id)
 );
 
+-- Table: product_talla_color_foto
+CREATE TABLE product_talla_color_foto (
+                                          id int NOT NULL AUTO_INCREMENT,
+                                          producto_id int NOT NULL,
+                                          talla_id int NOT NULL,
+                                          color_id int NOT NULL,
+                                          stock int NOT NULL,
+                                          status int NOT NULL,
+                                          CONSTRAINT product_talla_color_foto_pk PRIMARY KEY (id)
+);
+
 -- Table: producto
 CREATE TABLE producto (
                           id int NOT NULL AUTO_INCREMENT,
                           codigo_producto varchar(100) NOT NULL,
                           nombre_producto varchar(45) NOT NULL,
                           descripcion varchar(45) NOT NULL,
-                          stock int NOT NULL,
                           precio decimal(8,2) NOT NULL,
-                          color_id int NOT NULL,
-                          talla_id int NOT NULL,
                           administrador_id int NOT NULL,
                           status int NOT NULL,
                           CONSTRAINT producto_pk PRIMARY KEY (id)
@@ -123,6 +133,7 @@ CREATE TABLE producto_compra (
                                  compra_id int NOT NULL,
                                  producto_id int NOT NULL,
                                  cantidad int NOT NULL,
+                                 status int NOT NULL,
                                  CONSTRAINT producto_compra_pk PRIMARY KEY (id)
 );
 
@@ -154,7 +165,6 @@ CREATE TABLE usuario (
                          apellido varchar(40) NOT NULL,
                          edad int NULL,
                          correo_electronico varchar(60) NOT NULL,
-                         user_name varchar(40) NOT NULL,
                          password varchar(30) NOT NULL,
                          status int NOT NULL,
                          direccion_id int NOT NULL,
@@ -182,9 +192,9 @@ ALTER TABLE compra ADD CONSTRAINT compra_usuario FOREIGN KEY compra_usuario (usu
 ALTER TABLE direccion ADD CONSTRAINT direccion_ciudad FOREIGN KEY direccion_ciudad (ciudad_id)
     REFERENCES ciudad (id);
 
--- Reference: fotos_producto_producto (table: fotos_producto)
-ALTER TABLE fotos_producto ADD CONSTRAINT fotos_producto_producto FOREIGN KEY fotos_producto_producto (producto_id)
-    REFERENCES producto (id);
+-- Reference: fotos_producto_product_talla_color_foto (table: fotos_producto)
+ALTER TABLE fotos_producto ADD CONSTRAINT fotos_producto_product_talla_color_foto FOREIGN KEY fotos_producto_product_talla_color_foto (product_talla_color_foto_id)
+    REFERENCES product_talla_color_foto (id);
 
 -- Reference: oferta_producto_oferta (table: oferta_producto)
 ALTER TABLE oferta_producto ADD CONSTRAINT oferta_producto_oferta FOREIGN KEY oferta_producto_oferta (oferta_id)
@@ -193,6 +203,18 @@ ALTER TABLE oferta_producto ADD CONSTRAINT oferta_producto_oferta FOREIGN KEY of
 -- Reference: oferta_producto_producto (table: oferta_producto)
 ALTER TABLE oferta_producto ADD CONSTRAINT oferta_producto_producto FOREIGN KEY oferta_producto_producto (producto_id)
     REFERENCES producto (id);
+
+-- Reference: product_talla_color_foto_color (table: product_talla_color_foto)
+ALTER TABLE product_talla_color_foto ADD CONSTRAINT product_talla_color_foto_color FOREIGN KEY product_talla_color_foto_color (color_id)
+    REFERENCES color (id);
+
+-- Reference: product_talla_color_foto_producto (table: product_talla_color_foto)
+ALTER TABLE product_talla_color_foto ADD CONSTRAINT product_talla_color_foto_producto FOREIGN KEY product_talla_color_foto_producto (producto_id)
+    REFERENCES producto (id);
+
+-- Reference: product_talla_color_foto_talla (table: product_talla_color_foto)
+ALTER TABLE product_talla_color_foto ADD CONSTRAINT product_talla_color_foto_talla FOREIGN KEY product_talla_color_foto_talla (talla_id)
+    REFERENCES talla (id);
 
 -- Reference: producto_administrador (table: producto)
 ALTER TABLE producto ADD CONSTRAINT producto_administrador FOREIGN KEY producto_administrador (administrador_id)
@@ -206,10 +228,6 @@ ALTER TABLE categoria_producto ADD CONSTRAINT producto_categoria_categoria FOREI
 ALTER TABLE categoria_producto ADD CONSTRAINT producto_categoria_producto FOREIGN KEY producto_categoria_producto (producto_id)
     REFERENCES producto (id);
 
--- Reference: producto_color (table: producto)
-ALTER TABLE producto ADD CONSTRAINT producto_color FOREIGN KEY producto_color (color_id)
-    REFERENCES color (id);
-
 -- Reference: producto_compra_compra (table: producto_compra)
 ALTER TABLE producto_compra ADD CONSTRAINT producto_compra_compra FOREIGN KEY producto_compra_compra (compra_id)
     REFERENCES compra (id);
@@ -217,10 +235,6 @@ ALTER TABLE producto_compra ADD CONSTRAINT producto_compra_compra FOREIGN KEY pr
 -- Reference: producto_compra_producto (table: producto_compra)
 ALTER TABLE producto_compra ADD CONSTRAINT producto_compra_producto FOREIGN KEY producto_compra_producto (producto_id)
     REFERENCES producto (id);
-
--- Reference: producto_talla (table: producto)
-ALTER TABLE producto ADD CONSTRAINT producto_talla FOREIGN KEY producto_talla (talla_id)
-    REFERENCES talla (id);
 
 -- Reference: usuario_direccion (table: usuario)
 ALTER TABLE usuario ADD CONSTRAINT usuario_direccion FOREIGN KEY usuario_direccion (direccion_id)

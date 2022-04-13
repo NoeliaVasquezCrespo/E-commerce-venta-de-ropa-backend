@@ -21,6 +21,9 @@ public class Direccion {
     @Basic
     @Column(name = "ciudad_id")
     private int ciudadId;
+    @Basic
+    @Column(name = "status")
+    private int status;
 
     public int getId() {
         return id;
@@ -62,16 +65,24 @@ public class Direccion {
         this.ciudadId = ciudadId;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Direccion direccion = (Direccion) o;
-        return id == direccion.id && ciudadId == direccion.ciudadId && Objects.equals(nombreDireccion, direccion.nombreDireccion) && Objects.equals(codigoPostal, direccion.codigoPostal) && Objects.equals(telefono, direccion.telefono);
+        return id == direccion.id && ciudadId == direccion.ciudadId && status == direccion.status && Objects.equals(nombreDireccion, direccion.nombreDireccion) && Objects.equals(codigoPostal, direccion.codigoPostal) && Objects.equals(telefono, direccion.telefono);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombreDireccion, codigoPostal, telefono, ciudadId);
+        return Objects.hash(id, nombreDireccion, codigoPostal, telefono, ciudadId, status);
     }
 }

@@ -39,24 +39,30 @@ public interface ProductDao extends JpaRepository<Producto, Integer> {
             nativeQuery = true
     )
     public List<Producto> findProductByProductCode(@Param("codProducto") String codProducto);
-    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductRequest(producto.id, producto.nombreProducto, empresa.nombre, producto.precio,producto.stock,producto.descripcion) " +
-            "from Producto producto, Administrador administrador, Empresa empresa " +
-            "where producto.administradorId=administrador.id " +
-            "and administrador.empresaId=empresa.id")
-    public List<ProductRequest> listProductsRequest();
-    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductRequest(producto.id, producto.nombreProducto, empresa.nombre, producto.precio,producto.stock,producto.descripcion) " +
-            "from Producto producto, Administrador administrador, Empresa empresa " +
+    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductRequest(producto.id, producto.nombreProducto, empresa.nombre, producto.precio, sum(productTallaColorFoto.stock),producto.descripcion) " +
+            "from Producto producto, Administrador administrador, Empresa empresa, ProductTallaColorFoto productTallaColorFoto " +
             "where producto.administradorId=administrador.id " +
             "and administrador.empresaId=empresa.id " +
-            "and producto.administradorId=?1")
+            "and productTallaColorFoto.productoId = producto.id " +
+            "group by (producto.id)")
+    public List<ProductRequest> listProductsRequest();
+    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductRequest(producto.id, producto.nombreProducto, empresa.nombre, producto.precio, sum(productTallaColorFoto.stock) ,producto.descripcion) " +
+            "from Producto producto, Administrador administrador, Empresa empresa, ProductTallaColorFoto productTallaColorFoto " +
+            "where producto.administradorId=administrador.id " +
+            "and administrador.empresaId=empresa.id " +
+            "and productTallaColorFoto.productoId = producto.id " +
+            "and producto.administradorId=?1 " +
+            "group by (producto.id)")
     public List<ProductRequest>listProductsByAdminId(Integer id);
 
-    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductDetails(producto.id, producto.nombreProducto, empresa.nombre, producto.precio,producto.stock,producto.descripcion,color.descripcion, talla.nombreTalla) " +
-            "from Producto producto, Administrador administrador, Empresa empresa, Color color, Talla talla " +
+    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductDetails(producto.id, producto.nombreProducto, empresa.nombre, producto.precio, sum(productTallaColorFoto.stock) ,producto.descripcion,color.descripcion, talla.nombreTalla) " +
+            "from Producto producto, Administrador administrador, Empresa empresa, Color color, Talla talla , ProductTallaColorFoto productTallaColorFoto " +
             "where producto.administradorId=administrador.id " +
             "and administrador.empresaId=empresa.id " +
-            "and color.id=producto.colorId " +
-            "and talla.id=producto.tallaId " +
-            "and producto.id=?1")
+            "and productTallaColorFoto.productoId = producto.id " +
+            "and color.id=productTallaColorFoto.colorId " +
+            "and talla.id=productTallaColorFoto.tallaId " +
+            "and producto.id=?1 " +
+            "group by (producto.id) ")
     public List<ProductDetails>listProductsByProductId(Integer id);
 }

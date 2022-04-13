@@ -7,9 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import ucb.edu.bo.sis.ventaropa.dao.FotoProductoDao;
 import ucb.edu.bo.sis.ventaropa.dao.ProductDao;
+import ucb.edu.bo.sis.ventaropa.dao.ProductTallaColorFotoDao;
+import ucb.edu.bo.sis.ventaropa.dto.ProductCharacteristic;
 import ucb.edu.bo.sis.ventaropa.dto.ProductDetails;
 import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
 import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
+import ucb.edu.bo.sis.ventaropa.model.ProductTallaColorFoto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
 import ucb.edu.bo.sis.ventaropa.service.ProductService;
 import ucb.edu.bo.sis.ventaropa.util.ImageUtil;
@@ -23,12 +26,14 @@ public class ProductBl implements ProductService {
 
     private ProductDao productDao;
     private FotoProductoDao fotoProductoDao;
+    private ProductTallaColorFotoDao productTallaColorFotoDao;
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
 
     @Autowired
-    public ProductBl(ProductDao productDao, FotoProductoDao fotoProductoDao) {
+    public ProductBl(ProductDao productDao, FotoProductoDao fotoProductoDao,ProductTallaColorFotoDao productTallaColorFotoDao) {
         this.productDao = productDao;
         this.fotoProductoDao = fotoProductoDao;
+        this.productTallaColorFotoDao=productTallaColorFotoDao;
     }
 
 
@@ -54,18 +59,18 @@ public class ProductBl implements ProductService {
         if (Objects.nonNull(producto.getDescripcion()) && !"".equalsIgnoreCase(producto.getDescripcion())){
             productoDB.setDescripcion(producto.getDescripcion());
         }
-        if (Objects.nonNull(producto.getStock())){
+        /***if (Objects.nonNull(producto.getStock())){
             productoDB.setStock(producto.getStock());
-        }
+        }*/
         if (Objects.nonNull(producto.getPrecio())){
             productoDB.setPrecio(producto.getPrecio());
         }
-        if (Objects.nonNull(producto.getColorId())){
+        /**if (Objects.nonNull(producto.getColorId())){
             productoDB.setColorId(producto.getColorId());
         }
         if (Objects.nonNull(producto.getTallaId())){
             productoDB.setTallaId(producto.getTallaId());
-        }
+        }**/
         if (Objects.nonNull(producto.getAdministradorId())){
             productoDB.setAdministradorId(producto.getAdministradorId());
         }
@@ -93,12 +98,12 @@ public class ProductBl implements ProductService {
         productDao.deleteById(id);
     }
     @Override
-    public FotosProducto uploadImage(MultipartFile image, Integer productId){
+    public FotosProducto uploadImage(MultipartFile image, Integer productTallaColorId){
         ImageUtil imageUtil = new ImageUtil();
         FotosProducto fotosProducto = new FotosProducto();
 
-        String newImageName = imageUtil.uploadImage(image,"images/productImage","User",productId);
-        fotosProducto.setProductoId(productId);
+        String newImageName = imageUtil.uploadImage(image,"images/productImage","User",productTallaColorId);
+        fotosProducto.setProductTallaColorFotoId(productTallaColorId);
         fotosProducto.setFoto(newImageName);
         LOGGER.info(fotosProducto.toString());
         fotoProductoDao.save(fotosProducto);
@@ -121,5 +126,18 @@ public class ProductBl implements ProductService {
     @Override
     public ProductDetails listProductsByProductId(Integer idProduct){
         return this.productDao.listProductsByProductId(idProduct).get(0);
+    }
+
+    @Override
+    public ProductTallaColorFoto createProductTallaColorFoto(ProductCharacteristic characteristic) {
+        ProductTallaColorFoto productTallaColorFoto = new ProductTallaColorFoto();
+        productTallaColorFoto.setProductoId(characteristic.getProductId());
+        productTallaColorFoto.setTallaId(characteristic.getTallaId());
+        productTallaColorFoto.setColorId(characteristic.getColorId());
+        productTallaColorFoto.setStock(characteristic.getStock());
+        productTallaColorFoto.setStatus(1);
+
+        ProductTallaColorFoto newProductTallaColorFoto1= this.productTallaColorFotoDao.save(productTallaColorFoto);
+        return newProductTallaColorFoto1;
     }
 }

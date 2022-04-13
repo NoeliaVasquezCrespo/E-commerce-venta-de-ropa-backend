@@ -10,12 +10,12 @@ public class ProductRequest {
     private Integer stock;
     private String description;
 
-    public ProductRequest(Integer idProducto, String nombreProducto, String marca, BigDecimal precio,Integer stock,String description) {
+    public ProductRequest(Integer idProducto, String nombreProducto, String marca, BigDecimal precio,Long stock,String description) {
         this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
         this.marca = marca;
         this.precio = precio;
-        this.stock = stock;
+        this.stock = Integer.valueOf(stock.intValue());
         this.description = description;
     }
 

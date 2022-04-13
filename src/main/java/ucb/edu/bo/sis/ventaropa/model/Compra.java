@@ -21,6 +21,9 @@ public class Compra {
     @Basic
     @Column(name = "tipo_pago_id")
     private int tipoPagoId;
+    @Basic
+    @Column(name = "status")
+    private int status;
 
     public int getId() {
         return id;
@@ -62,16 +65,24 @@ public class Compra {
         this.tipoPagoId = tipoPagoId;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Compra compra = (Compra) o;
-        return id == compra.id && usuarioId == compra.usuarioId && fecha == compra.fecha && montoTotal == compra.montoTotal && tipoPagoId == compra.tipoPagoId;
+        return id == compra.id && usuarioId == compra.usuarioId && fecha == compra.fecha && montoTotal == compra.montoTotal && tipoPagoId == compra.tipoPagoId && status == compra.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, usuarioId, fecha, montoTotal, tipoPagoId);
+        return Objects.hash(id, usuarioId, fecha, montoTotal, tipoPagoId, status);
     }
 }

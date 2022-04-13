@@ -7,9 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ucb.edu.bo.sis.ventaropa.bl.ProductBl;
+import ucb.edu.bo.sis.ventaropa.dto.ProductCharacteristic;
 import ucb.edu.bo.sis.ventaropa.dto.ProductDetails;
 import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
 import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
+import ucb.edu.bo.sis.ventaropa.model.ProductTallaColorFoto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
 import ucb.edu.bo.sis.ventaropa.util.ImageUtil;
 
@@ -35,6 +37,16 @@ public class ProductApi {
     public Producto addProduct(@RequestBody Producto producto) {
         System.out.println("Invocando al metodo POST");
         return productBl.createProduct(producto);
+    }
+    @PostMapping(path="/products/characteristic", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> addProductCharacteristic(@RequestBody ProductCharacteristic productCharacteristic){
+        try {
+
+            ProductTallaColorFoto result = this.productBl.createProductTallaColorFoto(productCharacteristic);
+            return new ResponseEntity<>(result,HttpStatus.CREATED);
+        }catch (Exception ex){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 
     @PutMapping(path="/products/{id}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )

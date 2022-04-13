@@ -1,6 +1,11 @@
 INSERT INTO tipo_administrador (id, tipo) VALUES (1, 'Sistema');
 INSERT INTO tipo_administrador (id, tipo) VALUES (2, 'Proveedor');
 
+INSERT INTO administrador (id, nombre, apellido, edad, correo_electronico, tipo_administrador_id,  password, status, empresa_id) VALUES (1, 'Juan', 'Perez', 30, 'jupe@gmail.com', 1, '123', 1,null);
+INSERT INTO administrador (id, nombre, apellido, edad, correo_electronico, tipo_administrador_id,  password, status, empresa_id) VALUES (2, 'Pedro', 'Murillo', 25, 'pedromu@gmail.com', 1,  '456', 1,2);
+insert into administrador (id, nombre, apellido, edad, correo_electronico, tipo_administrador_id,  password, status, empresa_id) values (3, 'Veradis', 'Bachelor', 55, 'vbachelor2@chicagotribune.com', 2, 'u1VJRBnGmP', 1, 108);
+insert into administrador (id, nombre, apellido, edad, correo_electronico, tipo_administrador_id,  password, status, empresa_id) values (4, 'Anneliese', 'Weldon', 43, 'aweldon3@desdev.cn', 1, 'p1GpAgqi7a2D', 1, null);
+insert into administrador (id, nombre, apellido, edad, correo_electronico, tipo_administrador_id,  password, status, empresa_id) values (5, 'Beverie', 'O''Towey', 14, 'botowey4@ifeng.com', 2, 'SNdjSZQItM', 0, 813);
 
 
 INSERT INTO administrador (id, nombre, apellido, edad, correo_electronico, tipo_administrador_id, user_name, password, status) VALUES (1, 'Juan', 'Perez', 30, 'jupe@gmail.com', 1, 'admin', '123', 1);
