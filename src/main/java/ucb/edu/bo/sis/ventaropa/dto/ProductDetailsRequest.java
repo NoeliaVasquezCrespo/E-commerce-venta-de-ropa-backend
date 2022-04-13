@@ -2,7 +2,7 @@ package ucb.edu.bo.sis.ventaropa.dto;
 
 import java.math.BigDecimal;
 
-public class ProductDetails {
+public class ProductDetailsRequest {
     private Integer idProducto;
     private String nombreProducto;
     private String marca;
@@ -12,7 +12,7 @@ public class ProductDetails {
     private String color;
     private String talla;
 
-    public ProductDetails(Integer idProducto, String nombreProducto, String marca, BigDecimal precio, Long stock, String description, String color, String talla) {
+    public ProductDetailsRequest(Integer idProducto, String nombreProducto, String marca, BigDecimal precio, Long stock, String description, String color, String talla) {
         this.idProducto = idProducto;
         this.nombreProducto = nombreProducto;
         this.marca = marca;

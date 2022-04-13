@@ -1,12 +1,12 @@
 package ucb.edu.bo.sis.ventaropa.dto;
 
-public class ProductCharacteristic {
+public class ProductCharacteristicRequest {
     private Integer productId;
     private Integer tallaId;
     private Integer colorId;
     private Integer stock;
 
-    public ProductCharacteristic(Integer productId, Integer tallaId, Integer colorId, Integer stock) {
+    public ProductCharacteristicRequest(Integer productId, Integer tallaId, Integer colorId, Integer stock) {
         this.productId = productId;
         this.tallaId = tallaId;
         this.colorId = colorId;

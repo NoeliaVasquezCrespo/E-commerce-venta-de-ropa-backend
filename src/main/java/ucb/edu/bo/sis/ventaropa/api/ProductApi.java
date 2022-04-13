@@ -7,8 +7,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ucb.edu.bo.sis.ventaropa.bl.ProductBl;
-import ucb.edu.bo.sis.ventaropa.dto.ProductCharacteristic;
-import ucb.edu.bo.sis.ventaropa.dto.ProductDetails;
+import ucb.edu.bo.sis.ventaropa.dto.ImageProductRequest;
+import ucb.edu.bo.sis.ventaropa.dto.ProductCharacteristicRequest;
+import ucb.edu.bo.sis.ventaropa.dto.ProductDetailsRequest;
 import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
 import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.ProductTallaColorFoto;
@@ -39,7 +40,7 @@ public class ProductApi {
         return productBl.createProduct(producto);
     }
     @PostMapping(path="/products/characteristic", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> addProductCharacteristic(@RequestBody ProductCharacteristic productCharacteristic){
+    public ResponseEntity<?> addProductCharacteristic(@RequestBody ProductCharacteristicRequest productCharacteristic){
         try {
 
             ProductTallaColorFoto result = this.productBl.createProductTallaColorFoto(productCharacteristic);
@@ -108,8 +109,8 @@ public class ProductApi {
         return image;
     }
     @GetMapping(path="products/image/{productId}" , produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<FotosProducto>getFirstImageProduct(@PathVariable("productId") Integer productId){
-        FotosProducto fotosProducto =this.productBl.findFirstImageProduct(productId);
+    public ResponseEntity<ImageProductRequest>getFirstImageProduct(@PathVariable("productId") Integer productId){
+        ImageProductRequest fotosProducto =this.productBl.findFirstImageProduct(productId);
         return new ResponseEntity<>(fotosProducto, HttpStatus.OK);
     }
     @GetMapping(path = "products/details")
@@ -123,8 +124,8 @@ public class ProductApi {
         return new ResponseEntity<>(lista,HttpStatus.OK);
     }
     @GetMapping(path = "products/{productId}")
-    public ResponseEntity<ProductDetails>getListProductRequestByProductId(@PathVariable("productId") Integer productId){
-        ProductDetails lista = this.productBl.listProductsByProductId(productId);
+    public ResponseEntity<ProductDetailsRequest>getListProductRequestByProductId(@PathVariable("productId") Integer productId){
+        ProductDetailsRequest lista = this.productBl.listProductsByProductId(productId);
         return new ResponseEntity<>(lista,HttpStatus.OK);
     }
 }

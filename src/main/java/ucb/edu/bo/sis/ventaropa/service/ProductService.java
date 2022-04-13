@@ -1,8 +1,9 @@
 package ucb.edu.bo.sis.ventaropa.service;
 
 import org.springframework.web.multipart.MultipartFile;
-import ucb.edu.bo.sis.ventaropa.dto.ProductCharacteristic;
-import ucb.edu.bo.sis.ventaropa.dto.ProductDetails;
+import ucb.edu.bo.sis.ventaropa.dto.ImageProductRequest;
+import ucb.edu.bo.sis.ventaropa.dto.ProductCharacteristicRequest;
+import ucb.edu.bo.sis.ventaropa.dto.ProductDetailsRequest;
 import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
 import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.ProductTallaColorFoto;
@@ -16,9 +17,9 @@ public interface ProductService {
     Producto updateProduct(Producto producto, Integer productoId);
     void deleteProduct(Integer id);
     FotosProducto uploadImage(MultipartFile image, Integer productTallaColorId);
-    FotosProducto findFirstImageProduct(Integer productId);
+    ImageProductRequest findFirstImageProduct(Integer productId);
     List<ProductRequest> listProductRequest();
     List<ProductRequest> listProductRequestByProvideId(Integer idProvider);
-    ProductDetails listProductsByProductId(Integer idProvider);
-    ProductTallaColorFoto createProductTallaColorFoto(ProductCharacteristic characteristic);
+    ProductDetailsRequest listProductsByProductId(Integer idProvider);
+    ProductTallaColorFoto createProductTallaColorFoto(ProductCharacteristicRequest characteristic);
 }

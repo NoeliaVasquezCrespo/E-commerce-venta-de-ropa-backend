@@ -8,8 +8,9 @@ import org.springframework.web.multipart.MultipartFile;
 import ucb.edu.bo.sis.ventaropa.dao.FotoProductoDao;
 import ucb.edu.bo.sis.ventaropa.dao.ProductDao;
 import ucb.edu.bo.sis.ventaropa.dao.ProductTallaColorFotoDao;
-import ucb.edu.bo.sis.ventaropa.dto.ProductCharacteristic;
-import ucb.edu.bo.sis.ventaropa.dto.ProductDetails;
+import ucb.edu.bo.sis.ventaropa.dto.ImageProductRequest;
+import ucb.edu.bo.sis.ventaropa.dto.ProductCharacteristicRequest;
+import ucb.edu.bo.sis.ventaropa.dto.ProductDetailsRequest;
 import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
 import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.ProductTallaColorFoto;
@@ -111,8 +112,8 @@ public class ProductBl implements ProductService {
     }
 
     @Override
-    public FotosProducto findFirstImageProduct(Integer productId) {
-        return this.fotoProductoDao.findImagesProducts(productId).get(0);
+    public ImageProductRequest findFirstImageProduct(Integer productId) {
+        return this.fotoProductoDao.findImageByProductId(productId).get(0);
     }
 
     @Override
@@ -124,12 +125,12 @@ public class ProductBl implements ProductService {
         return this.productDao.listProductsByAdminId(idProvider);
     }
     @Override
-    public ProductDetails listProductsByProductId(Integer idProduct){
+    public ProductDetailsRequest listProductsByProductId(Integer idProduct){
         return this.productDao.listProductsByProductId(idProduct).get(0);
     }
 
     @Override
-    public ProductTallaColorFoto createProductTallaColorFoto(ProductCharacteristic characteristic) {
+    public ProductTallaColorFoto createProductTallaColorFoto(ProductCharacteristicRequest characteristic) {
         ProductTallaColorFoto productTallaColorFoto = new ProductTallaColorFoto();
         productTallaColorFoto.setProductoId(characteristic.getProductId());
         productTallaColorFoto.setTallaId(characteristic.getTallaId());

@@ -4,9 +4,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import ucb.edu.bo.sis.ventaropa.dto.ProductDetails;
+import ucb.edu.bo.sis.ventaropa.dto.ProductDetailsRequest;
 import ucb.edu.bo.sis.ventaropa.dto.ProductRequest;
-import ucb.edu.bo.sis.ventaropa.model.FotosProducto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
 
 import java.util.List;
@@ -55,7 +54,7 @@ public interface ProductDao extends JpaRepository<Producto, Integer> {
             "group by (producto.id)")
     public List<ProductRequest>listProductsByAdminId(Integer id);
 
-    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductDetails(producto.id, producto.nombreProducto, empresa.nombre, producto.precio, sum(productTallaColorFoto.stock) ,producto.descripcion,color.descripcion, talla.nombreTalla) " +
+    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductDetailsRequest(producto.id, producto.nombreProducto, empresa.nombre, producto.precio, sum(productTallaColorFoto.stock) ,producto.descripcion,color.descripcion, talla.nombreTalla) " +
             "from Producto producto, Administrador administrador, Empresa empresa, Color color, Talla talla , ProductTallaColorFoto productTallaColorFoto " +
             "where producto.administradorId=administrador.id " +
             "and administrador.empresaId=empresa.id " +
@@ -64,5 +63,5 @@ public interface ProductDao extends JpaRepository<Producto, Integer> {
             "and talla.id=productTallaColorFoto.tallaId " +
             "and producto.id=?1 " +
             "group by (producto.id) ")
-    public List<ProductDetails>listProductsByProductId(Integer id);
+    public List<ProductDetailsRequest>listProductsByProductId(Integer id);
 }
