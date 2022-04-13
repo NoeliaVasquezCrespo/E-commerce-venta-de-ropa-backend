@@ -1001,8 +1001,8 @@ insert into empresa (id, nombre, nit) values (1000, 'Nelson''s Buttercup', 68608
 
 
 -- Proveedor---
-INSERT INTO proveedor (id, nombre, apellido, correo_electronico, password, status, empresa_id) VALUES (1, 'Mario', 'Lopez', 'mariolopez@gmail.com', '123', 1, 1);
-INSERT INTO proveedor (id, nombre, apellido, correo_electronico, password, status, empresa_id) VALUES (2, 'Marco', 'Fernandezz', 'marcofernandez@gmail.com', '0000', 1, 2);
+#INSERT INTO proveedor (id, nombre, apellido, correo_electronico, password, status, empresa_id) VALUES (1, 'Mario', 'Lopez', 'mariolopez@gmail.com', '123', 1, 1);
+#INSERT INTO proveedor (id, nombre, apellido, correo_electronico, password, status, empresa_id) VALUES (2, 'Marco', 'Fernandezz', 'marcofernandez@gmail.com', '0000', 1, 2);
 
 
 
