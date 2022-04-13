@@ -45,13 +45,13 @@ public interface ProductDao extends JpaRepository<Producto, Integer> {
             "and productTallaColorFoto.productoId = producto.id " +
             "group by (producto.id)")
     public List<ProductRequest> listProductsRequest();
-    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductRequest(producto.id, producto.nombreProducto, empresa.nombre, producto.precio, sum(productTallaColorFoto.stock) ,producto.descripcion) " +
-            "from Producto producto, Administrador administrador, Empresa empresa, ProductTallaColorFoto productTallaColorFoto " +
-            "where producto.administradorId=administrador.id " +
-            "and administrador.empresaId=empresa.id " +
-            "and productTallaColorFoto.productoId = producto.id " +
-            "and producto.administradorId=?1 " +
-            "group by (producto.id)")
+    @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductRequest(a.id, a.nombreProducto, c.nombre, a.precio, sum(d.stock) ,a.descripcion) " +
+            "from Producto a, Administrador b, Empresa c, ProductTallaColorFoto d " +
+            "where b.empresaId=c.id " +
+            "and a.administradorId=b.id " +
+            "and d.productoId=a.id " +
+            "and a.status=1 " +
+            "group by (d.productoId)")
     public List<ProductRequest>listProductsByAdminId(Integer id);
 
     @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductDetailsRequest(producto.id, producto.nombreProducto, empresa.nombre, producto.precio, sum(productTallaColorFoto.stock) ,producto.descripcion,color.descripcion, talla.nombreTalla) " +
