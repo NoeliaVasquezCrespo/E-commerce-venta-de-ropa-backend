@@ -2,8 +2,7 @@ create table categoria
 (
     id        int auto_increment
         primary key,
-    categoria varchar(30) not null,
-    status    int         not null
+    categoria varchar(30) not null
 );
 
 create table ciudad
