@@ -141,4 +141,9 @@ public class ProductBl implements ProductService {
         ProductTallaColorFoto newProductTallaColorFoto1= this.productTallaColorFotoDao.save(productTallaColorFoto);
         return newProductTallaColorFoto1;
     }
+
+    @Override
+    public List<ProductRequest> findProductDetailsByName(String name) {
+        return this.productDao.findProductDetailsByName(name);
+    }
 }

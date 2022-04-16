@@ -123,6 +123,10 @@ public class ProductApi {
         List<ProductRequest> lista = this.productBl.listProductRequestByProvideId(providerId);
         return new ResponseEntity<>(lista,HttpStatus.OK);
     }
+    @GetMapping(path = "products/details/productName={name}")
+    public List<ProductRequest> getProductDetailsByName(@PathVariable ("name") String name) {
+        return productBl.findProductDetailsByName(name);
+    }
     @GetMapping(path = "products/{productId}")
     public ResponseEntity<ProductDetailsRequest>getListProductRequestByProductId(@PathVariable("productId") Integer productId){
         ProductDetailsRequest lista = this.productBl.listProductsByProductId(productId);

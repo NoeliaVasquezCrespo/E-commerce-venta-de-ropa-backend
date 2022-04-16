@@ -22,4 +22,6 @@ public interface ProductService {
     List<ProductRequest> listProductRequestByProvideId(Integer idProvider);
     ProductDetailsRequest listProductsByProductId(Integer idProvider);
     ProductTallaColorFoto createProductTallaColorFoto(ProductCharacteristicRequest characteristic);
+
+    List<ProductRequest> findProductDetailsByName(String name);
 }
