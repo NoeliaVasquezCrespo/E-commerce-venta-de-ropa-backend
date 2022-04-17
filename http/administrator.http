@@ -33,7 +33,8 @@ Content-Type: application/json
   "status": "1"
 }
 
-### Borrado Fisico de un Administrador
+### Borrado Lógico de un Administrador
 
-DELETE http://localhost:8080/administrators/2
+DELETE http://localhost:8080/administrators/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MDI2MzM4MywiaWF0IjoxNjUwMjI3MzgzfQ.JthDDPCtFhNbEyUuZnMmyySIWUk9-9Ge7wH9ThSMFJU
 Content-Type: application/json

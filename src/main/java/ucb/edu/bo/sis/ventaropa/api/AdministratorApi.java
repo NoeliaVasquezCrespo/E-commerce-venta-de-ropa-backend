@@ -12,6 +12,7 @@ import ucb.edu.bo.sis.ventaropa.bl.AdministratorBl;
 import ucb.edu.bo.sis.ventaropa.bl.AuthBl;
 import ucb.edu.bo.sis.ventaropa.dto.AdministradorRequest;
 import ucb.edu.bo.sis.ventaropa.model.Administrador;
+import ucb.edu.bo.sis.ventaropa.service.AdminService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.Objects;
 @CrossOrigin
 @RestController
 public class AdministratorApi {
-
+    @Autowired AdminService userService;
     private AdministratorBl administratorBl;
     private static final Logger LOGGER = LoggerFactory.getLogger(AdministratorApi.class);
 
@@ -51,12 +52,11 @@ public class AdministratorApi {
         return administratorBl.updateAdministrator(administrador,id);
     }
 
-    @DeleteMapping(path="/administrators/{id}")
-    public String deleteAdministrator(@PathVariable("id") Integer id) {
-        System.out.println("Invocando al metodo DELETE");
-        administratorBl.deleteAdministrator(id);
-        return "Borrado Exitosamente";
+    @DeleteMapping("/administrators/{id}")
+    public void delete(@PathVariable Integer id) {
+        userService.delete(id);
     }
+
     @GetMapping(path = "/administrators/{id}/{jwt}")
     public ResponseEntity<AdministradorRequest> getAdministratorById(@RequestHeader HttpHeaders headers, @PathVariable("id") Integer id,
                                                                      @PathVariable("jwt") String jwt){

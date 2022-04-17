@@ -1,9 +1,15 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
+
+import org.hibernate.annotations.SQLDelete;
+
 import java.util.Objects;
 
 @Entity
+@Table(name = "administrador")
+@SQLDelete(sql = "UPDATE administrador SET status=0 WHERE id=?")
+//@Where(clause = "status = 1")
 public class Administrador {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
