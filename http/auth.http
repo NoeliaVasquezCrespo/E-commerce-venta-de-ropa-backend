@@ -17,3 +17,12 @@ Content-Type: application/json
   "correo": "ejemplo@gmail.com",
   "password": "abcd1234"
 }
+
+### Send POST request with json body
+POST http://localhost:8080/login/user
+Content-Type: application/json
+
+{
+  "correo": "exampleU@gmail.com",
+  "password": "12345678"
+}

@@ -11,7 +11,7 @@ import ucb.edu.bo.sis.ventaropa.dto.AuthRequest;
 @RestController
 @CrossOrigin
 //@RequestMapping("/v1/administrador")
-@RequestMapping("/administrador")
+//@RequestMapping("/administrador")
 public class AuthApi {
 
     private AuthBl authBl;
@@ -22,16 +22,22 @@ public class AuthApi {
         this.authBl = authBl;
     }
 
-    @PostMapping("/login")
+    @PostMapping("/administrador/login")
     public ResponseEntity<?> postLogin(@RequestBody AuthRequest request)throws Exception {
         LOGGER.info("EJECUTANDO METODO");
         return this.authBl.verifyAdminSistema(request);
     }
 
-    @PostMapping("/login/proveedor")
+    @PostMapping("/administrador/login/proveedor")
     public ResponseEntity<?> postLoginProvider(@RequestBody AuthRequest request)throws Exception {
         LOGGER.info("EJECUTANDO METODO");
         return this.authBl.verifyProveedorSistema(request);
+    }
+
+    @PostMapping("/login/user")
+    public ResponseEntity<?> postLoginUser(@RequestBody AuthRequest request)throws Exception {
+        LOGGER.info("EJECUTANDO METODO");
+        return this.authBl.verifyUserSystem(request);
     }
 
 

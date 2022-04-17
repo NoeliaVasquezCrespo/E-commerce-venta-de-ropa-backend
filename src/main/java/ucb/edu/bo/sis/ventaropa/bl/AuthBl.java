@@ -11,9 +11,11 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import ucb.edu.bo.sis.ventaropa.dao.AdministratorDao;
+import ucb.edu.bo.sis.ventaropa.dao.UserDao;
 import ucb.edu.bo.sis.ventaropa.dto.AuthRequest;
 import ucb.edu.bo.sis.ventaropa.dto.JwtResponse;
 import ucb.edu.bo.sis.ventaropa.model.Administrador;
+import ucb.edu.bo.sis.ventaropa.model.Usuario;
 import ucb.edu.bo.sis.ventaropa.service.AuthService;
 import ucb.edu.bo.sis.ventaropa.util.JwtUtil;
 
@@ -21,6 +23,7 @@ import ucb.edu.bo.sis.ventaropa.util.JwtUtil;
 public class AuthBl implements AuthService {
 
     private AdministratorDao administratorDao;
+    private UserDao userDao;
     private AuthenticationManager authenticationManager;
     private JwtUserDetailsService userDetailsService;
     private JwtUtil jwtUtil;
@@ -28,8 +31,9 @@ public class AuthBl implements AuthService {
     private static final Logger LOGGER = LoggerFactory.getLogger(AuthBl.class);
     @Autowired
     public AuthBl(AdministratorDao administratorDao, AuthenticationManager authenticationManager,
-                  JwtUserDetailsService userDetailsService, JwtUtil jwtUtil) {
+                  UserDao userDao, JwtUserDetailsService userDetailsService, JwtUtil jwtUtil) {
         this.administratorDao = administratorDao;
+        this.userDao = userDao;
         this.authenticationManager = authenticationManager;
         this.userDetailsService = userDetailsService;
         this.jwtUtil = jwtUtil;
@@ -76,6 +80,22 @@ public class AuthBl implements AuthService {
             final UserDetails userDetails = this.userDetailsService.loadUserByUsername(request.getCorreo());
             final String jwt = this.jwtUtil.generateToken(userDetails);
             JwtResponse response = new JwtResponse(jwt,administrador.getId(),"ACCESO CORRECTO");
+            return new ResponseEntity<>(response,HttpStatus.OK);
+        }else{
+            LOGGER.info("USUARIO NO EXISTENTE");
+            JwtResponse response = new JwtResponse(null,null,"ACCESO DENEGADO");
+            return new ResponseEntity<>(response,HttpStatus.UNAUTHORIZED);
+        }
+    }
+    public ResponseEntity<JwtResponse> verifyUserSystem(AuthRequest request)throws Exception {
+        LOGGER.info("ACCEDIENDO A SERVICIO");
+        Usuario user = this.userDao.verifyUserExist(request);
+        if(user!=null){
+            LOGGER.info("USUARIO CORRECTO");
+            LOGGER.info(user.toString());
+            final UserDetails userDetails = this.userDetailsService.loadUserByUsername(request.getCorreo());
+            final String jwt = this.jwtUtil.generateToken(userDetails);
+            JwtResponse response = new JwtResponse(jwt,user.getId(),"ACCESO CORRECTO");
             return new ResponseEntity<>(response,HttpStatus.OK);
         }else{
             LOGGER.info("USUARIO NO EXISTENTE");
