@@ -20,6 +20,7 @@ import ucb.edu.bo.sis.ventaropa.util.ImageUtil;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -143,7 +144,15 @@ public class ProductBl implements ProductService {
     }
 
     @Override
-    public List<ProductRequest> findProductDetailsByName(String name) {
-        return this.productDao.findProductDetailsByName(name);
+    public List<ProductRequest> findProductDetailsByName(String name,String marca) {
+        List<ProductRequest> lista =this.productDao.findProductDetailsByName(name);
+        if(Objects.nonNull(marca)){
+            List<ProductRequest> listaByMarca = lista.stream()
+                    .filter(data ->  data.getMarca().toUpperCase().startsWith(marca.toUpperCase()))
+                    .collect(Collectors.toList());
+            return listaByMarca;
+        }else{
+            return lista;
+        }
     }
 }

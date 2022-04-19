@@ -123,9 +123,9 @@ public class ProductApi {
         List<ProductRequest> lista = this.productBl.listProductRequestByProvideId(providerId);
         return new ResponseEntity<>(lista,HttpStatus.OK);
     }
-    @GetMapping(path = "products/details/productName={name}")
-    public List<ProductRequest> getProductDetailsByName(@PathVariable ("name") String name) {
-        return productBl.findProductDetailsByName(name);
+    @GetMapping(path = {"products/details/productName={name}","products/details/productName={name}/marca={marca}"})
+    public List<ProductRequest> getProductDetailsByNameAndMarca(@PathVariable("name") String name,@PathVariable(value = "marca",required = false) String marca) {
+        return productBl.findProductDetailsByName(name,marca);
     }
     @GetMapping(path = "products/{productId}")
     public ResponseEntity<ProductDetailsRequest>getListProductRequestByProductId(@PathVariable("productId") Integer productId){

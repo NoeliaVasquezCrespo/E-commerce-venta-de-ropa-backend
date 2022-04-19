@@ -23,5 +23,5 @@ public interface ProductService {
     ProductDetailsRequest listProductsByProductId(Integer idProvider);
     ProductTallaColorFoto createProductTallaColorFoto(ProductCharacteristicRequest characteristic);
 
-    List<ProductRequest> findProductDetailsByName(String name);
+    List<ProductRequest> findProductDetailsByName(String name,String marca);
 }
