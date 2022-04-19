@@ -5,8 +5,8 @@ POST http://localhost:8080/administrador/login
 Content-Type: application/json
 
 {
-  "correo": "example@gmail.com",
-  "password": "12345678"
+  "correo": "jupe@gmail.com",
+  "password": "123"
 }
 
 ### Send POST request with json body

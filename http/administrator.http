@@ -35,6 +35,12 @@ Content-Type: application/json
 
 ### Borrado Lógico de un Administrador
 
-DELETE http://localhost:8080/administrators/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MDI2MzM4MywiaWF0IjoxNjUwMjI3MzgzfQ.JthDDPCtFhNbEyUuZnMmyySIWUk9-9Ge7wH9ThSMFJU
+DELETE http://localhost:8080/administrators/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MDMzNDMzMCwiaWF0IjoxNjUwMjk4MzMwfQ.xHptMn6ID0vxIFetBjCA6pQ-znDEIHTUcm78v0s990c
+Content-Type: application/json
+
+### Borrado Lógico de un Administrador
+
+DELETE http://localhost:8080/products/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MDMzNDMzMCwiaWF0IjoxNjUwMjk4MzMwfQ.xHptMn6ID0vxIFetBjCA6pQ-znDEIHTUcm78v0s990c
 Content-Type: application/json
