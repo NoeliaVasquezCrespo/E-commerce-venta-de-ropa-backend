@@ -115,8 +115,13 @@ public class ProductApi {
     }
     @GetMapping(path="products/image/{productId}" , produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ImageProductRequest>getFirstImageProduct(@PathVariable("productId") Integer productId){
-        ImageProductRequest fotosProducto =this.productBl.findFirstImageProduct(productId);
-        return new ResponseEntity<>(fotosProducto, HttpStatus.OK);
+        try{
+            ImageProductRequest fotosProducto =this.productBl.findFirstImageProduct(productId);
+            return new ResponseEntity<>(fotosProducto, HttpStatus.OK);
+        }catch (Exception ex){
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+
     }
     @GetMapping(path = "products/details")
     public ResponseEntity<List<ProductRequest>>getListProductRequest(){

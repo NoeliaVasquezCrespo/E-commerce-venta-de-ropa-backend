@@ -1,4 +1,4 @@
-insert into usuario (id, nombre, apellido, edad, correo_electronico, password, status, direccion_id) values (1, 'Allie', 'Marjanski', 22, 'amarjanski0@is.gd', '3Vz47Rn', 0, 120);
+insert into usuario (id, nombre, apellido, edad, correo_electronico, password, status, direccion_id) values (1001, 'Allie', 'Marjanski', 22, 'amarjanski0@is.gd', '3Vz47Rn', 0, 120);
 insert into usuario (id, nombre, apellido, edad, correo_electronico, password, status, direccion_id) values (2, 'Salomi', 'Hartgill', 26, 'shartgill1@mapy.cz', 't7d17Zf', 0, 761);
 insert into usuario (id, nombre, apellido, edad, correo_electronico, password, status, direccion_id) values (3, 'Madlin', 'Meysham', 27, 'mmeysham2@scribd.com', 'tPWyw0riuw4H', 1, 963);
 insert into usuario (id, nombre, apellido, edad, correo_electronico, password, status, direccion_id) values (4, 'Earl', 'Balducci', 80, 'ebalducci3@eventbrite.com', 'zd4Mu9', 0, 439);
