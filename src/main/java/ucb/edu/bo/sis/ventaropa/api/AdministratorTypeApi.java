@@ -10,6 +10,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/v2")
 public class AdministratorTypeApi {
 
     private AdministratorTypeBl administratorTypeBl;

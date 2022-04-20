@@ -11,6 +11,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/v2")
 public class CategoryApi {
 
     private CategoryBl categoryBl;

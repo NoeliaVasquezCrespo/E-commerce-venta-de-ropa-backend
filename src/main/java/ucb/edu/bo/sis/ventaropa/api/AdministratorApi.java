@@ -20,6 +20,7 @@ import java.util.Objects;
 
 @CrossOrigin
 @RestController
+@RequestMapping("/v2")
 public class AdministratorApi {
     @Autowired AdminService userService;
     private AdministratorBl administratorBl;

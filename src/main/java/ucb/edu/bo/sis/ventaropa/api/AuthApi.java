@@ -10,8 +10,7 @@ import ucb.edu.bo.sis.ventaropa.dto.AuthRequest;
 
 @RestController
 @CrossOrigin
-//@RequestMapping("/v1/administrador")
-//@RequestMapping("/administrador")
+@RequestMapping("/v2")
 public class AuthApi {
 
     private AuthBl authBl;

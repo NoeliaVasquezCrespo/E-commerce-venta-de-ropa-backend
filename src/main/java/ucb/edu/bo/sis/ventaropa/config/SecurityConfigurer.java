@@ -20,6 +20,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
 
     private JwtUserDetailsService jwtUserDetailsService;
     private JwtRequestFilter jwtRequestFilter;
+    final String apiVersion = "/v2";
 
     @Autowired
     public SecurityConfigurer(JwtUserDetailsService jwtUserDetailsService,JwtRequestFilter jwtRequestFilter) {
@@ -36,19 +37,19 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/administrador/login").permitAll()
-                .antMatchers(HttpMethod.POST, "/administrador/login/proveedor").permitAll()
-                .antMatchers(HttpMethod.GET, "/colours/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/categories").permitAll()
-                .antMatchers(HttpMethod.GET, "/products").permitAll()
-                .antMatchers(HttpMethod.GET, "/sizes").permitAll()
-                .antMatchers(HttpMethod.GET, "/products/image/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/products/**").permitAll()
-                .antMatchers(HttpMethod.GET, "/products/details").permitAll()
-                .antMatchers(HttpMethod.GET, "/products/details/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/users").permitAll()
-                .antMatchers(HttpMethod.POST, "/login/user").permitAll()
-                .antMatchers("/auth/**",
+                .antMatchers(HttpMethod.POST, apiVersion + "/administrador/login").permitAll()
+                .antMatchers(HttpMethod.POST, apiVersion + "/administrador/login/proveedor").permitAll()
+                .antMatchers(HttpMethod.GET, apiVersion +"/colours/**").permitAll()
+                .antMatchers(HttpMethod.GET, apiVersion + "/categories").permitAll()
+                .antMatchers(HttpMethod.GET, apiVersion + "/products").permitAll()
+                .antMatchers(HttpMethod.GET, apiVersion + "/sizes").permitAll()
+                .antMatchers(HttpMethod.GET, apiVersion + "/products/image/**").permitAll()
+                .antMatchers(HttpMethod.GET, apiVersion + "/products/**").permitAll()
+                .antMatchers(HttpMethod.GET, apiVersion + "/products/details").permitAll()
+                .antMatchers(HttpMethod.GET, apiVersion + "/products/details/**").permitAll()
+                .antMatchers(HttpMethod.POST, apiVersion + "/users").permitAll()
+                .antMatchers(HttpMethod.POST, apiVersion + "/login/user").permitAll()
+                .antMatchers(apiVersion+"/auth/**",
                         "/v2/api-docs/**",
                         "/swagger-ui/**",
                         "/swagger-resources/**",
