@@ -20,6 +20,7 @@ import ucb.edu.bo.sis.ventaropa.util.ImageUtil;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -97,7 +98,13 @@ public class ProductBl implements ProductService {
 
     @Override
     public void deleteProduct(Integer id) {
-        productDao.deleteById(id);
+        Optional<Producto>productOptional = productDao.findById(id);
+        if(productOptional.isPresent()){
+            Producto producto=productOptional.get();
+            producto.setStatus(0);
+            productDao.save(producto);
+        }
+        //productDao.deleteById(id);
     }
     @Override
     public FotosProducto uploadImage(MultipartFile image, Integer productTallaColorId){
