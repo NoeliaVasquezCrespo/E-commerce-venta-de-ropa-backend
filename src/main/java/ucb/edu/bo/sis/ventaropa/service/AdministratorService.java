@@ -12,4 +12,6 @@ public interface AdministratorService {
     Administrador updateAdministrator(Administrador administrador, Integer administradorId);
     void deleteAdministrator(Integer id);
     AdministradorRequest getAdministratorWithSessionActiveById(Integer idAministrador,String jwt, String headerAuthorization);
+
+    Administrador findAdministradorById(Integer id);
 }

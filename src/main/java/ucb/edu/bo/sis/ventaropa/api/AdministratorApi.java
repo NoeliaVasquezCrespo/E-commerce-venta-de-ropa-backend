@@ -42,6 +42,11 @@ public class AdministratorApi {
         System.out.println("Invocando al metodo GET");
         return administratorBl.findAdministradorByTypeAndStatus(tipo,status);
     }
+    @GetMapping(value = "/administrators/{id}")
+    public Administrador getAdministradorById(@PathVariable("id") Integer id) {
+        System.out.println("Invocando al metodo GET");
+        return administratorBl.findAdministradorById(id);
+    }
     @PostMapping(path="/administrators", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
     public Administrador addAdministrator(@RequestBody Administrador administrador) {
         System.out.println("Invocando al metodo POST");
@@ -59,7 +64,7 @@ public class AdministratorApi {
     }
 
     @GetMapping(path = "/administrators/{id}/{jwt}")
-    public ResponseEntity<AdministradorRequest> getAdministratorById(@RequestHeader HttpHeaders headers, @PathVariable("id") Integer id,
+    public ResponseEntity<AdministradorRequest> getAdministratorWhitSessionActiveById(@RequestHeader HttpHeaders headers, @PathVariable("id") Integer id,
                                                                      @PathVariable("jwt") String jwt){
         LOGGER.info("ACCESO A METODO DE JWT");
         AdministradorRequest request= this.administratorBl.getAdministratorWithSessionActiveById(id,jwt,headers.getFirst(HttpHeaders.AUTHORIZATION).toString());

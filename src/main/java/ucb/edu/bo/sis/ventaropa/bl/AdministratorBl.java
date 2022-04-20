@@ -14,6 +14,7 @@ import ucb.edu.bo.sis.ventaropa.service.AdministratorService;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 
 @Service
@@ -81,6 +82,17 @@ public class AdministratorBl implements AdministratorService {
             return request;
         }else{
             LOGGER.info("SESION CADUCADA O INACTIVA");
+            return null;
+        }
+    }
+
+    @Override
+    public Administrador findAdministradorById(Integer id) {
+        Optional<Administrador> adminOpt = administratorDao.findById(id);
+        if(adminOpt.isPresent()){
+            Administrador admin = adminOpt.get();
+            return admin;
+        }else{
             return null;
         }
     }
