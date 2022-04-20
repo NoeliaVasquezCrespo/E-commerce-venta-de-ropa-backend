@@ -16,7 +16,9 @@ import ucb.edu.bo.sis.ventaropa.model.ProductTallaColorFoto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
 import ucb.edu.bo.sis.ventaropa.util.ImageUtil;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin
 @RestController
@@ -57,10 +59,12 @@ public class ProductApi {
     }
 
     @DeleteMapping(path="/products/{id}")
-    public String deleteProduct(@PathVariable("id") Integer id) {
+    public Map<String, String> deleteProduct(@PathVariable("id") Integer id) {
         System.out.println("Invocando al metodo DELETE");
+        Map<String, String> map = new HashMap<String, String>();
         productBl.deleteProduct(id);
-        return "Borrado Exitosamente";
+        map.put("mensaje","Borrado Exitosamente");
+        return map;
     }
     /***@PostMapping(path="/products", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
     public Producto addSize(@RequestBody Producto producto) {
