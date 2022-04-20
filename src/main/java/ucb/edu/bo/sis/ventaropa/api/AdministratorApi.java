@@ -22,7 +22,7 @@ import java.util.Objects;
 @RestController
 @RequestMapping("/v2")
 public class AdministratorApi {
-    @Autowired AdminService userService;
+    @Autowired AdminService providerService;
     private AdministratorBl administratorBl;
     private static final Logger LOGGER = LoggerFactory.getLogger(AdministratorApi.class);
 
@@ -55,7 +55,7 @@ public class AdministratorApi {
 
     @DeleteMapping("/administrators/{id}")
     public void delete(@PathVariable Integer id) {
-        userService.delete(id);
+        providerService.delete(id);
     }
 
     @GetMapping(path = "/administrators/{id}/{jwt}")
