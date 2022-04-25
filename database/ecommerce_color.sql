@@ -37,3 +37,5 @@ INSERT INTO color (id, descripcion) VALUES (36,'Melocoton');
 INSERT INTO color (id, descripcion) VALUES (37,'Violeta');
 INSERT INTO color (id, descripcion) VALUES (38,'Tan');
 INSERT INTO color (id, descripcion) VALUES (39,'Granate');
+
+INSERT INTO color (id, descripcion) VALUES (40,'Azul Lavanda');
