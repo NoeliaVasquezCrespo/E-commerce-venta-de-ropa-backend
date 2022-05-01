@@ -67,14 +67,16 @@ public interface ProductDao extends JpaRepository<Producto, Integer> {
             "and producto.id=?1 " +
             "group by (producto.id) ")
     public List<ProductDetailsRequest>listProductsByProductId(Integer id);
-
     @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductRequest(producto.id, producto.nombreProducto, empresa.nombre, producto.precio, sum(productTallaColorFoto.stock),producto.descripcion) " +
-            "from Producto producto, Administrador administrador, Empresa empresa, ProductTallaColorFoto productTallaColorFoto " +
+            "from Producto producto, Administrador administrador, Empresa empresa, ProductTallaColorFoto productTallaColorFoto, Categoria categoria, CategoriaProducto categoriaProducto " +
             "where producto.administradorId=administrador.id " +
             "and administrador.empresaId=empresa.id " +
             "and productTallaColorFoto.productoId = producto.id " +
-            "and UPPER(producto.nombreProducto) LIKE (%:name%) " +
+            "and producto.status=1 " +
+            "and categoriaProducto.categoriaId = categoria.id " +
+            "and categoriaProducto.productoId = producto.id " +
+            "and categoria.id= :idCategoria " +
             "group by (producto.id)")
-    public List<ProductRequest>findProductDetailsByName(@Param("name") String name);
+    public List<ProductRequest> listProductsRequestByCategoriaId(@Param("idCategoria") Integer idCategoria);
 
 }

@@ -173,4 +173,11 @@ public class ProductBl implements ProductService {
         return listaByMarca;
 
     }
+
+    @Override
+    public List<ProductRequest> findProductsRequestByCategoriaId(Integer categoriaId) {
+        List<ProductRequest>lista = new ArrayList<>();
+        lista = this.productDao.listProductsRequestByCategoriaId(categoriaId);
+        return lista;
+    }
 }

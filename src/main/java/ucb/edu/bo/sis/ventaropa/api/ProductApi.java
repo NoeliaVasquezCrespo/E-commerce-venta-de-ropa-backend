@@ -131,16 +131,24 @@ public class ProductApi {
         List<ProductRequest> lista = this.productBl.listProductRequestByProvideId(providerId);
         return new ResponseEntity<>(lista,HttpStatus.OK);
     }
-    @GetMapping(path = {"products/details/productName={name}","products/details/productName={name}/marca={marca}"})
-    public List<ProductRequest> getProductDetailsByNameAndMarca(@PathVariable("name") String name,@PathVariable(value = "marca",required = false) String marca) {
+    @GetMapping(path = {"products/details/productName={name}","products/details/productName={name}/marca={marca}"}, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ProductRequest>> getProductDetailsByNameAndMarca(@PathVariable("name") String name,@PathVariable(value = "marca",required = false) String marca) {
         List<ProductRequest> lista =new ArrayList<>();
         if(Objects.nonNull(marca)){
             lista = this.productBl.findProductDetailsByNameAndMarca(name, marca);
         }else{
             lista = this.productBl.findProductDetailsByName(name);
         }
-        return lista;
+        return new ResponseEntity<>(lista,HttpStatus.OK);
     }
+
+    @GetMapping(path = "products/details/categoria={categoriaId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<ProductRequest>> getProductDetailsByCategoriaId(@PathVariable("categoriaId") Integer categoriaId) {
+        List<ProductRequest> lista =new ArrayList<>();
+        lista = this.productBl.findProductsRequestByCategoriaId(categoriaId);
+        return new ResponseEntity<>(lista,HttpStatus.OK);
+    }
+
     @GetMapping(path = "products/{productId}")
     public ResponseEntity<ProductDetailsRequest>getListProductRequestByProductId(@PathVariable("productId") Integer productId){
         ProductDetailsRequest lista = this.productBl.listProductsByProductId(productId);
