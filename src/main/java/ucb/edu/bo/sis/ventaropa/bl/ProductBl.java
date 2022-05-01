@@ -166,11 +166,11 @@ public class ProductBl implements ProductService {
     @Override
     public List<ProductRequest> findProductDetailsByNameAndMarca(String name,String marca) {
         List<ProductRequest> lista =new ArrayList<>();
-        List<ProductRequest> listaByMarca = lista.stream()
+        lista = this.productDao.listProductsRequest().stream()
                 .filter(data ->  data.getNombreProducto().toUpperCase().startsWith(name.toUpperCase()) &&
                         data.getMarca().toUpperCase().startsWith(marca.toUpperCase()))
                 .collect(Collectors.toList());
-        return listaByMarca;
+        return lista;
 
     }
 
