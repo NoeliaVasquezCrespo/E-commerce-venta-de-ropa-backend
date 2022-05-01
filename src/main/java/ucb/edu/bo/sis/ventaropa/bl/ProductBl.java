@@ -18,6 +18,7 @@ import ucb.edu.bo.sis.ventaropa.model.Producto;
 import ucb.edu.bo.sis.ventaropa.service.ProductService;
 import ucb.edu.bo.sis.ventaropa.util.ImageUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,7 +31,7 @@ public class ProductBl implements ProductService {
     private ProductDao productDao;
     private FotoProductoDao fotoProductoDao;
     private ProductTallaColorFotoDao productTallaColorFotoDao;
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProductService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProductBl.class);
 
     @Autowired
     public ProductBl(ProductDao productDao, FotoProductoDao fotoProductoDao,ProductTallaColorFotoDao productTallaColorFotoDao) {
@@ -151,15 +152,25 @@ public class ProductBl implements ProductService {
     }
 
     @Override
-    public List<ProductRequest> findProductDetailsByName(String name,String marca) {
-        List<ProductRequest> lista =this.productDao.findProductDetailsByName(name);
-        if(Objects.nonNull(marca)){
-            List<ProductRequest> listaByMarca = lista.stream()
-                    .filter(data ->  data.getMarca().toUpperCase().startsWith(marca.toUpperCase()))
-                    .collect(Collectors.toList());
-            return listaByMarca;
-        }else{
-            return lista;
-        }
+    public List<ProductRequest> findProductDetailsByName(String name) {
+
+        LOGGER.info("EL NOMBRE ES: "+name);
+        List<ProductRequest> lista =new ArrayList<>();
+        lista = this.productDao.listProductsRequest().stream()
+                .filter(data -> data.getNombreProducto().toUpperCase().startsWith(name.toUpperCase()))
+                .collect(Collectors.toList());
+        LOGGER.info("tamanio lista:"+lista.size());
+        return lista;
+    }
+
+    @Override
+    public List<ProductRequest> findProductDetailsByNameAndMarca(String name,String marca) {
+        List<ProductRequest> lista =new ArrayList<>();
+        List<ProductRequest> listaByMarca = lista.stream()
+                .filter(data ->  data.getNombreProducto().toUpperCase().startsWith(name.toUpperCase()) &&
+                        data.getMarca().toUpperCase().startsWith(marca.toUpperCase()))
+                .collect(Collectors.toList());
+        return listaByMarca;
+
     }
 }

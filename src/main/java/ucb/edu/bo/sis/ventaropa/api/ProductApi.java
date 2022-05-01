@@ -16,9 +16,7 @@ import ucb.edu.bo.sis.ventaropa.model.ProductTallaColorFoto;
 import ucb.edu.bo.sis.ventaropa.model.Producto;
 import ucb.edu.bo.sis.ventaropa.util.ImageUtil;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @CrossOrigin
 @RestController
@@ -135,7 +133,13 @@ public class ProductApi {
     }
     @GetMapping(path = {"products/details/productName={name}","products/details/productName={name}/marca={marca}"})
     public List<ProductRequest> getProductDetailsByNameAndMarca(@PathVariable("name") String name,@PathVariable(value = "marca",required = false) String marca) {
-        return productBl.findProductDetailsByName(name,marca);
+        List<ProductRequest> lista =new ArrayList<>();
+        if(Objects.nonNull(marca)){
+            lista = this.productBl.findProductDetailsByNameAndMarca(name, marca);
+        }else{
+            lista = this.productBl.findProductDetailsByName(name);
+        }
+        return lista;
     }
     @GetMapping(path = "products/{productId}")
     public ResponseEntity<ProductDetailsRequest>getListProductRequestByProductId(@PathVariable("productId") Integer productId){

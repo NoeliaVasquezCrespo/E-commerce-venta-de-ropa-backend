@@ -76,4 +76,5 @@ public interface ProductDao extends JpaRepository<Producto, Integer> {
             "and UPPER(producto.nombreProducto) LIKE (%:name%) " +
             "group by (producto.id)")
     public List<ProductRequest>findProductDetailsByName(@Param("name") String name);
+
 }
