@@ -1,12 +1,17 @@
 package ucb.edu.bo.sis.ventaropa.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.sis.ventaropa.bl.UserBl;
+import ucb.edu.bo.sis.ventaropa.dto.AdministradorRequest;
 import ucb.edu.bo.sis.ventaropa.model.Usuario;
 
 import java.util.List;
+import java.util.Objects;
 
 @CrossOrigin
 @RestController
@@ -48,5 +53,16 @@ public class UserApi {
         System.out.println("Invocando al metodo DELETE");
         userBl.deleteUser(id);
         return "Borrado Exitosamente";
+    }
+
+    @GetMapping(path = "/users/{id}/{jwt}")
+    public ResponseEntity<Usuario> getUserWhitSessionActiveById(@RequestHeader HttpHeaders headers, @PathVariable("id") Integer id,
+                                                                                      @PathVariable("jwt") String jwt){
+        Usuario request= this.userBl.getUserWithSessionActiveById(id,jwt,headers.getFirst(HttpHeaders.AUTHORIZATION).toString());
+        if(Objects.nonNull(request)){
+            return new ResponseEntity<>(request, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }
