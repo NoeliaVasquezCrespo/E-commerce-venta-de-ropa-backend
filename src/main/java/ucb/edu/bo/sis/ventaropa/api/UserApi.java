@@ -37,6 +37,12 @@ public class UserApi {
         return userBl.updateUser(usuario,id);
     }
 
+    @GetMapping(value = "/users/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Usuario findById(@PathVariable("id") Integer id)  {
+        System.out.println("Invocando al metodo GET");
+        return userBl.findById(id);
+    }
+
     @DeleteMapping(path="/users/{id}")
     public String deleteUser(@PathVariable("id") Integer id) {
         System.out.println("Invocando al metodo DELETE");

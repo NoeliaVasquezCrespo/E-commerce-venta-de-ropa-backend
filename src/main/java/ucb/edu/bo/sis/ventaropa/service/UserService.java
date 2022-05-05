@@ -8,5 +8,6 @@ public interface UserService {
     List<Usuario> findAll();
     Usuario createUser(Usuario usuario);
     Usuario updateUser(Usuario usuario, Integer usuarioId);
+    Usuario findById(Integer usuarioId);
     void deleteUser(Integer id);
 }

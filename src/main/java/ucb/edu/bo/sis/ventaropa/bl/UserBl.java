@@ -57,6 +57,11 @@ public class UserBl implements UserService {
     }
 
     @Override
+    public Usuario findById(Integer usuarioId) {
+        return userDao.getUserById(usuarioId);
+    }
+
+    @Override
     public void deleteUser(Integer id) {
         userDao.deleteById(id);
     }

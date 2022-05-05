@@ -15,4 +15,13 @@ public interface UserDao extends JpaRepository<Usuario, Integer> {
             "and user.password = :#{#request.password} "+
             "and user.status = 1 ")
     public Usuario verifyUserExist(@Param("request") AuthRequest request);
+
+    @Query(
+            value = "SELECT u.*" +
+                    "   FROM usuario u" +
+                    "   WHERE u.id = :id" +
+                    "   AND u.status = 1",
+            nativeQuery = true
+    )
+    public Usuario getUserById(@Param("id") Integer id);
 }
