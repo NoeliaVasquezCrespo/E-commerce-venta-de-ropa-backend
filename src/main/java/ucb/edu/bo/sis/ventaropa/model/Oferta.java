@@ -2,7 +2,7 @@ package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
