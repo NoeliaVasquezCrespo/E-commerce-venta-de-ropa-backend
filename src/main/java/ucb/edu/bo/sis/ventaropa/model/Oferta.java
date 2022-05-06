@@ -76,4 +76,15 @@ public class Oferta {
     public int hashCode() {
         return Objects.hash(id, fechaInicio, fechaFin, montoDescuento, status);
     }
+
+    @Override
+    public String toString() {
+        return "Oferta{" +
+                "id=" + id +
+                ", fechaInicio=" + fechaInicio +
+                ", fechaFin=" + fechaFin +
+                ", montoDescuento=" + montoDescuento +
+                ", status=" + status +
+                '}';
+    }
 }
