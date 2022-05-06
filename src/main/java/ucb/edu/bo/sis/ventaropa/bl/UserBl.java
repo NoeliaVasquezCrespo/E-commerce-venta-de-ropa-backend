@@ -3,6 +3,7 @@ package ucb.edu.bo.sis.ventaropa.bl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ucb.edu.bo.sis.ventaropa.dao.UserDao;
+import ucb.edu.bo.sis.ventaropa.dto.AdministradorRequest;
 import ucb.edu.bo.sis.ventaropa.model.Usuario;
 import ucb.edu.bo.sis.ventaropa.service.UserService;
 
@@ -54,6 +55,21 @@ public class UserBl implements UserService {
             userDB.setStatus(usuario.getStatus());
         }
         return userDao.save(userDB);
+    }
+
+    public Usuario getUserWithSessionActiveById(Integer id, String jwt, String headerAuthorization){
+        String jwtByHeaders = headerAuthorization.split(" ")[1];
+        if(jwtByHeaders.equals(jwt)){
+            Usuario request = this.userDao.getUserById(id);
+            return request;
+        }else{
+            return null;
+        }
+    }
+
+    @Override
+    public Usuario findById(Integer usuarioId) {
+        return userDao.getUserById(usuarioId);
     }
 
     @Override

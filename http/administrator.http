@@ -44,3 +44,8 @@ Content-Type: application/json
 DELETE http://localhost:8080/products/2
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MDMzNDMzMCwiaWF0IjoxNjUwMjk4MzMwfQ.xHptMn6ID0vxIFetBjCA6pQ-znDEIHTUcm78v0s990c
 Content-Type: application/json
+
+### Borrado Lógico de un Administrador
+GET http://localhost:8080/v2/users/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MTc1MTY0NSwiaWF0IjoxNjUxNzE1NjQ1fQ.9BdEDwkFxGL3Pe6MZFKo7SSCFiC6iaFqZ9zyP3dOVcg
+Content-Type: application/json
