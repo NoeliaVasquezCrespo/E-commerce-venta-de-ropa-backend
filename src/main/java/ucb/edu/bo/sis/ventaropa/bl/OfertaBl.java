@@ -5,19 +5,27 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ucb.edu.bo.sis.ventaropa.dao.OfertaDao;
+import ucb.edu.bo.sis.ventaropa.dao.OfertaProductoDao;
+import ucb.edu.bo.sis.ventaropa.dto.OfertaProductoRequest;
 import ucb.edu.bo.sis.ventaropa.dto.OfertaRequest;
 import ucb.edu.bo.sis.ventaropa.model.Oferta;
+import ucb.edu.bo.sis.ventaropa.model.OfertaProducto;
 import ucb.edu.bo.sis.ventaropa.service.OfertaService;
 
 @Service
 public class OfertaBl implements OfertaService {
 
     private OfertaDao ofertaDao;
+    private OfertaProductoDao ofertaProductoDao;
     private static final Logger LOGGER = LoggerFactory.getLogger(OfertaBl.class);
+
     @Autowired
-    public OfertaBl(OfertaDao ofertaDao) {
+    public OfertaBl(OfertaDao ofertaDao, OfertaProductoDao ofertaProductoDao) {
         this.ofertaDao = ofertaDao;
+        this.ofertaProductoDao = ofertaProductoDao;
     }
+
+
 
     @Override
     public Oferta insertOferta(OfertaRequest ofertaRequest) {
@@ -30,4 +38,21 @@ public class OfertaBl implements OfertaService {
         LOGGER.info(oferta.toString());
         return oferta;
     }
+
+    @Override
+    public OfertaProducto insertOfertaProducto(OfertaProductoRequest ofertaProductoRequest) {
+
+        LOGGER.info(ofertaProductoRequest.toString());
+
+        OfertaProducto ofertaProducto = new OfertaProducto();
+        ofertaProducto.setProductoId(ofertaProductoRequest.getProductoId());
+        ofertaProducto.setOfertaId(ofertaProductoRequest.getOfertaId());
+        ofertaProducto.setStatus(1);
+
+        this.ofertaProductoDao.save(ofertaProducto);
+        return ofertaProducto;
+    }
+
+
+
 }
