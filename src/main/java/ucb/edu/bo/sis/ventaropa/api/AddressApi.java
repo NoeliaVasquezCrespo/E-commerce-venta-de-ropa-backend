@@ -20,7 +20,7 @@ public class AddressApi {
     public AddressApi(AddressBl addressBl) {
         this.addressBl = addressBl;
     }
-
+    /*CUARTO SPRINT*/
     @GetMapping(value = "/addresses", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Direccion> listAll() {
         System.out.println("Invocando al metodo GET");
