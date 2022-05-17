@@ -1,11 +1,8 @@
 ### Agregar una categoria
-POST http://localhost:8080/categories
+GET http://localhost:8080/v2/oferta/producto
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY0ODY4MzEwMCwiaWF0IjoxNjQ4NjQ3MTAwfQ.p_IMWrlJAHvp7SfMMOYkz4Fg2B66Wvlvuoyd0b7Gvg8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1Mjc5MTQzNywiaWF0IjoxNjUyNzU1NDM3fQ.d1MjDpKy3MIqStgc21e6r_AMa8m1uRT_MlIDl8Ybe_c
 
-{
-  "categoria" : "Categoria 27"
-}
 
 ### Obtener las categorias
 

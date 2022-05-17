@@ -15,8 +15,8 @@ import ucb.edu.bo.sis.ventaropa.service.OfertaService;
 @Service
 public class OfertaBl implements OfertaService {
 
-    private OfertaDao ofertaDao;
-    private OfertaProductoDao ofertaProductoDao;
+    public OfertaDao ofertaDao;
+    public OfertaProductoDao ofertaProductoDao;
     private static final Logger LOGGER = LoggerFactory.getLogger(OfertaBl.class);
 
     @Autowired
@@ -24,8 +24,6 @@ public class OfertaBl implements OfertaService {
         this.ofertaDao = ofertaDao;
         this.ofertaProductoDao = ofertaProductoDao;
     }
-
-
 
     @Override
     public Oferta insertOferta(OfertaRequest ofertaRequest) {
@@ -39,6 +37,7 @@ public class OfertaBl implements OfertaService {
         return oferta;
     }
 
+    
     @Override
     public OfertaProducto insertOfertaProducto(OfertaProductoRequest ofertaProductoRequest) {
 
