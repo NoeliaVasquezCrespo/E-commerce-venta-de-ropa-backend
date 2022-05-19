@@ -3,9 +3,7 @@ package ucb.edu.bo.sis.ventaropa.bl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ucb.edu.bo.sis.ventaropa.dao.AddressDao;
-import ucb.edu.bo.sis.ventaropa.dao.CompanyDao;
 import ucb.edu.bo.sis.ventaropa.model.Direccion;
-import ucb.edu.bo.sis.ventaropa.model.Empresa;
 import ucb.edu.bo.sis.ventaropa.service.AddressService;
 
 import java.util.List;

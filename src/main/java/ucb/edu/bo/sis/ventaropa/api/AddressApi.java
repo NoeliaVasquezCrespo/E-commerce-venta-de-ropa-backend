@@ -5,7 +5,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.sis.ventaropa.bl.AddressBl;
 import ucb.edu.bo.sis.ventaropa.model.Direccion;
-import ucb.edu.bo.sis.ventaropa.model.Usuario;
 
 import java.util.List;
 

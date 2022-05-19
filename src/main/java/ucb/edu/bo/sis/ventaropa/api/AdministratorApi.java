@@ -9,12 +9,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.sis.ventaropa.bl.AdministratorBl;
-import ucb.edu.bo.sis.ventaropa.bl.AuthBl;
 import ucb.edu.bo.sis.ventaropa.dto.AdministradorRequest;
 import ucb.edu.bo.sis.ventaropa.model.Administrador;
 import ucb.edu.bo.sis.ventaropa.service.AdminService;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Objects;
 
