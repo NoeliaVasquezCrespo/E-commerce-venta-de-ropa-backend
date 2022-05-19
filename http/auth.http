@@ -26,3 +26,8 @@ Content-Type: application/json
   "correo": "exampleU@gmail.com",
   "password": "12345678"
 }
+
+### Send POST request with json body
+GET http://localhost:8080/v2/addresses/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MTgzMzUxNSwiaWF0IjoxNjUxNzk3NTE1fQ.s0G_zfoT2cD0ip_2PWgJzLXio5zY_9MIl6S2FeA6wXc
+Content-Type: application/json

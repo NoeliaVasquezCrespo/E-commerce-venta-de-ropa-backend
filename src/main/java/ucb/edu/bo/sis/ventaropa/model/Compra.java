@@ -14,13 +14,13 @@ public class Compra {
     private int usuarioId;
     @Basic
     @Column(name = "fecha")
-    private int fecha;
+    private String fecha;
     @Basic
     @Column(name = "monto_total")
     private int montoTotal;
     @Basic
-    @Column(name = "tipo_pago_id")
-    private int tipoPagoId;
+    @Column(name = "token")
+    private String token;
     @Basic
     @Column(name = "status")
     private int status;
@@ -41,28 +41,12 @@ public class Compra {
         this.usuarioId = usuarioId;
     }
 
-    public int getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(int fecha) {
-        this.fecha = fecha;
-    }
-
     public int getMontoTotal() {
         return montoTotal;
     }
 
     public void setMontoTotal(int montoTotal) {
         this.montoTotal = montoTotal;
-    }
-
-    public int getTipoPagoId() {
-        return tipoPagoId;
-    }
-
-    public void setTipoPagoId(int tipoPagoId) {
-        this.tipoPagoId = tipoPagoId;
     }
 
     public int getStatus() {
@@ -73,16 +57,32 @@ public class Compra {
         this.status = status;
     }
 
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Compra compra = (Compra) o;
-        return id == compra.id && usuarioId == compra.usuarioId && fecha == compra.fecha && montoTotal == compra.montoTotal && tipoPagoId == compra.tipoPagoId && status == compra.status;
+        return id == compra.id && usuarioId == compra.usuarioId && fecha == compra.fecha && montoTotal == compra.montoTotal && token == compra.token && status == compra.status;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, usuarioId, fecha, montoTotal, tipoPagoId, status);
+        return Objects.hash(id, usuarioId, fecha, montoTotal, token, status);
     }
 }
