@@ -35,14 +35,14 @@ public class PurchaseBl implements PurchaseService {
         if (Objects.nonNull(compra.getUsuarioId())){
             compraDB.setUsuarioId(compra.getUsuarioId());
         }
-        if (Objects.nonNull(compra.getFecha())){
+        if (Objects.nonNull(compra.getFecha()) && !"".equalsIgnoreCase(compra.getFecha())){
             compraDB.setFecha(compra.getFecha());
+        }
+        if (Objects.nonNull(compra.getToken()) && !"".equalsIgnoreCase(compra.getToken())) {
+            compraDB.setToken(compra.getToken());
         }
         if (Objects.nonNull(compra.getMontoTotal())){
             compraDB.setMontoTotal(compra.getMontoTotal());
-        }
-        if (Objects.nonNull(compra.getTipoPagoId())){
-            compraDB.setTipoPagoId(compra.getTipoPagoId());
         }
         if (Objects.nonNull(compra.getStatus())){
             compraDB.setStatus(compra.getStatus());
