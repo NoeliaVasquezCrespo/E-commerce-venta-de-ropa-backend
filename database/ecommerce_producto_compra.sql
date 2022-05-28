@@ -16,7 +16,7 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (16, 690, 256, 793, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (17, 649, 658, 770, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (18, 826, 825, 111, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (19, 573, 13, 193, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (19, 573, 25, 193, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (20, 761, 158, 225, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (21, 371, 637, 767, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (22, 251, 611, 460, 1);
@@ -47,7 +47,8 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (47, 742, 752, 775, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (48, 214, 63, 156, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (49, 855, 599, 783, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (50, 710, 45, 449, 0);
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (50, 710, 46, 449, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (51, 556, 830, 961, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (52, 10, 704, 578, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (53, 202, 739, 890, 1);
@@ -183,7 +184,7 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (183, 788, 97, 771, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (184, 885, 561, 328, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (185, 977, 994, 22, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (186, 430, 190, 387, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (186, 430, 191, 387, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (187, 540, 234, 524, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (188, 521, 731, 402, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (189, 321, 670, 837, 0);
@@ -241,7 +242,8 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (241, 429, 896, 317, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (242, 366, 485, 398, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (243, 774, 28, 284, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (244, 296, 40, 126, 0);
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (244, 296, 131, 126, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (245, 125, 541, 750, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (246, 620, 959, 997, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (247, 113, 518, 56, 0);
@@ -281,7 +283,8 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (281, 418, 441, 347, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (282, 819, 899, 938, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (283, 347, 100, 366, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (284, 150, 2, 579, 1);
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (284, 150, 148, 579, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (285, 932, 516, 360, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (286, 666, 343, 279, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (287, 399, 143, 648, 1);
@@ -294,12 +297,27 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (294, 456, 409, 774, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (295, 38, 304, 974, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (296, 103, 736, 314, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (297, 659, 510, 115, 1);
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (284, 150, 148, 579, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (285, 932, 516, 360, 0);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (286, 666, 343, 279, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (287, 399, 143, 648, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (288, 880, 264, 87, 0);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (289, 872, 250, 418, 0);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (290, 955, 638, 794, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (291, 160, 906, 626, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (292, 9, 268, 430, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (293, 383, 635, 348, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (294, 456, 409, 774, 0);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (295, 38, 304, 974, 0);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (296, 103, 736, 314, 1);
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (297, 659, 130, 115, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (298, 297, 171, 363, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (299, 109, 261, 802, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (300, 830, 986, 303, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (301, 563, 918, 580, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (302, 819, 7, 298, 0);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (302, 819, 131, 298, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (303, 38, 441, 403, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (304, 348, 743, 565, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (305, 851, 171, 18, 0);
@@ -309,7 +327,9 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (309, 591, 801, 448, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (310, 399, 643, 314, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (311, 735, 117, 50, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (312, 518, 6, 445, 1);
+
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (312, 518, 129, 445, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (313, 977, 830, 338, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (314, 664, 129, 509, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (315, 953, 507, 278, 0);
@@ -380,7 +400,8 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (380, 284, 269, 188, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (381, 578, 286, 768, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (382, 814, 246, 37, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (383, 891, 190, 802, 1);
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (383, 891, 118, 802, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (384, 589, 631, 281, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (385, 314, 755, 253, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (386, 932, 27, 223, 1);
@@ -419,7 +440,8 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (419, 533, 267, 477, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (420, 47, 174, 660, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (421, 659, 145, 827, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (422, 54, 21, 78, 0);
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (422, 54, 27, 78, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (423, 701, 624, 147, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (424, 265, 427, 474, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (425, 533, 873, 381, 0);
@@ -435,13 +457,18 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (435, 925, 178, 146, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (436, 106, 410, 450, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (437, 301, 843, 975, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (438, 568, 2, 150, 1);
+
+
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (438, 568, 29, 150, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (439, 909, 272, 44, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (440, 257, 537, 940, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (441, 951, 329, 595, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (442, 447, 296, 706, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (443, 284, 620, 370, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (444, 659, 42, 530, 1);
+
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (444, 659, 29, 530, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (445, 337, 720, 439, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (446, 433, 235, 667, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (447, 276, 274, 7, 0);
@@ -474,16 +501,21 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (474, 918, 142, 605, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (475, 132, 303, 494, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (476, 431, 801, 336, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (477, 599, 12, 461, 1);
+
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (477, 599, 29, 461, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (478, 477, 140, 760, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (479, 195, 934, 776, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (480, 590, 763, 894, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (481, 919, 16, 46, 0);
+
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (481, 919, 29, 46, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (482, 820, 240, 891, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (483, 358, 516, 241, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (484, 947, 160, 492, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (485, 375, 174, 77, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (486, 155, 94, 762, 0);
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (486, 155, 29, 762, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (487, 794, 972, 953, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (488, 746, 333, 676, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (489, 353, 481, 247, 0);
@@ -494,11 +526,13 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (494, 908, 229, 588, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (495, 724, 427, 806, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (496, 374, 623, 149, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (497, 159, 16, 599, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (497, 159, 29, 599, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (498, 811, 209, 722, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (499, 825, 363, 967, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (500, 98, 190, 245, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (501, 381, 923, 574, 1);
+
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (500, 98, 471, 245, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (501, 381, 471, 574, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (502, 493, 117, 565, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (503, 82, 471, 346, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (504, 921, 288, 9, 0);
@@ -507,7 +541,7 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (507, 835, 315, 922, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (508, 695, 842, 561, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (509, 582, 282, 444, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (510, 245, 11, 684, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (510, 245, 29, 684, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (511, 245, 126, 361, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (512, 274, 486, 654, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (513, 832, 410, 715, 0);
@@ -540,16 +574,18 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (540, 126, 375, 732, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (541, 457, 869, 839, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (542, 689, 705, 377, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (543, 819, 510, 118, 1);
+
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (543, 819, 36, 118, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (544, 870, 535, 28, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (545, 449, 377, 207, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (546, 30, 25, 843, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (546, 30, 29, 843, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (547, 801, 218, 676, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (548, 272, 600, 320, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (549, 149, 7, 678, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (549, 149, 29, 678, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (550, 279, 971, 662, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (551, 887, 326, 733, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (552, 528, 11, 988, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (552, 528, 29, 988, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (553, 518, 446, 404, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (554, 710, 378, 985, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (555, 413, 542, 919, 0);
@@ -565,21 +601,25 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (565, 371, 146, 81, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (566, 609, 604, 82, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (567, 761, 884, 615, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (568, 350, 2, 756, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (568, 350, 29, 756, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (569, 773, 200, 356, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (570, 834, 45, 449, 1);
+
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (570, 834, 36, 449, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (571, 360, 222, 867, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (572, 54, 407, 775, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (573, 40, 704, 624, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (574, 549, 231, 956, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (575, 345, 558, 597, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (576, 333, 508, 266, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (577, 769, 38, 171, 1);
+
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (577, 769, 36, 171, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (578, 776, 122, 429, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (579, 713, 657, 919, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (580, 580, 268, 949, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (581, 645, 584, 387, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (582, 17, 18, 29, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (582, 17, 29, 29, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (583, 867, 49, 784, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (584, 781, 914, 11, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (585, 803, 956, 421, 0);
@@ -617,13 +657,17 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (617, 505, 794, 953, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (618, 570, 434, 483, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (619, 77, 620, 329, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (620, 671, 10, 136, 0);
+
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (620, 671, 29, 136, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (621, 728, 597, 32, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (622, 571, 944, 588, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (623, 146, 828, 84, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (624, 302, 672, 493, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (625, 523, 480, 346, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (626, 653, 14, 769, 0);
+
+
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (626, 653, 29, 769, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (627, 978, 136, 50, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (628, 448, 304, 862, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (629, 445, 290, 957, 1);
@@ -643,7 +687,7 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (643, 195, 548, 571, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (644, 600, 271, 818, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (645, 472, 47, 767, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (646, 443, 922, 980, 0);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (646, 443, 29, 980, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (647, 780, 719, 317, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (648, 998, 109, 797, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (649, 524, 488, 845, 1);
@@ -672,11 +716,11 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (672, 370, 299, 354, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (673, 635, 736, 343, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (674, 73, 219, 319, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (675, 259, 922, 527, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (675, 259, 29, 527, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (676, 612, 131, 61, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (677, 323, 773, 53, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (678, 708, 969, 132, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (679, 785, 18, 646, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (679, 785, 29, 646, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (680, 52, 291, 566, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (681, 962, 791, 110, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (682, 752, 971, 880, 1);
@@ -707,18 +751,18 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (707, 716, 344, 965, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (708, 64, 702, 787, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (709, 694, 282, 489, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (710, 506, 15, 192, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (710, 506, 29, 192, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (711, 430, 845, 725, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (712, 51, 195, 952, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (713, 703, 201, 319, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (714, 260, 913, 988, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (715, 403, 846, 439, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (716, 592, 634, 563, 0);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (716, 592, 29, 563, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (717, 33, 812, 230, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (718, 819, 94, 386, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (718, 819, 29, 386, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (719, 825, 209, 424, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (720, 564, 995, 834, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (721, 285, 9, 642, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (721, 285, 29, 642, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (722, 253, 517, 883, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (723, 326, 245, 327, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (724, 225, 974, 100, 1);
@@ -755,7 +799,7 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (755, 588, 905, 28, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (756, 513, 706, 99, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (757, 875, 896, 279, 1);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (758, 391, 1, 83, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (758, 391, 29, 83, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (759, 122, 485, 108, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (760, 335, 154, 423, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (761, 39, 788, 366, 0);
@@ -773,7 +817,7 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (773, 9, 334, 383, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (774, 431, 969, 821, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (775, 974, 435, 501, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (776, 878, 27, 728, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (776, 878, 29, 728, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (777, 322, 401, 936, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (778, 759, 232, 247, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (779, 335, 533, 748, 1);
@@ -927,9 +971,9 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (927, 565, 444, 576, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (928, 746, 237, 422, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (929, 643, 592, 970, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (930, 100, 21, 247, 0);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (930, 100, 29, 247, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (931, 604, 709, 208, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (932, 393, 41, 181, 0);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (932, 393, 29, 181, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (933, 375, 666, 116, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (934, 795, 196, 619, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (935, 716, 341, 83, 0);
@@ -950,7 +994,7 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (950, 435, 859, 634, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (951, 200, 280, 734, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (952, 382, 28, 238, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (953, 983, 7, 676, 1);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (953, 983, 29, 676, 1);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (954, 77, 458, 182, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (955, 813, 360, 93, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (956, 80, 513, 472, 0);
@@ -997,4 +1041,4 @@ insert into producto_compra (id, compra_id, producto_id, cantidad, status) value
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (997, 788, 890, 928, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (998, 790, 599, 181, 0);
 insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (999, 804, 293, 403, 0);
-insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (1000, 37, 10, 227, 0);
+insert into producto_compra (id, compra_id, producto_id, cantidad, status) values (1000, 37, 29, 227, 0);

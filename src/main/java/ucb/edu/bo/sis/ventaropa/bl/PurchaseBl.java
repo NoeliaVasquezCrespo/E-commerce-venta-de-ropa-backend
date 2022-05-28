@@ -3,7 +3,7 @@ package ucb.edu.bo.sis.ventaropa.bl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ucb.edu.bo.sis.ventaropa.dao.PurchaseDao;
-import ucb.edu.bo.sis.ventaropa.dto.CompraDepartamentoRequest;
+import ucb.edu.bo.sis.ventaropa.dto.CompraCiudad;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 import ucb.edu.bo.sis.ventaropa.service.PurchaseService;
 
@@ -57,7 +57,7 @@ public class PurchaseBl implements PurchaseService {
     }
 
     @Override
-    public List<CompraDepartamentoRequest> findPurchasesByDepartment() {
-        return this.purchaseDao.listComprasByDepartment();
+    public List<CompraCiudad> findPurchasesByCity() {
+        return this.purchaseDao.listComprasByCity();
     }
 }

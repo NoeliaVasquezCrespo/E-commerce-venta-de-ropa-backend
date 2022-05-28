@@ -4,10 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.sis.ventaropa.bl.PurchaseBl;
-import ucb.edu.bo.sis.ventaropa.bl.PurchaseProductBl;
-import ucb.edu.bo.sis.ventaropa.dto.CompraDepartamentoRequest;
+import ucb.edu.bo.sis.ventaropa.dto.CompraCiudad;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
-import ucb.edu.bo.sis.ventaropa.model.ProductoCompra;
 
 import java.util.List;
 
@@ -45,9 +43,9 @@ public class PurchaseApi {
         purchaseBl.deletePurchase(id);
         return "Borrado Exitosamente";
     }
-    @GetMapping(path="/purchases/department")
-    public List<CompraDepartamentoRequest> listPurchasesDepartment(){
-        List<CompraDepartamentoRequest> lista= this.purchaseBl.findPurchasesByDepartment();
+    @GetMapping(path="/purchases/city")
+    public List<CompraCiudad> listPurchasesCities(){
+        List<CompraCiudad> lista= this.purchaseBl.findPurchasesByCity();
         return lista;
     }
 }
