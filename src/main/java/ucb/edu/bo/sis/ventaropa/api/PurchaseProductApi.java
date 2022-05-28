@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.sis.ventaropa.bl.PurchaseProductBl;
-import ucb.edu.bo.sis.ventaropa.bl.SizeBl;
 import ucb.edu.bo.sis.ventaropa.model.ProductoCompra;
-import ucb.edu.bo.sis.ventaropa.model.Talla;
 
 import java.util.List;
 

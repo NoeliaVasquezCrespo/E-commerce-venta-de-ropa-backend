@@ -3,9 +3,7 @@ package ucb.edu.bo.sis.ventaropa.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import ucb.edu.bo.sis.ventaropa.bl.CategoryBl;
 import ucb.edu.bo.sis.ventaropa.bl.CategoryProductBl;
-import ucb.edu.bo.sis.ventaropa.model.Categoria;
 import ucb.edu.bo.sis.ventaropa.model.CategoriaProducto;
 
 @CrossOrigin

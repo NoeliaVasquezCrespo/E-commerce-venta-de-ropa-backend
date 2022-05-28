@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.sis.ventaropa.bl.OfertaBl;
-import ucb.edu.bo.sis.ventaropa.bl.ProductBl;
 import ucb.edu.bo.sis.ventaropa.dto.OfertaProductoRequest;
 import ucb.edu.bo.sis.ventaropa.dto.OfertaRequest;
 import ucb.edu.bo.sis.ventaropa.model.Oferta;
