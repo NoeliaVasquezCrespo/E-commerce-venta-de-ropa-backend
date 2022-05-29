@@ -6,6 +6,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.sis.ventaropa.bl.PurchaseBl;
 import ucb.edu.bo.sis.ventaropa.dto.CompraCiudad;
+import ucb.edu.bo.sis.ventaropa.dto.ProductosPorVentasRequest;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 
 import java.sql.Date;
@@ -44,6 +45,11 @@ public class PurchaseApi {
         System.out.println("Invocando al metodo DELETE");
         purchaseBl.deletePurchase(id);
         return "Borrado Exitosamente";
+    }
+    @GetMapping(path="/purchases/products")
+    public List<ProductosPorVentasRequest> getProductosPorVentas(){
+        List<ProductosPorVentasRequest> lista= this.purchaseBl.listProductoPorVentas();
+        return lista;
     }
     @GetMapping(path="/purchases/city")
     public List<CompraCiudad> listPurchasesCities(){

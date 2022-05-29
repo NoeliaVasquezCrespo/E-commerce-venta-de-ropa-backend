@@ -1,6 +1,7 @@
 package ucb.edu.bo.sis.ventaropa.service;
 
 import ucb.edu.bo.sis.ventaropa.dto.CompraCiudad;
+import ucb.edu.bo.sis.ventaropa.dto.ProductosPorVentasRequest;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 
 import java.sql.Date;
@@ -15,4 +16,6 @@ public interface PurchaseService {
     List<CompraCiudad>findPurchasesByCity();
 
     List<CompraCiudad> findPurchasesByCityAndDates(Date start, Date end);
+
+    List<ProductosPorVentasRequest>listProductoPorVentas();
 }

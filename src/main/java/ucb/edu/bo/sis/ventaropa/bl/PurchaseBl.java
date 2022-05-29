@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ucb.edu.bo.sis.ventaropa.dao.PurchaseDao;
 import ucb.edu.bo.sis.ventaropa.dto.CompraCiudad;
+import ucb.edu.bo.sis.ventaropa.dto.ProductosPorVentasRequest;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 import ucb.edu.bo.sis.ventaropa.service.PurchaseService;
 
@@ -67,5 +68,9 @@ public class PurchaseBl implements PurchaseService {
         String startDate=start.toString();
         String endDate=end.toString();
         return this.purchaseDao.listComprasByCityAndDates(startDate,endDate);
+    }
+    @Override
+    public List<ProductosPorVentasRequest>listProductoPorVentas(){
+        return this.purchaseDao.listProductoPorVentas();
     }
 }
