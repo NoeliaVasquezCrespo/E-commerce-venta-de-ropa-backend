@@ -1,12 +1,14 @@
 package ucb.edu.bo.sis.ventaropa.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.sis.ventaropa.bl.PurchaseBl;
 import ucb.edu.bo.sis.ventaropa.dto.CompraCiudad;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 
+import java.sql.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -46,6 +48,12 @@ public class PurchaseApi {
     @GetMapping(path="/purchases/city")
     public List<CompraCiudad> listPurchasesCities(){
         List<CompraCiudad> lista= this.purchaseBl.findPurchasesByCity();
+        return lista;
+    }
+    @GetMapping(path="/purchases/city/{start}/{end}")
+    public List<CompraCiudad> listPurchasesCitiesAndDates(@PathVariable("start")  Date start,
+                                                          @PathVariable("end") Date end){
+        List<CompraCiudad> lista= this.purchaseBl.findPurchasesByCityAndDates(start,end);
         return lista;
     }
 }

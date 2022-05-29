@@ -7,6 +7,7 @@ import ucb.edu.bo.sis.ventaropa.dto.CompraCiudad;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 import ucb.edu.bo.sis.ventaropa.service.PurchaseService;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -59,5 +60,12 @@ public class PurchaseBl implements PurchaseService {
     @Override
     public List<CompraCiudad> findPurchasesByCity() {
         return this.purchaseDao.listComprasByCity();
+    }
+    @Override
+    public List<CompraCiudad> findPurchasesByCityAndDates(Date start, Date end) {
+
+        String startDate=start.toString();
+        String endDate=end.toString();
+        return this.purchaseDao.listComprasByCityAndDates(startDate,endDate);
     }
 }
