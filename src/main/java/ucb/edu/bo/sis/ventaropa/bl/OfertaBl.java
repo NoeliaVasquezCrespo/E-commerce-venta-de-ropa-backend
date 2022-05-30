@@ -58,4 +58,8 @@ public class OfertaBl implements OfertaService {
         return (List<OfertaProducto>) ofertaProductoDao.findOfferProductByStatus(status);
     }
 
+    public void delete(Integer id) {
+        ofertaProductoDao.deleteById(id);
+    }
+
 }

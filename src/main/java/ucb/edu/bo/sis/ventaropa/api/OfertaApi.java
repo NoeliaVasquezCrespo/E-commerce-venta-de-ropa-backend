@@ -12,12 +12,13 @@ import ucb.edu.bo.sis.ventaropa.dto.OfertaProductoRequest;
 import ucb.edu.bo.sis.ventaropa.dto.OfertaRequest;
 import ucb.edu.bo.sis.ventaropa.model.Oferta;
 import ucb.edu.bo.sis.ventaropa.model.OfertaProducto;
+import ucb.edu.bo.sis.ventaropa.service.OfertaService;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/v2")
 public class OfertaApi {
-
+    @Autowired OfertaService offerProductService;
     private OfertaBl ofertaBl;
     private static final Logger LOGGER = LoggerFactory.getLogger(OfertaApi.class);
 
@@ -50,5 +51,10 @@ public class OfertaApi {
     public List<OfertaProducto> findOfferProductByStatus(@PathVariable("status") Integer status) {
         System.out.println("Invocando al metodo GET status");
         return ofertaBl.findOfferProductByStatus(status);
+    }
+
+    @DeleteMapping("/oferta/producto/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        ofertaBl.delete(id);
     }
 }
