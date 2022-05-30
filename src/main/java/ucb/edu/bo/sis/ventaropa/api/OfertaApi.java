@@ -46,5 +46,9 @@ public class OfertaApi {
     }
 
 
-   
+    @GetMapping(value = "/oferta/producto/status={status}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<OfertaProducto> findOfferProductByStatus(@PathVariable("status") Integer status) {
+        System.out.println("Invocando al metodo GET status");
+        return ofertaBl.findOfferProductByStatus(status);
+    }
 }
