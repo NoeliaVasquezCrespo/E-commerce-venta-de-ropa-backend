@@ -50,6 +50,7 @@ Content-Type: application/json
 DELETE http://localhost:8080/products/1
 
 
+<<<<<<< HEAD
 
 ### Eliminar un producto
 PUT http://localhost:8080/v2/productDescriptions/productId=71/stock=25
@@ -60,3 +61,21 @@ Content-Type: application/json
 GET http://localhost:8080/v2/productDescriptions/productId=71
 Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1Mzk4ODExNCwiaWF0IjoxNjUzOTUyMTE0fQ.WrHP3n_tN1fJGdHfLgMLqclkJ0AoHFfFy_QAnXwk7Ew
 Content-Type: application/json
+=======
+### Agregar una categoria
+GET http://localhost:8080/v2/oferta/producto/status=0
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MzkxNzExOCwiaWF0IjoxNjUzODgxMTE4fQ.67cnh6a19774oyRHyzsgolXCX-hy7X8TB5hAVJRnkYA
+
+### Agregar una categoria
+GET http://localhost:8080/v2/oferta/producto/status=1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MzkxOTgxMCwiaWF0IjoxNjUzODgzODEwfQ.5ym8_w7mVPfwa9dzeZFTI_6kyK7emayR2KqG0qTHt-0
+
+
+### Agregar una categoria
+DELETE http://localhost:8080/v2/oferta/producto/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1MzkxOTgxMCwiaWF0IjoxNjUzODgzODEwfQ.5ym8_w7mVPfwa9dzeZFTI_6kyK7emayR2KqG0qTHt-0
+
+>>>>>>> 9218d7c3ae4597cea7c93482c58d41ada8d29e76
