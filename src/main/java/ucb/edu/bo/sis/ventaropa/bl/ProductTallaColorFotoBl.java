@@ -32,9 +32,7 @@ public class ProductTallaColorFotoBl implements ProductoTallaColorFotoService {
     @Override
     public ProductTallaColorFoto updateProductTallaColorFoto(ProductTallaColorFoto productTallaColorFoto, Integer productTallaColorFotoId) {
         ProductTallaColorFoto productTallaColorFotDB = productTallaColorFotoDao.getById(productTallaColorFotoId);
-        if (Objects.nonNull(productTallaColorFoto.getProductoId())){
-            productTallaColorFotDB.setProductoId(productTallaColorFoto.getProductoId());
-        }
+
         if (Objects.nonNull(productTallaColorFoto.getTallaId())){
             productTallaColorFotDB.setTallaId(productTallaColorFoto.getTallaId());
         }

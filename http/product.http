@@ -55,13 +55,11 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1Mzk4O
 Content-Type: application/json
 
 ### Eliminar un producto
-GET http://localhost:8080/v2/productDescriptions/productId=71
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1Mzk4ODExNCwiaWF0IjoxNjUzOTUyMTE0fQ.WrHP3n_tN1fJGdHfLgMLqclkJ0AoHFfFy_QAnXwk7Ew
+GET http://localhost:8080/v2/productDescriptions/productId=31
 Content-Type: application/json
 
 ### Eliminar un producto
-GET http://localhost:8080/v2/products/id=71
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NDAwNzkyNywiaWF0IjoxNjUzOTcxOTI3fQ.m5nt6dZ3qyALeLQFDwjqriuIcIIv6j9NwsKUz0H3xx8
+GET http://localhost:8080/v2/products/id=26
 Content-Type: application/json
 
 ### Agregar una categoria
