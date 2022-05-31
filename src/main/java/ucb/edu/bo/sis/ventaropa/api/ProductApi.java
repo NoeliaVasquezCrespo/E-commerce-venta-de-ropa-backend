@@ -35,6 +35,13 @@ public class ProductApi {
         System.out.println("Invocando al metodo GET");
         return productBl.findAll();
     }
+
+    @GetMapping(value = "/products/id={idProduct}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Producto findByIdProduct(@PathVariable("idProduct") Integer idProduct) {
+        System.out.println("Invocando al metodo GET");
+        return productBl.buscarId(idProduct);
+    }
+
     @PostMapping(path="/products", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE )
     public Producto addProduct(@RequestBody Producto producto) {
         System.out.println("Invocando al metodo POST");

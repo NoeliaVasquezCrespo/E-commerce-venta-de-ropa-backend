@@ -46,6 +46,10 @@ public class ProductBl implements ProductService {
         return (List<Producto>) productDao.findAll();
     }
 
+    public Producto buscarId(Integer id) {
+        return productDao.findByIdProduct(id);
+    }
+
     @Override
     public Producto createProduct(Producto producto) {
         return productDao.save(producto);
