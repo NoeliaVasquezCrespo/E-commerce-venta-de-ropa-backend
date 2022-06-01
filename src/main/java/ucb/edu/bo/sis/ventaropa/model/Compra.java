@@ -1,6 +1,7 @@
 package ucb.edu.bo.sis.ventaropa.model;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -14,7 +15,7 @@ public class Compra {
     private int usuarioId;
     @Basic
     @Column(name = "fecha")
-    private String fecha;
+    private Date fecha;
     @Basic
     @Column(name = "monto_total")
     private int montoTotal;
@@ -41,11 +42,11 @@ public class Compra {
         this.usuarioId = usuarioId;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

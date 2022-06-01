@@ -59,8 +59,9 @@ public class ProductTallaColorFotoBl implements ProductoTallaColorFotoService {
 
     public ProductTallaColorFoto updateStockById(Integer id, Integer stock){
         ProductTallaColorFoto productTallaColorFotDB = productTallaColorFotoDao.findByProductId(id);
+        Integer stockAct= productTallaColorFotDB.getStock() - stock;
         if (Objects.nonNull(stock)){
-            productTallaColorFotDB.setStock(stock);
+            productTallaColorFotDB.setStock(stockAct);
         }
         return productTallaColorFotoDao.save(productTallaColorFotDB);
     }

@@ -50,8 +50,8 @@ Content-Type: application/json
 DELETE http://localhost:8080/products/1
 
 ### Eliminar un producto
-PUT http://localhost:8080/v2/productDescriptions/productId=71/stock=25
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1Mzk4ODExNCwiaWF0IjoxNjUzOTUyMTE0fQ.WrHP3n_tN1fJGdHfLgMLqclkJ0AoHFfFy_QAnXwk7Ew
+PUT http://localhost:8080/v2/productDescriptions/productId=27/stock=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTY1NDA4OTI4NiwiaWF0IjoxNjU0MDUzMjg2fQ.KBl_RDlF7rVml4xI7K4gqncgeebLA5nBk6taG_QvYLk
 Content-Type: application/json
 
 ### Eliminar un producto
