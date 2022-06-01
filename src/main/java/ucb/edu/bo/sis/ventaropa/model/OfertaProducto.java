@@ -3,8 +3,12 @@ package ucb.edu.bo.sis.ventaropa.model;
 import javax.persistence.*;
 import java.util.Objects;
 
+import org.hibernate.annotations.SQLDelete;
+
 @Entity
 @Table(name = "oferta_producto", schema = "ecommerce", catalog = "")
+@SQLDelete(sql = "UPDATE oferta_producto SET status=0 WHERE id=?")
+//@Where(clause = "status = 1")
 public class OfertaProducto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

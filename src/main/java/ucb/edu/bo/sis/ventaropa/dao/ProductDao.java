@@ -23,6 +23,14 @@ public interface ProductDao extends JpaRepository<Producto, Integer> {
     @Query(
             value = "SELECT p.*" +
                     "   FROM producto p" +
+                    "   WHERE p.id =:id",
+            nativeQuery = true
+    )
+    public Producto findByIdProduct(@Param("id") Integer id);
+
+    @Query(
+            value = "SELECT p.*" +
+                    "   FROM producto p" +
                     "   WHERE p.administrador_id = :idAdmin " +
                     "   AND p.status = 1",
             nativeQuery = true

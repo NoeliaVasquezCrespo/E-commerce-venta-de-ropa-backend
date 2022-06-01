@@ -11,6 +11,7 @@ import ucb.edu.bo.sis.ventaropa.dto.OfertaRequest;
 import ucb.edu.bo.sis.ventaropa.model.Oferta;
 import ucb.edu.bo.sis.ventaropa.model.OfertaProducto;
 import ucb.edu.bo.sis.ventaropa.service.OfertaService;
+import java.util.List;
 
 @Service
 public class OfertaBl implements OfertaService {
@@ -53,5 +54,12 @@ public class OfertaBl implements OfertaService {
     }
 
 
+    public List<OfertaProducto> findOfferProductByStatus(Integer status) {
+        return (List<OfertaProducto>) ofertaProductoDao.findOfferProductByStatus(status);
+    }
+
+    public void delete(Integer id) {
+        ofertaProductoDao.deleteById(id);
+    }
 
 }

@@ -10,12 +10,12 @@ Content-Type: application/json
 }
 
 ### Send POST request with json body
-POST http://localhost:8080/administrador/login/proveedor
+POST http://localhost:8080/v2/administrador/login/proveedor
 Content-Type: application/json
 
 {
-  "correo": "ejemplo@gmail.com",
-  "password": "abcd1234"
+  "correo": "pedromu@gmail.com",
+  "password": "456"
 }
 
 ### Send POST request with json body
