@@ -30,11 +30,11 @@ public interface PurchaseDao extends JpaRepository<Compra, Integer> {
             "and d.id=c.ciudadId " +
             "and a.fecha BETWEEN :start and :end " +
             "and a.status=1 " +
-            "group by d.nombreCiudad")
+            "group by (d.nombreCiudad) ")
     public List<CompraCiudad> listComprasByCityAndDates(@Param("start") String start, @Param("end") String end);
 
     @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductosPorVentasRequest(" +
-            "c.id ,c.nombreProducto, e.nombre, count(a.id), sum(a.montoTotal)) " +
+            "c.id ,c.nombreProducto, e.nombre, sum(b.cantidad), sum(a.montoTotal)) " +
             "from Compra a, ProductoCompra b, Producto c, Administrador d, Empresa e " +
             "where b.compraId=a.id " +
             "  and a.status=1 " +
@@ -42,6 +42,7 @@ public interface PurchaseDao extends JpaRepository<Compra, Integer> {
             "and b.productoId=c.id " +
             "and d.id=c.administradorId " +
             "and e.id=d.empresaId " +
-            "group by (c.id) ")
+            "group by (b.productoId) " +
+            "order by (sum(b.cantidad)) DESC")
     public List<ProductosPorVentasRequest>listProductoPorVentas();
 }

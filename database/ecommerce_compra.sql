@@ -4,6 +4,9 @@ INSERT INTO tipo_pago (id, tipo) VALUES (2, 'QR');
 alter table compra
     modify fecha date not null;
 
+alter table compra
+    modify monto_total decimal(8, 2) not null;
+
 INSERT INTO compra (id,usuario_id,fecha,monto_total,tipo_pago_id,status) VALUES ('1', '742', '2022-3-27', '636.56', '2', '0');
 INSERT INTO compra (id,usuario_id,fecha,monto_total,tipo_pago_id,status) VALUES ('2', '146', '2021-8-23', '2202.34', '2', '0');
 INSERT INTO compra (id,usuario_id,fecha,monto_total,tipo_pago_id,status) VALUES ('3', '913', '2022-2-16', '2747.18', '2', '1');
