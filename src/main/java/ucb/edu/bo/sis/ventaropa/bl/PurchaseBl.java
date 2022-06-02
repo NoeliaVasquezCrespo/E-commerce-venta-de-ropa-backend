@@ -90,6 +90,6 @@ public class PurchaseBl implements PurchaseService {
     }
     @Override
     public List<ProductosVentasCategoria>listVentasCategoriasByDates(Date start, Date end){
-        return this.purchaseDao.listVentasCategoriasByDates(start.toString(),end.toString());
+        return this.purchaseDao.listVentasCategoriasByDates(start,end);
     }
 }

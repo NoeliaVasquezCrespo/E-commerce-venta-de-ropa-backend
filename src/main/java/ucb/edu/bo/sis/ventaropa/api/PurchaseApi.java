@@ -82,9 +82,11 @@ public class PurchaseApi {
         return lista;
     }
     @GetMapping(path="/purchases/categories/{start}/{end}")
-    public List<ProductosVentasCategoria> getlistPurchasesCategories(@PathVariable("start")  Date start,
-                                                                     @PathVariable("end") Date end){
-        List<ProductosVentasCategoria> lista= this.purchaseBl.listVentasCategoriasByDates(start,end);
+    public List<ProductosVentasCategoria> getlistPurchasesCategories(@PathVariable("start")  String start,
+                                                                     @PathVariable("end") String end) throws ParseException {
+        Date startDate=new SimpleDateFormat("yyyy-MM-dd").parse(start);
+        Date endDate=new SimpleDateFormat("yyyy-MM-dd").parse(end);
+        List<ProductosVentasCategoria> lista= this.purchaseBl.listVentasCategoriasByDates(startDate,endDate);
         return lista;
     }
 }

@@ -88,5 +88,5 @@ public interface PurchaseDao extends JpaRepository<Compra, Integer> {
             "and e.fecha BETWEEN :start and :end " +
             "group by (a.id)")
     public List<ProductosVentasCategoria>listVentasCategoriasByDates(
-            @Param("start") String start, @Param("end") String end);
+            @Param("start") Date start, @Param("end") Date end);
 }
