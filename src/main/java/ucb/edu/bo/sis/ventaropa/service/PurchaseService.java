@@ -5,7 +5,7 @@ import ucb.edu.bo.sis.ventaropa.dto.ProductosPorVentasRequest;
 import ucb.edu.bo.sis.ventaropa.dto.ProductosVentasCategoria;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 public interface PurchaseService {
@@ -14,9 +14,8 @@ public interface PurchaseService {
     Compra createPurchase(Compra compra);
     Compra updatePurchase(Compra compra, Integer compraId);
     void deletePurchase(Integer id);
-    List<CompraCiudad>findPurchasesByCity();
-
-    List<CompraCiudad> findPurchasesByCityAndDates(Date start, Date end);
+    List<CompraCiudad> findPurchasesByCity(Integer idProveedor);
+    List<CompraCiudad> findPurchasesByCityAndDates(Integer idProveedor, Date start, Date end);
 
     List<ProductosPorVentasRequest>listProductoPorVentas();
 

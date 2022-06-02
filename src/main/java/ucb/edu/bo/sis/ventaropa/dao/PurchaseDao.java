@@ -9,30 +9,40 @@ import ucb.edu.bo.sis.ventaropa.dto.ProductosPorVentasRequest;
 import ucb.edu.bo.sis.ventaropa.dto.ProductosVentasCategoria;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @Repository
 public interface PurchaseDao extends JpaRepository<Compra, Integer> {
     @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.CompraCiudad(" +
-            "d.id, d.nombreCiudad, count(a.id), sum(a.montoTotal)) " +
-            "from Compra a, Usuario b, Direccion c, Ciudad d " +
-            "where a.usuarioId=b.id " +
-            "and b.direccionId=c.id " +
-            "and d.id=c.ciudadId " +
-            "and a.status=1 " +
-            "group by d.nombreCiudad")
-    public List<CompraCiudad> listComprasByCity();
+            "h.id, h.nombreCiudad, sum(a.cantidad), sum(b.precio*a.cantidad)) " +
+            "from ProductoCompra a, Producto b, Administrador c, Empresa d, Compra e, Usuario f, Direccion g, Ciudad h " +
+            "where a.productoId=b.id " +
+            "  and c.id=b.administradorId " +
+            "  and d.id=c.empresaId " +
+            "  and e.id=a.compraId " +
+            "  and f.id=e.usuarioId " +
+            "  and g.id=f.direccionId " +
+            "  and h.id=g.ciudadId " +
+            "  and a.status=1 " +
+            "  and c.id=:idProveedor " +
+            "group by (h.id)")
+    public List<CompraCiudad> listComprasByCity(@Param("idProveedor") Integer idProveedor);
     @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.CompraCiudad(" +
-            "d.id, d.nombreCiudad, count(a.id), sum(a.montoTotal)) " +
-            "from Compra a, Usuario b, Direccion c, Ciudad d " +
-            "where a.usuarioId=b.id " +
-            "and b.direccionId=c.id " +
-            "and d.id=c.ciudadId " +
-            "and a.fecha BETWEEN :start and :end " +
-            "and a.status=1 " +
-            "group by (d.nombreCiudad) ")
-    public List<CompraCiudad> listComprasByCityAndDates(@Param("start") String start, @Param("end") String end);
+            "h.id, h.nombreCiudad, sum(a.cantidad), sum(b.precio*a.cantidad)) " +
+            "from ProductoCompra a, Producto b, Administrador c, Empresa d, Compra e, Usuario f, Direccion g, Ciudad h " +
+            "where a.productoId=b.id " +
+            "  and c.id=b.administradorId " +
+            "  and d.id=c.empresaId " +
+            "  and e.id=a.compraId " +
+            "  and f.id=e.usuarioId " +
+            "  and g.id=f.direccionId " +
+            "  and h.id=g.ciudadId " +
+            "  and a.status=1 " +
+            "  and c.id=:idProveedor " +
+            "  and e.fecha BETWEEN :start and :endDate " +
+            "group by (h.id)")
+    public List<CompraCiudad> listComprasByCityAndDates(@Param("idProveedor") Integer idProveedor, @Param("start") Date start, @Param("endDate") Date end);
 
     @Query(value = "select new ucb.edu.bo.sis.ventaropa.dto.ProductosPorVentasRequest(" +
             "b.id ,b.nombreProducto, d.nombre , sum(a.cantidad), sum(b.precio*a.cantidad)) " +

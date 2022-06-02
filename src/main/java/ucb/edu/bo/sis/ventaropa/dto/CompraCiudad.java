@@ -1,16 +1,18 @@
 package ucb.edu.bo.sis.ventaropa.dto;
 
+import java.math.BigDecimal;
+
 public class CompraCiudad {
     public Integer ciudadId;
     public String nombreCiudad;
-    public Integer cantidadVendidos;
-    public Integer sumTotal;
+    public Long cantidadVendidos;
+    public BigDecimal sumTotal;
 
-    public CompraCiudad(Integer ciudadId, String nombreCiudad, Long cantidadVendidos, Long sumTotal) {
+    public CompraCiudad(Integer ciudadId, String nombreCiudad, Long cantidadVendidos, BigDecimal sumTotal) {
         this.ciudadId = ciudadId;
         this.nombreCiudad = nombreCiudad;
-        this.cantidadVendidos = Integer.valueOf(cantidadVendidos.intValue());
-        this.sumTotal =Integer.valueOf(sumTotal.intValue());
+        this.cantidadVendidos = cantidadVendidos;
+        this.sumTotal =sumTotal;
     }
 
     public Integer getCiudadId() {
@@ -29,19 +31,19 @@ public class CompraCiudad {
         this.nombreCiudad = nombreCiudad;
     }
 
-    public Integer getCantidadVendidos() {
+    public Long getCantidadVendidos() {
         return cantidadVendidos;
     }
 
-    public void setCantidadVendidos(Integer cantidadVendidos) {
+    public void setCantidadVendidos(Long cantidadVendidos) {
         this.cantidadVendidos = cantidadVendidos;
     }
 
-    public Integer getSumTotal() {
+    public BigDecimal getSumTotal() {
         return sumTotal;
     }
 
-    public void setSumTotal(Integer sumTotal) {
+    public void setSumTotal(BigDecimal sumTotal) {
         this.sumTotal = sumTotal;
     }
 

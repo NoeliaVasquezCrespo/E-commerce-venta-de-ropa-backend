@@ -1,7 +1,10 @@
 package ucb.edu.bo.sis.ventaropa.bl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import ucb.edu.bo.sis.ventaropa.api.AuthApi;
 import ucb.edu.bo.sis.ventaropa.dao.PurchaseDao;
 import ucb.edu.bo.sis.ventaropa.dto.CompraCiudad;
 import ucb.edu.bo.sis.ventaropa.dto.ProductosPorVentasRequest;
@@ -9,7 +12,7 @@ import ucb.edu.bo.sis.ventaropa.dto.ProductosVentasCategoria;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 import ucb.edu.bo.sis.ventaropa.service.PurchaseService;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,6 +20,7 @@ import java.util.Objects;
 public class PurchaseBl implements PurchaseService {
 
     private PurchaseDao purchaseDao;
+    private static final Logger LOGGER = LoggerFactory.getLogger(AuthApi.class);
 
     @Autowired
     public PurchaseBl(PurchaseDao purchaseDao) {
@@ -60,15 +64,15 @@ public class PurchaseBl implements PurchaseService {
     }
 
     @Override
-    public List<CompraCiudad> findPurchasesByCity() {
-        return this.purchaseDao.listComprasByCity();
+    public List<CompraCiudad> findPurchasesByCity(Integer idProveedor) {
+        return this.purchaseDao.listComprasByCity(idProveedor);
     }
     @Override
-    public List<CompraCiudad> findPurchasesByCityAndDates(Date start, Date end) {
+    public List<CompraCiudad> findPurchasesByCityAndDates(Integer idProveedor, Date start, Date end) {
 
-        String startDate=start.toString();
-        String endDate=end.toString();
-        return this.purchaseDao.listComprasByCityAndDates(startDate,endDate);
+        LOGGER.info("LA FECHA DE INICIO ES: "+start);
+        LOGGER.info("LA FECHA DE FIN ES: "+end);
+        return this.purchaseDao.listComprasByCityAndDates(idProveedor,start,end);
     }
     @Override
     public List<ProductosPorVentasRequest>listProductoPorVentas(){

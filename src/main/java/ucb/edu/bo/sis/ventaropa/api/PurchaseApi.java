@@ -10,7 +10,9 @@ import ucb.edu.bo.sis.ventaropa.dto.ProductosPorVentasRequest;
 import ucb.edu.bo.sis.ventaropa.dto.ProductosVentasCategoria;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin
@@ -59,15 +61,19 @@ public class PurchaseApi {
         List<ProductosPorVentasRequest> lista= this.purchaseBl.listProductoPorVentasByCategoria(idCategoria);
         return lista;
     }
-    @GetMapping(path="/purchases/city")
-    public List<CompraCiudad> listPurchasesCities(){
-        List<CompraCiudad> lista= this.purchaseBl.findPurchasesByCity();
+    @GetMapping(path="/purchases/city/{idProveedor}")
+    public List<CompraCiudad> listPurchasesCities(@PathVariable("idProveedor")  Integer idProveedor){
+        List<CompraCiudad> lista= this.purchaseBl.findPurchasesByCity(idProveedor);
         return lista;
     }
-    @GetMapping(path="/purchases/city/{start}/{end}")
-    public List<CompraCiudad> listPurchasesCitiesAndDates(@PathVariable("start")  Date start,
-                                                          @PathVariable("end") Date end){
-        List<CompraCiudad> lista= this.purchaseBl.findPurchasesByCityAndDates(start,end);
+    @GetMapping(path="/purchases/city/{idProveedor}/{start}/{end}")
+    public List<CompraCiudad> listPurchasesCitiesAndDates(
+            @PathVariable("idProveedor")  Integer idProveedor,
+            @PathVariable("start") String start,
+            @PathVariable("end") String end) throws ParseException {
+        Date startDate=new SimpleDateFormat("yyyy-MM-dd").parse(start);
+        Date endDate=new SimpleDateFormat("yyyy-MM-dd").parse(end);
+        List<CompraCiudad> lista= this.purchaseBl.findPurchasesByCityAndDates(idProveedor,startDate,endDate);
         return lista;
     }
     @GetMapping(path="/purchases/categories")
