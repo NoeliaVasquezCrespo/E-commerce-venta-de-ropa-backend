@@ -39,7 +39,7 @@ public class PurchaseBl implements PurchaseService {
         if (Objects.nonNull(compra.getUsuarioId())){
             compraDB.setUsuarioId(compra.getUsuarioId());
         }
-        if (Objects.nonNull(compra.getFecha()) && !"".equalsIgnoreCase(compra.getFecha())){
+        if (Objects.nonNull(compra.getFecha())){
             compraDB.setFecha(compra.getFecha());
         }
         if (Objects.nonNull(compra.getToken()) && !"".equalsIgnoreCase(compra.getToken())) {
