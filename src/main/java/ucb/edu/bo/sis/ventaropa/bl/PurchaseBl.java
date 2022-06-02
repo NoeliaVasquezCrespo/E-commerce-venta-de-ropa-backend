@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ucb.edu.bo.sis.ventaropa.dao.PurchaseDao;
 import ucb.edu.bo.sis.ventaropa.dto.CompraCiudad;
 import ucb.edu.bo.sis.ventaropa.dto.ProductosPorVentasRequest;
+import ucb.edu.bo.sis.ventaropa.dto.ProductosVentasCategoria;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 import ucb.edu.bo.sis.ventaropa.service.PurchaseService;
 
@@ -72,5 +73,19 @@ public class PurchaseBl implements PurchaseService {
     @Override
     public List<ProductosPorVentasRequest>listProductoPorVentas(){
         return this.purchaseDao.listProductoPorVentas();
+        //return new ArrayList<ProductosPorVentasRequest>();
+    }
+    @Override
+    public List<ProductosPorVentasRequest>listProductoPorVentasByCategoria(Integer idCategoria){
+        return this.purchaseDao.listProductoPorVentasByCategoria(idCategoria);
+    }
+
+    @Override
+    public List<ProductosVentasCategoria>listVentasCategorias(){
+        return this.purchaseDao.listVentasCategorias();
+    }
+    @Override
+    public List<ProductosVentasCategoria>listVentasCategoriasByDates(Date start, Date end){
+        return this.purchaseDao.listVentasCategoriasByDates(start.toString(),end.toString());
     }
 }

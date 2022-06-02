@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ucb.edu.bo.sis.ventaropa.bl.PurchaseBl;
 import ucb.edu.bo.sis.ventaropa.dto.CompraCiudad;
 import ucb.edu.bo.sis.ventaropa.dto.ProductosPorVentasRequest;
+import ucb.edu.bo.sis.ventaropa.dto.ProductosVentasCategoria;
 import ucb.edu.bo.sis.ventaropa.model.Compra;
 
 import java.sql.Date;
@@ -51,6 +52,13 @@ public class PurchaseApi {
         List<ProductosPorVentasRequest> lista= this.purchaseBl.listProductoPorVentas();
         return lista;
     }
+    @GetMapping(path="/purchases/products/{idCategoria}")
+    public List<ProductosPorVentasRequest> getProductosPorVentasByCategoria(
+            @PathVariable("idCategoria")  Integer idCategoria
+    ){
+        List<ProductosPorVentasRequest> lista= this.purchaseBl.listProductoPorVentasByCategoria(idCategoria);
+        return lista;
+    }
     @GetMapping(path="/purchases/city")
     public List<CompraCiudad> listPurchasesCities(){
         List<CompraCiudad> lista= this.purchaseBl.findPurchasesByCity();
@@ -60,6 +68,17 @@ public class PurchaseApi {
     public List<CompraCiudad> listPurchasesCitiesAndDates(@PathVariable("start")  Date start,
                                                           @PathVariable("end") Date end){
         List<CompraCiudad> lista= this.purchaseBl.findPurchasesByCityAndDates(start,end);
+        return lista;
+    }
+    @GetMapping(path="/purchases/categories")
+    public List<ProductosVentasCategoria> getlistPurchasesCategories(){
+        List<ProductosVentasCategoria> lista= this.purchaseBl.listVentasCategorias();
+        return lista;
+    }
+    @GetMapping(path="/purchases/categories/{start}/{end}")
+    public List<ProductosVentasCategoria> getlistPurchasesCategories(@PathVariable("start")  Date start,
+                                                                     @PathVariable("end") Date end){
+        List<ProductosVentasCategoria> lista= this.purchaseBl.listVentasCategoriasByDates(start,end);
         return lista;
     }
 }

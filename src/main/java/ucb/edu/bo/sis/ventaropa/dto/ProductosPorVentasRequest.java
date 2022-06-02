@@ -1,18 +1,20 @@
 package ucb.edu.bo.sis.ventaropa.dto;
 
+import java.math.BigDecimal;
+
 public class ProductosPorVentasRequest {
     private Integer id;
     private String nombreProducto;
     private String nombreMarca;
     private Integer cantidad;
-    private Integer montoTotal;
+    private BigDecimal montoTotal;
 
-    public ProductosPorVentasRequest(Integer id, String nombreProducto, String nombreMarca, Long cantidad, Long montoTotal) {
+    public ProductosPorVentasRequest(Integer id, String nombreProducto, String nombreMarca, Long cantidad, BigDecimal  montoTotal) {
         this.id = id;
         this.nombreProducto = nombreProducto;
         this.nombreMarca = nombreMarca;
         this.cantidad = Integer.valueOf(cantidad.intValue());;
-        this.montoTotal = Integer.valueOf(montoTotal.intValue());;
+        this.montoTotal = montoTotal;
     }
 
     public Integer getId() {
@@ -47,11 +49,11 @@ public class ProductosPorVentasRequest {
         this.cantidad = cantidad;
     }
 
-    public Integer getMontoTotal() {
+    public BigDecimal  getMontoTotal() {
         return montoTotal;
     }
 
-    public void setMontoTotal(Integer montoTotal) {
+    public void setMontoTotal(BigDecimal  montoTotal) {
         this.montoTotal = montoTotal;
     }
 
